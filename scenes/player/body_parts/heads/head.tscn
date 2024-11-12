@@ -24,7 +24,7 @@ modifications/0 = SubResource("SkeletonModification2DLookAt_fmk1i")
 rotation = -0.00554025
 scale = Vector2(0.999993, 0.999993)
 texture = ExtResource("1_dpc4y")
-offset = Vector2(12, -169)
+offset = Vector2(11, -169)
 
 [node name="GBotJaw" type="Sprite2D" parent="Container/Sprites"]
 position = Vector2(-95.1475, -26.4731)
