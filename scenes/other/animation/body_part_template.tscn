@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cif22ruhnorn1"]
+
+[node name="BodyPartTemplate" type="Node2D"]
+
+[node name="Container" type="Node2D" parent="."]
+
+[node name="Sprites" type="Node2D" parent="Container"]
+
+[node name="Bones" type="Node2D" parent="Container"]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Container/Bones"]
+
+[node name="IK_Targets" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

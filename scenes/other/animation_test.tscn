@@ -338,10 +338,10 @@ tracks/0/path = NodePath("IK_Targets/Head_Target:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.633333, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(377, -526), Vector2(352, -594), Vector2(379, -452), Vector2(336, -593), Vector2(369, -462)]
+"values": [Vector2(-168, -620), Vector2(-178, -619), Vector2(-154, -722), Vector2(-601, -510), Vector2(-52, -718)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -365,7 +365,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(322, -321), Vector2(363, -512), Vector2(241, -292), Vector2(184, -340)]
+"values": [Vector2(314, -269), Vector2(363, -512), Vector2(241, -292), Vector2(184, -340)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -413,7 +413,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(217, -54), Vector2(278, -91), Vector2(178, -56), Vector2(-13, -217)]
+"values": [Vector2(200, -46), Vector2(278, -91), Vector2(178, -56), Vector2(-13, -217)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -437,7 +437,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(64, -32), Vector2(-56, -150), Vector2(118, -63), Vector2(233, -135)]
+"values": [Vector2(58, -14), Vector2(-56, -150), Vector2(118, -63), Vector2(233, -135)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -506,10 +506,10 @@ tracks/14/path = NodePath("CharacterContainer/Bones/Skeleton2D:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0.2, 0.233333, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.233333, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(16, 0), Vector2(16, -8), Vector2(7, 65), Vector2(-5, -20), Vector2(2, 52)]
+"values": [Vector2(21, 21), Vector2(16, 0), Vector2(16, -8), Vector2(7, 65), Vector2(-5, -20), Vector2(2, 52)]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
@@ -536,95 +536,105 @@ _data = {
 
 [node name="Body" type="Node2D" parent="CharacterContainer"]
 
-[node name="GBotArmL" type="Sprite2D" parent="CharacterContainer/Body"]
+[node name="ArmL" type="Node" parent="CharacterContainer/Body"]
+
+[node name="GBotArmL" type="Sprite2D" parent="CharacterContainer/Body/ArmL"]
 position = Vector2(233, -441)
-rotation = -0.267062
+rotation = -0.267065
 scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("1_plr63")
 offset = Vector2(11, 26)
 
-[node name="GBotForearmL" type="Sprite2D" parent="CharacterContainer/Body"]
+[node name="GBotForearmL" type="Sprite2D" parent="CharacterContainer/Body/ArmL"]
 position = Vector2(268.608, -333.589)
 rotation = -1.4727
 scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("2_eoklh")
 offset = Vector2(18, 60)
 
-[node name="GBotLegL" type="Sprite2D" parent="CharacterContainer/Body"]
+[node name="LegL" type="Node" parent="CharacterContainer/Body"]
+
+[node name="GBotLegL" type="Sprite2D" parent="CharacterContainer/Body/LegL"]
 position = Vector2(196, -252)
-rotation = -1.05844
+rotation = -1.01111
 scale = Vector2(1, 1)
 texture = ExtResource("3_gi0dl")
 offset = Vector2(-20, 46)
 
-[node name="GBotShinL" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(270.577, -174.487)
-rotation = 0.322831
+[node name="GBotShinL" type="Sprite2D" parent="CharacterContainer/Body/LegL"]
+position = Vector2(266.826, -171.045)
+rotation = 0.297206
 scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("4_f2rxo")
 offset = Vector2(16, 37)
 
-[node name="GBotFootL" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(242, -67)
-rotation = -0.029404
-scale = Vector2(0.999998, 0.999998)
+[node name="GBotFootL" type="Sprite2D" parent="CharacterContainer/Body/LegL"]
+position = Vector2(241.012, -62.8614)
+rotation = -0.0887474
+scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("5_0li84")
 offset = Vector2(35, 8)
 
-[node name="GBotHip" type="Sprite2D" parent="CharacterContainer/Body"]
+[node name="Body" type="Node" parent="CharacterContainer/Body"]
+
+[node name="GBotHip" type="Sprite2D" parent="CharacterContainer/Body/Body"]
 position = Vector2(156, -289)
 texture = ExtResource("6_ayg6j")
 offset = Vector2(-5, 2)
 
-[node name="GBotBody" type="Sprite2D" parent="CharacterContainer/Body"]
+[node name="GBotBody" type="Sprite2D" parent="CharacterContainer/Body/Body"]
 position = Vector2(165, -425)
 texture = ExtResource("7_l7v00")
 
-[node name="GBotHead" type="Sprite2D" parent="CharacterContainer/Body"]
+[node name="Head" type="Node" parent="CharacterContainer/Body"]
+
+[node name="GBotHead" type="Sprite2D" parent="CharacterContainer/Body/Head"]
 position = Vector2(155, -518)
-rotation = 2.79087
-scale = Vector2(0.999999, 0.999999)
+rotation = 0.0389595
 texture = ExtResource("8_yg8mu")
 offset = Vector2(12, -169)
 
-[node name="GBotJaw" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(253.493, -525.283)
-rotation = 2.78173
-scale = Vector2(0.999999, 0.999999)
+[node name="GBotJaw" type="Sprite2D" parent="CharacterContainer/Body/Head"]
+position = Vector2(61.1237, -548.68)
+rotation = 0.0298142
 texture = ExtResource("9_wft07")
 offset = Vector2(122, -1)
 
-[node name="GBotLegR" type="Sprite2D" parent="CharacterContainer/Body"]
+[node name="LegR" type="Node" parent="CharacterContainer/Body"]
+
+[node name="GBotLegR" type="Sprite2D" parent="CharacterContainer/Body/LegR"]
 position = Vector2(91, -251)
-rotation = -1.04098
+rotation = -1.04092
 scale = Vector2(1, 1)
 texture = ExtResource("10_mix4c")
 offset = Vector2(-11.3919, 41.6211)
 
-[node name="GBotShinR" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(156.309, -174.504)
-rotation = 0.81774
+[node name="GBotShinR" type="Sprite2D" parent="CharacterContainer/Body/LegR"]
+position = Vector2(156.305, -174.501)
+rotation = 0.817742
 scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("11_4m4oq")
 offset = Vector2(26.4351, 33.4793)
 
-[node name="GBotFootR" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(59, -97)
-rotation = -0.283794
+[node name="GBotFootR" type="Sprite2D" parent="CharacterContainer/Body/LegR"]
+position = Vector2(58.9958, -96.9967)
+rotation = -0.283821
 scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("12_qqb1t")
 offset = Vector2(58.4195, -2.416)
 
-[node name="GBotArmR" type="Sprite2D" parent="CharacterContainer/Body"]
+[node name="ArmR" type="Node" parent="CharacterContainer/Body"]
+
+[node name="GBotArmR" type="Sprite2D" parent="CharacterContainer/Body/ArmR"]
 position = Vector2(83, -441)
-rotation = 0.0262694
-scale = Vector2(0.999999, 0.999999)
+rotation = 0.0178012
+scale = Vector2(1, 1)
 texture = ExtResource("13_hhsa6")
 offset = Vector2(10, 30)
 
-[node name="GBotForearmR" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(66.7474, -317.384)
-rotation = -0.545589
+[node name="GBotForearmR" type="Sprite2D" parent="CharacterContainer/Body/ArmR"]
+position = Vector2(67.7948, -317.251)
+rotation = -0.537736
 scale = Vector2(1, 1)
 texture = ExtResource("14_qlhe5")
 offset = Vector2(17, 58)
@@ -637,11 +647,11 @@ modification_stack = SubResource("SkeletonModificationStack2D_prbes")
 
 [node name="RemoteTransform2D2" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D"]
 position = Vector2(168, -449)
-remote_path = NodePath("../../../Body/GBotBody")
+remote_path = NodePath("../../../Body/Body/GBotBody")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D"]
 position = Vector2(159, -313)
-remote_path = NodePath("../../../Body/GBotHip")
+remote_path = NodePath("../../../Body/Body/GBotHip")
 
 [node name="Hip" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D"]
 position = Vector2(159, -313)
@@ -654,7 +664,7 @@ rest = Transform2D(0.999992, -0.0038967, 0.0038967, 0.999992, -1, -229)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/Head"]
-remote_path = NodePath("../../../../../Body/GBotHead")
+remote_path = NodePath("../../../../../Body/Head/GBotHead")
 
 [node name="Jaw" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/Head"]
 position = Vector2(-95, -27)
@@ -666,7 +676,7 @@ length = 243.7
 bone_angle = 0.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/Head/Jaw"]
-remote_path = NodePath("../../../../../../Body/GBotJaw")
+remote_path = NodePath("../../../../../../Body/Head/GBotJaw")
 
 [node name="ArmL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
 position = Vector2(77, -152)
@@ -675,7 +685,7 @@ rest = Transform2D(0.99549, -0.0948682, 0.0948682, 0.99549, 77, -152)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmL"]
-remote_path = NodePath("../../../../../Body/GBotArmL")
+remote_path = NodePath("../../../../../Body/ArmL/GBotArmL")
 
 [node name="ForearmL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmL"]
 position = Vector2(6, 113)
@@ -687,7 +697,7 @@ bone_angle = 78.968
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmL/ForearmL"]
-remote_path = NodePath("../../../../../../Body/GBotForearmL")
+remote_path = NodePath("../../../../../../Body/ArmL/GBotForearmL")
 
 [node name="Marker2D" type="Marker2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmL/ForearmL"]
 position = Vector2(16.2435, 79.1822)
@@ -699,7 +709,7 @@ rest = Transform2D(0.988267, 0.152735, -0.152735, 0.988267, -73, -152)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmR"]
-remote_path = NodePath("../../../../../Body/GBotArmR")
+remote_path = NodePath("../../../../../Body/ArmR/GBotArmR")
 
 [node name="ForearmR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmR"]
 position = Vector2(-13, 124)
@@ -711,7 +721,7 @@ bone_angle = 80.152
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmR/ForearmR"]
-remote_path = NodePath("../../../../../../Body/GBotForearmR")
+remote_path = NodePath("../../../../../../Body/ArmR/GBotForearmR")
 
 [node name="Marker2D" type="Marker2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmR/ForearmR"]
 position = Vector2(15.1645, 89.2036)
@@ -723,7 +733,7 @@ rest = Transform2D(0.865381, -0.501115, 0.501115, 0.865381, 40, 37)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegL"]
-remote_path = NodePath("../../../../../Body/GBotLegL")
+remote_path = NodePath("../../../../../Body/LegL/GBotLegL")
 
 [node name="ShinL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegL"]
 position = Vector2(-31, 103)
@@ -732,7 +742,7 @@ rest = Transform2D(0.881189, 0.472763, -0.472763, 0.881189, -31, 103)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegL/ShinL"]
-remote_path = NodePath("../../../../../../Body/GBotShinL")
+remote_path = NodePath("../../../../../../Body/LegL/GBotShinL")
 
 [node name="FootL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegL/ShinL"]
 position = Vector2(7, 111)
@@ -743,7 +753,7 @@ bone_angle = 0.0
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegL/ShinL/FootL"]
-remote_path = NodePath("../../../../../../../Body/GBotFootL")
+remote_path = NodePath("../../../../../../../Body/LegL/GBotFootL")
 
 [node name="LegR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
 position = Vector2(-65, 38)
@@ -752,7 +762,7 @@ rest = Transform2D(0.983985, -0.178252, 0.178252, 0.983985, -65, 38)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegR"]
-remote_path = NodePath("../../../../../Body/GBotLegR")
+remote_path = NodePath("../../../../../Body/LegR/GBotLegR")
 
 [node name="ShinR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegR"]
 position = Vector2(-33.0025, 95.0147)
@@ -761,7 +771,7 @@ rest = Transform2D(0.987147, 0.159816, -0.159816, 0.987147, -33, 95)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegR/ShinR"]
-remote_path = NodePath("../../../../../../Body/GBotShinR")
+remote_path = NodePath("../../../../../../Body/LegR/GBotShinR")
 
 [node name="FootR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegR/ShinR"]
 position = Vector2(-10, 124)
@@ -773,7 +783,7 @@ bone_angle = 0.0
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegR/ShinR/FootR"]
-remote_path = NodePath("../../../../../../../Body/GBotFootR")
+remote_path = NodePath("../../../../../../../Body/LegR/GBotFootR")
 
 [node name="IK_Targets" type="Node2D" parent="."]
 

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4s2n7uf74kit"]
+
+[ext_resource type="Texture2D" uid="uid://cyknkxcgxjqk0" path="res://gBot_body.png" id="1_rvu8y"]
+
+[node name="Body" type="Node2D"]
+
+[node name="Container" type="Node2D" parent="."]
+
+[node name="Sprites" type="Node2D" parent="Container"]
+
+[node name="GBotBody" type="Sprite2D" parent="Container/Sprites"]
+position = Vector2(0, -100)
+texture = ExtResource("1_rvu8y")
+
+[node name="BackPoint" type="Marker2D" parent="."]
+position = Vector2(-41, -140)
+
+[node name="HeadPoint" type="Marker2D" parent="."]
+position = Vector2(2, -193)
+
+[node name="ArmLPoint" type="Marker2D" parent="."]
+position = Vector2(59, -110)
+
+[node name="ArmRPoint" type="Marker2D" parent="."]
+position = Vector2(-63, -107)
