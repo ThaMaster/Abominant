@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bduybbi2qchuk"]
+[gd_scene load_steps=16 format=3 uid="uid://bduybbi2qchuk"]
 
 [ext_resource type="Texture2D" uid="uid://104ks2k8segq" path="res://gBot_leg_l.png" id="1_u504a"]
 [ext_resource type="Texture2D" uid="uid://cqag0chbbhfrc" path="res://gBot_shin_l.png" id="2_0uft4"]
@@ -7,77 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://c4hxfvwe1ae4m" path="res://gBot_leg_r.png" id="5_pyeei"]
 [ext_resource type="Texture2D" uid="uid://cxi1afhoh8ga3" path="res://gBot_shin_r.png" id="6_x7qlh"]
 [ext_resource type="Texture2D" uid="uid://b6ucbdby23jdj" path="res://gBot_foot_r.png" id="7_bt2ix"]
-
-[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_581pu"]
-target_nodepath = NodePath("../../../IK_Targets/FootR_Target")
-tip_nodepath = NodePath("Hip/LegR/ShinR/FootR")
-ccdik_data_chain_length = 2
-joint_data/0/bone_index = 4
-joint_data/0/bone2d_node = NodePath("Hip/LegR")
-joint_data/0/rotate_from_joint = false
-joint_data/0/enable_constraint = true
-joint_data/0/constraint_angle_min = -119.205
-joint_data/0/constraint_angle_max = 49.92
-joint_data/0/constraint_angle_invert = true
-joint_data/0/constraint_in_localspace = true
-joint_data/0/editor_draw_gizmo = true
-joint_data/1/bone_index = 5
-joint_data/1/bone2d_node = NodePath("Hip/LegR/ShinR")
-joint_data/1/rotate_from_joint = false
-joint_data/1/enable_constraint = true
-joint_data/1/constraint_angle_min = 4.769
-joint_data/1/constraint_angle_max = 165.325
-joint_data/1/constraint_angle_invert = false
-joint_data/1/constraint_in_localspace = true
-joint_data/1/editor_draw_gizmo = true
-
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_esh57"]
-bone_index = 6
-bone2d_node = NodePath("Hip/LegR/ShinR/FootR")
-target_nodepath = NodePath("../../../IK_Targets/FootR_Target/FootR_Lookat")
-
-[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_a2vmp"]
-target_nodepath = NodePath("../../../IK_Targets/FootL_Target")
-tip_nodepath = NodePath("Hip/LegL/ShinL/FootL")
-ccdik_data_chain_length = 2
-joint_data/0/bone_index = 1
-joint_data/0/bone2d_node = NodePath("Hip/LegL")
-joint_data/0/rotate_from_joint = false
-joint_data/0/enable_constraint = true
-joint_data/0/constraint_angle_min = -124.138
-joint_data/0/constraint_angle_max = 72.0
-joint_data/0/constraint_angle_invert = true
-joint_data/0/constraint_in_localspace = true
-joint_data/0/editor_draw_gizmo = true
-joint_data/1/bone_index = 2
-joint_data/1/bone2d_node = NodePath("Hip/LegL/ShinL")
-joint_data/1/rotate_from_joint = false
-joint_data/1/enable_constraint = true
-joint_data/1/constraint_angle_min = 4.966
-joint_data/1/constraint_angle_max = 171.31
-joint_data/1/constraint_angle_invert = false
-joint_data/1/constraint_in_localspace = true
-joint_data/1/editor_draw_gizmo = true
-
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_d7l35"]
-bone_index = 3
-bone2d_node = NodePath("Hip/LegL/ShinL/FootL")
-target_nodepath = NodePath("../../../IK_Targets/FootL_Target/FootL_Lookat")
-
-[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_rytjv"]
-enabled = true
-modification_count = 4
-modifications/0 = SubResource("SkeletonModification2DCCDIK_581pu")
-modifications/1 = SubResource("SkeletonModification2DLookAt_esh57")
-modifications/2 = SubResource("SkeletonModification2DCCDIK_a2vmp")
-modifications/3 = SubResource("SkeletonModification2DLookAt_d7l35")
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/soup_stack.gd" id="8_ebdc4"]
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/soup_sub_stack.gd" id="9_v2xu1"]
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_two_bone_ik.gd" id="10_ckoin"]
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_look_at.gd" id="11_3idf5"]
 
 [sub_resource type="Animation" id="Animation_hjiqk"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("IK_Targets/FootL_Target:position")
+tracks/0/path = NodePath("Container/IK_Targets/FootL_Target:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -89,7 +29,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("IK_Targets/FootL_Target/FootL_Lookat:position")
+tracks/1/path = NodePath("Container/IK_Targets/FootL_Target/FootL_Lookat:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -101,7 +41,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("IK_Targets/FootR_Target:position")
+tracks/2/path = NodePath("Container/IK_Targets/FootR_Target:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -113,7 +53,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("IK_Targets/FootR_Target/FootR_Lookat:position")
+tracks/3/path = NodePath("Container/IK_Targets/FootR_Target/FootR_Lookat:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -310,7 +250,7 @@ step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("IK_Targets/FootL_Target:position")
+tracks/0/path = NodePath("Container/IK_Targets/FootL_Target:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -322,7 +262,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("IK_Targets/FootL_Target/FootL_Lookat:position")
+tracks/1/path = NodePath("Container/IK_Targets/FootL_Target/FootL_Lookat:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -334,7 +274,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("IK_Targets/FootR_Target:position")
+tracks/2/path = NodePath("Container/IK_Targets/FootR_Target:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -346,7 +286,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("IK_Targets/FootR_Target/FootR_Lookat:position")
+tracks/3/path = NodePath("Container/IK_Targets/FootR_Target/FootR_Lookat:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -544,7 +484,7 @@ step = 0.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("IK_Targets/FootL_Target:position")
+tracks/0/path = NodePath("Container/IK_Targets/FootL_Target:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -556,7 +496,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("IK_Targets/FootL_Target/FootL_Lookat:position")
+tracks/1/path = NodePath("Container/IK_Targets/FootL_Target/FootL_Lookat:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -568,7 +508,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("IK_Targets/FootR_Target:position")
+tracks/2/path = NodePath("Container/IK_Targets/FootR_Target:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -580,7 +520,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("IK_Targets/FootR_Target/FootR_Lookat:position")
+tracks/3/path = NodePath("Container/IK_Targets/FootR_Target/FootR_Lookat:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -612,7 +552,7 @@ _data = {
 [node name="Legs" type="Node2D"]
 
 [node name="BodyPoint" type="Marker2D" parent="."]
-position = Vector2(0, -297)
+position = Vector2(1.01179, -321.141)
 
 [node name="Container" type="Node2D" parent="."]
 
@@ -623,21 +563,21 @@ position = Vector2(0, -297)
 [node name="GBotLegL" type="Sprite2D" parent="Container/Sprites/LegL"]
 position = Vector2(40, -225.696)
 rotation = -1.06555
-scale = Vector2(0.999897, 0.999897)
+scale = Vector2(1, 1)
 texture = ExtResource("1_u504a")
 offset = Vector2(-20, 46)
 
 [node name="GBotShinL" type="Sprite2D" parent="Container/Sprites/LegL"]
 position = Vector2(115.131, -148.711)
 rotation = 0.561019
-scale = Vector2(0.999979, 0.999999)
+scale = Vector2(0.999996, 0.999999)
 texture = ExtResource("2_0uft4")
 offset = Vector2(16, 37)
 
 [node name="GBotFootL" type="Sprite2D" parent="Container/Sprites/LegL"]
 position = Vector2(62, -51)
 rotation = -0.0229847
-scale = Vector2(0.999906, 0.99989)
+scale = Vector2(0.999999, 1)
 texture = ExtResource("3_tk02t")
 offset = Vector2(35, 8)
 
@@ -652,69 +592,63 @@ texture = ExtResource("4_ai671")
 [node name="GBotLegR" type="Sprite2D" parent="Container/Sprites/LegR"]
 position = Vector2(-65, -224.696)
 rotation = -0.788491
-scale = Vector2(0.99994, 0.99994)
+scale = Vector2(0.999997, 0.999997)
 texture = ExtResource("5_pyeei")
 offset = Vector2(-11.3919, 41.6211)
 
 [node name="GBotShinR" type="Sprite2D" parent="Container/Sprites/LegR"]
 position = Vector2(-20.8711, -134.31)
 rotation = 0.629936
-scale = Vector2(0.999925, 0.999925)
+scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("6_x7qlh")
 offset = Vector2(26.4351, 33.4793)
 
 [node name="GBotFootR" type="Sprite2D" parent="Container/Sprites/LegR"]
 position = Vector2(-102, -40)
-scale = Vector2(0.9999, 0.9999)
+scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("7_bt2ix")
 offset = Vector2(58.4195, -2.416)
 
 [node name="Bones" type="Node2D" parent="Container"]
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Container/Bones"]
-modification_stack = SubResource("SkeletonModificationStack2D_rytjv")
 
 [node name="Hip" type="Bone2D" parent="Container/Bones/Skeleton2D"]
 position = Vector2(0, -292)
-rest = Transform2D(1, 0, 0, 1, 159, -313)
+rest = Transform2D(1, 0, 0, 1, 0, -292)
 
 [node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/Hip"]
 position = Vector2(0, -25)
 remote_path = NodePath("../../../../../BodyPoint")
-update_rotation = false
-update_scale = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/Hip"]
 remote_path = NodePath("../../../../Sprites/Hip/GBotHip")
-update_rotation = false
-update_scale = false
 
 [node name="LegL" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip"]
 position = Vector2(40, 37)
-rotation = -0.274033
-rest = Transform2D(0.865381, -0.501115, 0.501115, 0.865381, 40, 37)
+rotation = 0.0730551
+scale = Vector2(1, 1)
+rest = Transform2D(0.80675, -0.590893, 0.590893, 0.80675, 40, 37)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/Hip/LegL"]
 remote_path = NodePath("../../../../../Sprites/LegL/GBotLegL")
-update_scale = false
 
 [node name="ShinL" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/LegL"]
-position = Vector2(-31.0013, 103.006)
-rotation = -2.78621
-scale = Vector2(1, -1)
-rest = Transform2D(0.881189, 0.472763, -0.472763, 0.881189, -31, 103)
+position = Vector2(-31.0012, 103.006)
+rotation = 1.83207
+scale = Vector2(0.999997, 0.999999)
+rest = Transform2D(0.504111, 0.863635, -0.863637, 0.504113, -31.0012, 103.006)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/Hip/LegL/ShinL"]
 remote_path = NodePath("../../../../../../Sprites/LegL/GBotShinL")
-update_scale = false
 
 [node name="FootL" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/LegL/ShinL"]
-position = Vector2(7, 111.001)
-rotation = -0.636283
-scale = Vector2(0.999999, 0.999999)
-rest = Transform2D(1, 0, 0, 1, 7, 111)
+position = Vector2(6.99987, 111.002)
+rotation = -0.579184
+scale = Vector2(1, 1)
+rest = Transform2D(0.89749, -0.441039, 0.44104, 0.897489, 6.99987, 111.002)
 auto_calculate_length_and_angle = false
 length = 68.8
 bone_angle = 0.0
@@ -722,33 +656,32 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/Hip/LegL/ShinL/FootL"]
 remote_path = NodePath("../../../../../../../Sprites/LegL/GBotFootL")
-update_scale = false
 
 [node name="LegR" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip"]
 position = Vector2(-65, 38)
-rotation = -1.58362
-scale = Vector2(0.999999, 0.999999)
-rest = Transform2D(0.983985, -0.178252, 0.178252, 0.983985, -65, 38)
+rotation = -1.8742
+scale = Vector2(0.999997, 0.999997)
+rest = Transform2D(0.949743, -0.313021, 0.313021, 0.949743, -65, 38)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/Hip/LegR"]
 remote_path = NodePath("../../../../../Sprites/LegR/GBotLegR")
-update_scale = false
 
 [node name="ShinR" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/LegR"]
-position = Vector2(-33.0025, 95.0148)
-rotation = 1.84394
-rest = Transform2D(0.987147, 0.159816, -0.159816, 0.987147, -33, 95)
+position = Vector2(-33.0029, 95.0155)
+rotation = 1.54262
+scale = Vector2(1, 1)
+rest = Transform2D(0.813825, 0.581113, -0.581113, 0.813825, -33.0029, 95.0155)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/Hip/LegR/ShinR"]
 remote_path = NodePath("../../../../../../Sprites/LegR/GBotShinR")
-update_scale = false
 
 [node name="FootR" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/LegR/ShinR"]
-position = Vector2(-10.0001, 124.001)
-rotation = 0.627811
-rest = Transform2D(0.999992, 0.00404667, -0.00404667, 0.999992, -10, 124)
+position = Vector2(-10.0001, 124.002)
+rotation = -0.348681
+scale = Vector2(1, 1)
+rest = Transform2D(0.954828, -0.297164, 0.297164, 0.954828, -10.0001, 124.002)
 auto_calculate_length_and_angle = false
 length = 79.671
 bone_angle = 0.0
@@ -756,20 +689,58 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/Hip/LegR/ShinR/FootR"]
 remote_path = NodePath("../../../../../../../Sprites/LegR/GBotFootR")
-update_scale = false
 
-[node name="IK_Targets" type="Node2D" parent="."]
+[node name="SoupStack" type="Node" parent="Container/Bones/Skeleton2D"]
+script = ExtResource("8_ebdc4")
 
-[node name="FootL_Target" type="Node2D" parent="IK_Targets"]
+[node name="LegRSubStack" type="Node" parent="Container/Bones/Skeleton2D/SoupStack"]
+script = ExtResource("9_v2xu1")
+
+[node name="LegRIK" type="Node" parent="Container/Bones/Skeleton2D/SoupStack/LegRSubStack" node_paths=PackedStringArray("target_node", "joint_one_bone_node", "joint_two_bone_node", "chain_tip")]
+script = ExtResource("10_ckoin")
+target_node = NodePath("../../../../../IK_Targets/FootR_Target")
+enabled = true
+flip_bend_direction = true
+joint_one_bone_node = NodePath("../../../Hip/LegR")
+joint_two_bone_node = NodePath("../../../Hip/LegR/ShinR")
+chain_tip = NodePath("../../../Hip/LegR/ShinR/FootR")
+
+[node name="LegRLookAt" type="Node" parent="Container/Bones/Skeleton2D/SoupStack/LegRSubStack" node_paths=PackedStringArray("target_node", "bone_node")]
+script = ExtResource("11_3idf5")
+target_node = NodePath("../../../../../IK_Targets/FootR_Target/FootR_Lookat")
+enabled = true
+bone_node = NodePath("../../../Hip/LegR/ShinR/FootR")
+
+[node name="LegLSubStack" type="Node" parent="Container/Bones/Skeleton2D/SoupStack"]
+script = ExtResource("9_v2xu1")
+
+[node name="LegLIK" type="Node" parent="Container/Bones/Skeleton2D/SoupStack/LegLSubStack" node_paths=PackedStringArray("target_node", "joint_one_bone_node", "joint_two_bone_node", "chain_tip")]
+script = ExtResource("10_ckoin")
+target_node = NodePath("../../../../../IK_Targets/FootL_Target")
+enabled = true
+flip_bend_direction = true
+joint_one_bone_node = NodePath("../../../Hip/LegL")
+joint_two_bone_node = NodePath("../../../Hip/LegL/ShinL")
+chain_tip = NodePath("../../../Hip/LegL/ShinL/FootL")
+
+[node name="LegLLookAt" type="Node" parent="Container/Bones/Skeleton2D/SoupStack/LegLSubStack" node_paths=PackedStringArray("target_node", "bone_node")]
+script = ExtResource("11_3idf5")
+target_node = NodePath("../../../../../IK_Targets/FootL_Target/FootL_Lookat")
+enabled = true
+bone_node = NodePath("../../../Hip/LegL/ShinL/FootL")
+
+[node name="IK_Targets" type="Node2D" parent="Container"]
+
+[node name="FootL_Target" type="Node2D" parent="Container/IK_Targets"]
 position = Vector2(38, -49)
 
-[node name="FootL_Lookat" type="Node2D" parent="IK_Targets/FootL_Target"]
+[node name="FootL_Lookat" type="Node2D" parent="Container/IK_Targets/FootL_Target"]
 position = Vector2(86, -4)
 
-[node name="FootR_Target" type="Node2D" parent="IK_Targets"]
+[node name="FootR_Target" type="Node2D" parent="Container/IK_Targets"]
 position = Vector2(-113, -38)
 
-[node name="FootR_Lookat" type="Node2D" parent="IK_Targets/FootR_Target"]
+[node name="FootR_Lookat" type="Node2D" parent="Container/IK_Targets/FootR_Target"]
 position = Vector2(135, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

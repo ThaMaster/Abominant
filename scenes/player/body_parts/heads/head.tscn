@@ -2,17 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dr0vnry14srdg" path="res://gBot_head.png" id="1_dpc4y"]
 [ext_resource type="Texture2D" uid="uid://b0q56uxwgbd67" path="res://gBot_jaw.png" id="2_opl4x"]
-
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_fmk1i"]
-bone_index = 0
-bone2d_node = NodePath("Head")
-target_nodepath = NodePath("../../../IK_Targets/Head_Target")
-additional_rotation = 195.0
-
-[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_s61t0"]
-enabled = true
-modification_count = 1
-modifications/0 = SubResource("SkeletonModification2DLookAt_fmk1i")
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/soup_stack.gd" id="3_glx64"]
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_look_at.gd" id="4_ehbxb"]
 
 [node name="Head" type="Node2D"]
 
@@ -21,27 +12,26 @@ modifications/0 = SubResource("SkeletonModification2DLookAt_fmk1i")
 [node name="Sprites" type="Node2D" parent="Container"]
 
 [node name="GBotHead" type="Sprite2D" parent="Container/Sprites"]
-rotation = -0.00554025
-scale = Vector2(0.999993, 0.999993)
+rotation = 0.0435808
+scale = Vector2(1, 1)
 texture = ExtResource("1_dpc4y")
 offset = Vector2(11, -169)
 
 [node name="GBotJaw" type="Sprite2D" parent="Container/Sprites"]
-position = Vector2(-95.1475, -26.4731)
-rotation = -0.0146856
-scale = Vector2(0.999993, 0.999993)
+position = Vector2(-93.7335, -31.1132)
+rotation = 0.0344354
+scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("2_opl4x")
 offset = Vector2(122, -1)
 
 [node name="Bones" type="Node2D" parent="Container"]
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Container/Bones"]
-modification_stack = SubResource("SkeletonModificationStack2D_s61t0")
 
 [node name="Head" type="Bone2D" parent="Container/Bones/Skeleton2D"]
-rotation = 1.12225
-scale = Vector2(0.999993, 0.999993)
-rest = Transform2D(0.999992, -0.0038967, 0.0038967, 0.999992, -1, -229)
+rotation = 0.0435808
+scale = Vector2(1, 1)
+rest = Transform2D(0.999984, -0.00554017, 0.00554017, 0.999984, 0, 0)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/Head"]
@@ -49,7 +39,7 @@ remote_path = NodePath("../../../../Sprites/GBotHead")
 
 [node name="Jaw" type="Bone2D" parent="Container/Bones/Skeleton2D/Head"]
 position = Vector2(-95, -27)
-rotation = -0.00914532
+rotation = -0.00914533
 scale = Vector2(1, 1)
 rest = Transform2D(0.999958, -0.0091452, 0.0091452, 0.999958, -95, -27)
 auto_calculate_length_and_angle = false
@@ -59,9 +49,21 @@ bone_angle = 0.0
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/Head/Jaw"]
 remote_path = NodePath("../../../../../Sprites/GBotJaw")
 
-[node name="IK_Targets" type="Node2D" parent="."]
+[node name="JawEndMarker" type="Marker2D" parent="Container/Bones/Skeleton2D/Head/Jaw"]
+position = Vector2(224.177, -0.234926)
 
-[node name="Head_Target" type="Node2D" parent="IK_Targets"]
-position = Vector2(209, 2)
+[node name="SoupStack" type="Node" parent="Container/Bones/Skeleton2D"]
+script = ExtResource("3_glx64")
+
+[node name="HeadLookAt" type="Node" parent="Container/Bones/Skeleton2D/SoupStack" node_paths=PackedStringArray("target_node", "bone_node")]
+script = ExtResource("4_ehbxb")
+target_node = NodePath("../../../../IK_Targets/Head_Target")
+enabled = true
+bone_node = NodePath("../../Head")
+
+[node name="IK_Targets" type="Node2D" parent="Container"]
+
+[node name="Head_Target" type="Node2D" parent="Container/IK_Targets"]
+position = Vector2(-238, -79)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
