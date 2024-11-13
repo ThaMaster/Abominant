@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 
 @export var flip_body_part = false
@@ -31,16 +32,17 @@ func equip_new_head():
 	set_body_part("head", "res://scenes/player/body_parts/heads/head2.tscn")
 
 func _process(_delta: float) -> void:
-	var mouse_pos = get_global_mouse_position()
-	body_parts["head"].look_at(mouse_pos)
-	body_parts["armL"].look_at(mouse_pos)
-	body_parts["armR"].look_at(mouse_pos)
-	
-	# Flip the sprite based on the mouse position relative to the player
-	if mouse_pos.x > global_position.x:
-		set_flip(true)
-	elif mouse_pos.x < global_position.x:
-		set_flip(false)
+	# Code that runs only when the game is running
+	if not Engine.is_editor_hint():
+		var mouse_pos = get_global_mouse_position()
+		body_parts["head"].look_at(mouse_pos)
+		body_parts["armL"].look_at(mouse_pos)
+		body_parts["armR"].look_at(mouse_pos)
+		# Flip the sprite based on the mouse position relative to the player
+		if mouse_pos.x > global_position.x:
+			set_flip(true)
+		elif mouse_pos.x < global_position.x:
+			set_flip(false)
 	
 	body_parts["body"].get_child(0).global_position = body_parts["legs"].get_child(0).get_node("BodyPoint").global_position
 	body_parts["armL"].get_child(0).global_position = body_parts["body"].get_child(0).get_node("ArmLPoint").global_position
@@ -57,6 +59,11 @@ func _input(event: InputEvent):
 	else:
 		body_parts["legs"].get_child(0).get_node("AnimationPlayer").play("idle")
 		body_parts["tail"].get_child(0).get_node("AnimationPlayer").play("idle")
+	
+	if Input.is_action_just_pressed("attack_left"):
+		body_parts["armL"].get_child(0).get_node("AnimationPlayer").play("attack")
+	if Input.is_action_just_pressed("attack_right"):
+		body_parts["armR"].get_child(0).get_node("AnimationPlayer").play("attack")
 
 
 # Set method for flip_h
