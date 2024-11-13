@@ -46,15 +46,17 @@ func _process(_delta: float) -> void:
 	body_parts["armL"].get_child(0).global_position = body_parts["body"].get_child(0).get_node("ArmLPoint").global_position
 	body_parts["armR"].get_child(0).global_position = body_parts["body"].get_child(0).get_node("ArmRPoint").global_position
 	body_parts["head"].get_child(0).global_position = body_parts["body"].get_child(0).get_node("HeadPoint").global_position
-	
+	body_parts["tail"].get_child(0).global_position = body_parts["legs"].get_child(0).get_node("TailPoint").global_position
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("new_head_test"):
 		equip_new_head()
 	if Input.get_axis("move_left", "move_right"):
 		body_parts["legs"].get_child(0).get_node("AnimationPlayer").play("run")
+		body_parts["tail"].get_child(0).get_node("AnimationPlayer").play("run")
 	else:
 		body_parts["legs"].get_child(0).get_node("AnimationPlayer").play("idle")
+		body_parts["tail"].get_child(0).get_node("AnimationPlayer").play("idle")
 
 
 # Set method for flip_h

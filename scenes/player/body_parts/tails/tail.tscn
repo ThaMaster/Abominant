@@ -1,0 +1,221 @@
+[gd_scene load_steps=9 format=3 uid="uid://cty0mnw07sfr2"]
+
+[ext_resource type="Texture2D" uid="uid://104ks2k8segq" path="res://gBot_leg_l.png" id="1_6jr8x"]
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/soup_stack.gd" id="1_d78nh"]
+[ext_resource type="Texture2D" uid="uid://c4hxfvwe1ae4m" path="res://gBot_leg_r.png" id="2_of1ft"]
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_two_bone_ik.gd" id="4_7ddcm"]
+
+[sub_resource type="Animation" id="Animation_eahtb"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/IK_Targets/Middle_Target:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-193, -54), Vector2(-165, -129), Vector2(-106, -176), Vector2(-111, -139), Vector2(-185, -80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/IK_Targets/Top_Target:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-296, -215), Vector2(-113, -310), Vector2(-16, -323), Vector2(-113, -310), Vector2(-296, -215)]
+}
+
+[sub_resource type="Animation" id="Animation_41cus"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/IK_Targets/Middle_Target:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-159, -124)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/IK_Targets/Top_Target:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-54, -261)]
+}
+
+[sub_resource type="Animation" id="Animation_pv3is"]
+resource_name = "run"
+length = 2.0
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/IK_Targets/Middle_Target:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-206, -29), Vector2(-177, -37), Vector2(-197, -58), Vector2(-197, 2), Vector2(-188, -51), Vector2(-203, -18), Vector2(-197, 16), Vector2(-199, -59), Vector2(-206, -29)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/IK_Targets/Top_Target:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-255, -204), Vector2(-185, -199), Vector2(-276, -209), Vector2(-169, -182), Vector2(-252, -217), Vector2(-160, -173), Vector2(-266, -118), Vector2(-187, -213), Vector2(-255, -204)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pmjrf"]
+_data = {
+"RESET": SubResource("Animation_41cus"),
+"idle": SubResource("Animation_eahtb"),
+"run": SubResource("Animation_pv3is")
+}
+
+[node name="Tail" type="Node2D"]
+
+[node name="Container" type="Node2D" parent="."]
+
+[node name="Sprites" type="Node2D" parent="Container"]
+
+[node name="LowerTail" type="Node2D" parent="Container/Sprites"]
+
+[node name="UpperLower" type="Sprite2D" parent="Container/Sprites/LowerTail"]
+position = Vector2(-108.747, 5.6673)
+rotation = 1.54836
+scale = Vector2(1, 1)
+skew = -0.0733041
+texture = ExtResource("1_6jr8x")
+offset = Vector2(-19.5716, 50.8729)
+
+[node name="LowerLower" type="Sprite2D" parent="Container/Sprites/LowerTail"]
+rotation = 1.21853
+texture = ExtResource("1_6jr8x")
+offset = Vector2(-19.5716, 50.8729)
+
+[node name="UpperTail" type="Node2D" parent="Container/Sprites/LowerTail"]
+
+[node name="LowerUpper" type="Sprite2D" parent="Container/Sprites/LowerTail/UpperTail"]
+position = Vector2(-206, -29)
+rotation = 2.17794
+scale = Vector2(1, 1)
+texture = ExtResource("2_of1ft")
+offset = Vector2(-15.7702, 49.9904)
+
+[node name="UpperUpper" type="Sprite2D" parent="Container/Sprites/LowerTail/UpperTail"]
+position = Vector2(-271.924, -113.63)
+rotation = 3.02914
+scale = Vector2(0.999999, 0.999999)
+texture = ExtResource("2_of1ft")
+offset = Vector2(-19.0837, 46.9438)
+
+[node name="Bones" type="Node2D" parent="Container"]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Container/Bones"]
+
+[node name="LowerLower" type="Bone2D" parent="Container/Bones/Skeleton2D"]
+rotation = -0.837466
+rest = Transform2D(0.908762, -0.417314, 0.417314, 0.908762, 0, 0)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/LowerLower"]
+rotation = -4.22719
+remote_path = NodePath("../../../../Sprites/LowerTail/LowerLower")
+
+[node name="UpperLower" type="Bone2D" parent="Container/Bones/Skeleton2D/LowerLower"]
+position = Vector2(-77, -77)
+rotation = -0.0139989
+scale = Vector2(1, 1)
+rest = Transform2D(0.975061, 0.221938, -0.221938, 0.975061, -77, -77)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/LowerLower/UpperLower"]
+rotation = -3.88336
+skew = -0.0733038
+remote_path = NodePath("../../../../../Sprites/LowerTail/UpperLower")
+
+[node name="LowerUpper" type="Bone2D" parent="Container/Bones/Skeleton2D/LowerLower/UpperLower"]
+position = Vector2(-38, -96)
+rotation = 1.50224
+scale = Vector2(1, 1)
+rest = Transform2D(-0.121998, 0.99253, -0.99253, -0.121998, -38, -96)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/LowerLower/UpperLower/LowerUpper"]
+rotation = 1.52716
+remote_path = NodePath("../../../../../../Sprites/LowerTail/UpperTail/LowerUpper")
+
+[node name="UpperUpper" type="Bone2D" parent="Container/Bones/Skeleton2D/LowerLower/UpperLower/LowerUpper"]
+position = Vector2(-104.185, -28.7312)
+rotation = -0.499683
+scale = Vector2(1, 1)
+rest = Transform2D(0.956999, -0.29009, 0.29009, 0.956999, -104.185, -28.7312)
+auto_calculate_length_and_angle = false
+length = 95.05
+bone_angle = -88.364
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/LowerLower/UpperLower/LowerUpper/UpperUpper"]
+position = Vector2(-0.231186, 1.39519)
+rotation = -3.40514
+remote_path = NodePath("../../../../../../../Sprites/LowerTail/UpperTail/UpperUpper")
+
+[node name="Marker2D" type="Marker2D" parent="Container/Bones/Skeleton2D/LowerLower/UpperLower/LowerUpper/UpperUpper"]
+position = Vector2(2.89776, -90.4926)
+
+[node name="SoupStack" type="Node" parent="Container/Bones/Skeleton2D"]
+script = ExtResource("1_d78nh")
+
+[node name="SoupTwoBoneIK" type="Node" parent="Container/Bones/Skeleton2D/SoupStack" node_paths=PackedStringArray("target_node", "joint_one_bone_node", "joint_two_bone_node", "chain_tip")]
+script = ExtResource("4_7ddcm")
+target_node = NodePath("../../../../IK_Targets/Middle_Target")
+enabled = true
+flip_bend_direction = true
+joint_one_bone_node = NodePath("../../LowerLower")
+joint_two_bone_node = NodePath("../../LowerLower/UpperLower")
+chain_tip = NodePath("../../LowerLower/UpperLower/LowerUpper")
+
+[node name="SoupTwoBoneIK2" type="Node" parent="Container/Bones/Skeleton2D/SoupStack" node_paths=PackedStringArray("target_node", "joint_one_bone_node", "joint_two_bone_node", "chain_tip")]
+script = ExtResource("4_7ddcm")
+target_node = NodePath("../../../../IK_Targets/Top_Target")
+enabled = true
+flip_bend_direction = true
+joint_one_bone_node = NodePath("../../LowerLower/UpperLower/LowerUpper")
+joint_two_bone_node = NodePath("../../LowerLower/UpperLower/LowerUpper/UpperUpper")
+chain_tip = NodePath("../../LowerLower/UpperLower/LowerUpper/UpperUpper/Marker2D")
+
+[node name="IK_Targets" type="Node2D" parent="Container"]
+
+[node name="Middle_Target" type="Node2D" parent="Container/IK_Targets"]
+position = Vector2(-159, -124)
+
+[node name="Top_Target" type="Node2D" parent="Container/IK_Targets"]
+position = Vector2(-54, -261)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pmjrf")
+}
+autoplay = "idle"

@@ -1,16 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://bduybbi2qchuk"]
+[gd_scene load_steps=16 format=3 uid="uid://cnkkbmw61kofk"]
 
-[ext_resource type="Texture2D" uid="uid://104ks2k8segq" path="res://gBot_leg_l.png" id="1_u504a"]
-[ext_resource type="Texture2D" uid="uid://cqag0chbbhfrc" path="res://gBot_shin_l.png" id="2_0uft4"]
-[ext_resource type="Texture2D" uid="uid://bjvl3w1gle3s1" path="res://gBot_foot_l.png" id="3_tk02t"]
-[ext_resource type="Texture2D" uid="uid://1enb413071e5" path="res://gBot_hip.png" id="4_ai671"]
-[ext_resource type="Texture2D" uid="uid://c4hxfvwe1ae4m" path="res://gBot_leg_r.png" id="5_pyeei"]
-[ext_resource type="Texture2D" uid="uid://cxi1afhoh8ga3" path="res://gBot_shin_r.png" id="6_x7qlh"]
-[ext_resource type="Texture2D" uid="uid://b6ucbdby23jdj" path="res://gBot_foot_r.png" id="7_bt2ix"]
-[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/soup_stack.gd" id="8_ebdc4"]
-[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/soup_sub_stack.gd" id="9_v2xu1"]
-[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_two_bone_ik.gd" id="10_ckoin"]
-[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_look_at.gd" id="11_3idf5"]
+[ext_resource type="Texture2D" uid="uid://104ks2k8segq" path="res://gBot_leg_l.png" id="1_0pcyq"]
+[ext_resource type="Texture2D" uid="uid://cqag0chbbhfrc" path="res://gBot_shin_l.png" id="2_g7ilv"]
+[ext_resource type="Texture2D" uid="uid://bjvl3w1gle3s1" path="res://gBot_foot_l.png" id="3_dy3aa"]
+[ext_resource type="Texture2D" uid="uid://1enb413071e5" path="res://gBot_hip.png" id="4_acyyg"]
+[ext_resource type="Texture2D" uid="uid://c4hxfvwe1ae4m" path="res://gBot_leg_r.png" id="5_n3lyk"]
+[ext_resource type="Texture2D" uid="uid://cxi1afhoh8ga3" path="res://gBot_shin_r.png" id="6_vm1j3"]
+[ext_resource type="Texture2D" uid="uid://b6ucbdby23jdj" path="res://gBot_foot_r.png" id="7_w3irl"]
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/soup_stack.gd" id="8_gunbq"]
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/soup_sub_stack.gd" id="9_2q0g1"]
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_two_bone_ik.gd" id="10_7udpp"]
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_look_at.gd" id="11_bh700"]
 
 [sub_resource type="Animation" id="Animation_hjiqk"]
 length = 0.001
@@ -552,10 +552,7 @@ _data = {
 [node name="Legs" type="Node2D"]
 
 [node name="BodyPoint" type="Marker2D" parent="."]
-position = Vector2(0, -297)
-
-[node name="TailPoint" type="Marker2D" parent="."]
-position = Vector2(-46, -296)
+position = Vector2(0, -317)
 
 [node name="Container" type="Node2D" parent="."]
 
@@ -566,28 +563,28 @@ position = Vector2(-46, -296)
 [node name="GBotLegL" type="Sprite2D" parent="Container/Sprites/LegL"]
 position = Vector2(40, -225.696)
 rotation = -1.06555
-texture = ExtResource("1_u504a")
+texture = ExtResource("1_0pcyq")
 offset = Vector2(-20, 46)
 
 [node name="GBotShinL" type="Sprite2D" parent="Container/Sprites/LegL"]
 position = Vector2(115.131, -148.711)
 rotation = 0.561019
 scale = Vector2(0.999997, 0.999999)
-texture = ExtResource("2_0uft4")
+texture = ExtResource("2_g7ilv")
 offset = Vector2(16, 37)
 
 [node name="GBotFootL" type="Sprite2D" parent="Container/Sprites/LegL"]
 position = Vector2(62, -51)
 rotation = -0.0229847
-scale = Vector2(0.999997, 0.999998)
-texture = ExtResource("3_tk02t")
+scale = Vector2(0.999997, 0.999999)
+texture = ExtResource("3_dy3aa")
 offset = Vector2(35, 8)
 
 [node name="Hip" type="Node2D" parent="Container/Sprites"]
 
 [node name="GBotHip" type="Sprite2D" parent="Container/Sprites/Hip"]
 position = Vector2(0, -262.696)
-texture = ExtResource("4_ai671")
+texture = ExtResource("4_acyyg")
 
 [node name="LegR" type="Node2D" parent="Container/Sprites"]
 
@@ -595,20 +592,20 @@ texture = ExtResource("4_ai671")
 position = Vector2(-65, -224.696)
 rotation = -0.788491
 scale = Vector2(0.999997, 0.999997)
-texture = ExtResource("5_pyeei")
+texture = ExtResource("5_n3lyk")
 offset = Vector2(-11.3919, 41.6211)
 
 [node name="GBotShinR" type="Sprite2D" parent="Container/Sprites/LegR"]
 position = Vector2(-20.8711, -134.31)
 rotation = 0.629936
 scale = Vector2(0.999997, 0.999997)
-texture = ExtResource("6_x7qlh")
+texture = ExtResource("6_vm1j3")
 offset = Vector2(26.4351, 33.4793)
 
 [node name="GBotFootR" type="Sprite2D" parent="Container/Sprites/LegR"]
 position = Vector2(-102, -40)
 scale = Vector2(0.999997, 0.999997)
-texture = ExtResource("7_bt2ix")
+texture = ExtResource("7_w3irl")
 offset = Vector2(58.4195, -2.416)
 
 [node name="Bones" type="Node2D" parent="Container"]
@@ -628,7 +625,7 @@ remote_path = NodePath("../../../../Sprites/Hip/GBotHip")
 
 [node name="LegL" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip"]
 position = Vector2(40, 37)
-rotation = -0.982446
+rotation = -0.632172
 rest = Transform2D(0.80675, -0.590893, 0.590893, 0.80675, 40, 37)
 metadata/_local_pose_override_enabled_ = true
 
@@ -637,7 +634,7 @@ remote_path = NodePath("../../../../../Sprites/LegL/GBotLegL")
 
 [node name="ShinL" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/LegL"]
 position = Vector2(-31.0012, 103.006)
-rotation = 1.47657
+rotation = 1.04245
 scale = Vector2(0.999997, 0.999999)
 rest = Transform2D(0.504111, 0.863635, -0.863637, 0.504113, -31.0012, 103.006)
 metadata/_local_pose_override_enabled_ = true
@@ -647,7 +644,7 @@ remote_path = NodePath("../../../../../../Sprites/LegL/GBotShinL")
 
 [node name="FootL" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/LegL/ShinL"]
 position = Vector2(6.99987, 111.002)
-rotation = -0.517106
+rotation = -0.456758
 scale = Vector2(1, 1)
 rest = Transform2D(0.89749, -0.441039, 0.44104, 0.897489, 6.99987, 111.002)
 auto_calculate_length_and_angle = false
@@ -660,7 +657,7 @@ remote_path = NodePath("../../../../../../../Sprites/LegL/GBotFootL")
 
 [node name="LegR" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip"]
 position = Vector2(-65, 38)
-rotation = -0.70659
+rotation = -0.31835
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.949743, -0.313021, 0.313021, 0.949743, -65, 38)
 metadata/_local_pose_override_enabled_ = true
@@ -670,7 +667,7 @@ remote_path = NodePath("../../../../../Sprites/LegR/GBotLegR")
 
 [node name="ShinR" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/LegR"]
 position = Vector2(-33.0029, 95.0155)
-rotation = 1.25905
+rotation = 0.620055
 rest = Transform2D(0.813825, 0.581113, -0.581113, 0.813825, -33.0029, 95.0155)
 metadata/_local_pose_override_enabled_ = true
 
@@ -679,8 +676,7 @@ remote_path = NodePath("../../../../../../Sprites/LegR/GBotShinR")
 
 [node name="FootR" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/LegR/ShinR"]
 position = Vector2(-10.0001, 124.002)
-rotation = -0.552464
-scale = Vector2(1, 1)
+rotation = -0.301705
 rest = Transform2D(0.954828, -0.297164, 0.297164, 0.954828, -10.0001, 124.002)
 auto_calculate_length_and_angle = false
 length = 79.671
@@ -691,13 +687,13 @@ metadata/_local_pose_override_enabled_ = true
 remote_path = NodePath("../../../../../../../Sprites/LegR/GBotFootR")
 
 [node name="SoupStack" type="Node" parent="Container/Bones/Skeleton2D"]
-script = ExtResource("8_ebdc4")
+script = ExtResource("8_gunbq")
 
 [node name="LegRSubStack" type="Node" parent="Container/Bones/Skeleton2D/SoupStack"]
-script = ExtResource("9_v2xu1")
+script = ExtResource("9_2q0g1")
 
 [node name="LegRIK" type="Node" parent="Container/Bones/Skeleton2D/SoupStack/LegRSubStack" node_paths=PackedStringArray("target_node", "joint_one_bone_node", "joint_two_bone_node", "chain_tip")]
-script = ExtResource("10_ckoin")
+script = ExtResource("10_7udpp")
 target_node = NodePath("../../../../../IK_Targets/FootR_Target")
 enabled = true
 flip_bend_direction = true
@@ -706,16 +702,16 @@ joint_two_bone_node = NodePath("../../../Hip/LegR/ShinR")
 chain_tip = NodePath("../../../Hip/LegR/ShinR/FootR")
 
 [node name="LegRLookAt" type="Node" parent="Container/Bones/Skeleton2D/SoupStack/LegRSubStack" node_paths=PackedStringArray("target_node", "bone_node")]
-script = ExtResource("11_3idf5")
+script = ExtResource("11_bh700")
 target_node = NodePath("../../../../../IK_Targets/FootR_Target/FootR_Lookat")
 enabled = true
 bone_node = NodePath("../../../Hip/LegR/ShinR/FootR")
 
 [node name="LegLSubStack" type="Node" parent="Container/Bones/Skeleton2D/SoupStack"]
-script = ExtResource("9_v2xu1")
+script = ExtResource("9_2q0g1")
 
 [node name="LegLIK" type="Node" parent="Container/Bones/Skeleton2D/SoupStack/LegLSubStack" node_paths=PackedStringArray("target_node", "joint_one_bone_node", "joint_two_bone_node", "chain_tip")]
-script = ExtResource("10_ckoin")
+script = ExtResource("10_7udpp")
 target_node = NodePath("../../../../../IK_Targets/FootL_Target")
 enabled = true
 flip_bend_direction = true
@@ -724,7 +720,7 @@ joint_two_bone_node = NodePath("../../../Hip/LegL/ShinL")
 chain_tip = NodePath("../../../Hip/LegL/ShinL/FootL")
 
 [node name="LegLLookAt" type="Node" parent="Container/Bones/Skeleton2D/SoupStack/LegLSubStack" node_paths=PackedStringArray("target_node", "bone_node")]
-script = ExtResource("11_3idf5")
+script = ExtResource("11_bh700")
 target_node = NodePath("../../../../../IK_Targets/FootL_Target/FootL_Lookat")
 enabled = true
 bone_node = NodePath("../../../Hip/LegL/ShinL/FootL")

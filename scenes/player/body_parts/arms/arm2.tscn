@@ -12,14 +12,14 @@
 [node name="Sprites" type="Node2D" parent="Container"]
 
 [node name="GBotArmL" type="Sprite2D" parent="Container/Sprites"]
-rotation = -0.233306
+rotation = -0.233308
 scale = Vector2(0.999997, 0.999997)
 texture = ExtResource("1_uflxy")
 offset = Vector2(11, 26)
 
 [node name="GBotForearmL" type="Sprite2D" parent="Container/Sprites"]
-position = Vector2(31.9664, 108.566)
-rotation = -1.02219
+position = Vector2(31.9665, 108.565)
+rotation = -1.02218
 scale = Vector2(0.999993, 1.00001)
 texture = ExtResource("2_iulwo")
 offset = Vector2(18, 60)
@@ -29,7 +29,7 @@ offset = Vector2(18, 60)
 [node name="Skeleton2D" type="Skeleton2D" parent="Container/Bones"]
 
 [node name="ArmL" type="Bone2D" parent="Container/Bones/Skeleton2D"]
-rotation = -0.233306
+rotation = -0.233308
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.99549, -0.0948682, 0.0948682, 0.99549, 77, -152)
 metadata/_local_pose_override_enabled_ = true
@@ -39,7 +39,7 @@ remote_path = NodePath("../../../../Sprites/GBotArmL")
 
 [node name="ForearmL" type="Bone2D" parent="Container/Bones/Skeleton2D/ArmL"]
 position = Vector2(6.00036, 113.015)
-rotation = -0.788883
+rotation = -0.788875
 scale = Vector2(0.999996, 1.00001)
 rest = Transform2D(0.998883, -0.0472458, 0.0472458, 0.998883, 6, 113)
 auto_calculate_length_and_angle = false

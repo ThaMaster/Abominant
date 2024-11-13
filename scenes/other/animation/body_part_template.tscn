@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cif22ruhnorn1"]
+[gd_scene load_steps=2 format=3 uid="uid://cif22ruhnorn1"]
+
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/soup_stack.gd" id="1_l4p1m"]
 
 [node name="BodyPartTemplate" type="Node2D"]
 
@@ -10,6 +12,9 @@
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Container/Bones"]
 
-[node name="IK_Targets" type="Node2D" parent="."]
+[node name="SoupStack" type="Node" parent="Container/Bones/Skeleton2D"]
+script = ExtResource("1_l4p1m")
+
+[node name="IK_Targets" type="Node2D" parent="Container"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
