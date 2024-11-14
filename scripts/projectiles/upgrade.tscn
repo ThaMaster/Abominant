@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4cgng3e3q80s"]
+
+[ext_resource type="Script" path="res://upgrade.gd" id="1_bewfg"]
+[ext_resource type="Texture2D" uid="uid://b6ucbdby23jdj" path="res://assets/sprites/gBot_foot_r.png" id="2_lew45"]
+[ext_resource type="Resource" uid="uid://cqyaxcg58nbau" path="res://resources/strategies/speed.tres" id="2_s5rh7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lwwfn"]
+radius = 33.0606
+
+[sub_resource type="LabelSettings" id="LabelSettings_eggfm"]
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Upgrade" type="Area2D" node_paths=PackedStringArray("upgrade_label", "sprite")]
+script = ExtResource("1_bewfg")
+upgrade_label = NodePath("UpgradeLabel")
+sprite = NodePath("Sprite2D")
+projectile_strategy = ExtResource("2_s5rh7")
+needs_update = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lwwfn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_lew45")
+
+[node name="UpgradeLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -23.0
+offset_right = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Speed"
+label_settings = SubResource("LabelSettings_eggfm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

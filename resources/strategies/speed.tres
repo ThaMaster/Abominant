@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SpeedProjectileStrategy" load_steps=3 format=3 uid="uid://cqyaxcg58nbau"]
+
+[ext_resource type="Script" path="res://scripts/projectiles/strategies/speed/speed_projectile_strategy.gd" id="1_luc5t"]
+[ext_resource type="Texture2D" uid="uid://b6ucbdby23jdj" path="res://assets/sprites/gBot_foot_r.png" id="2_du2q8"]
+
+[resource]
+script = ExtResource("1_luc5t")
+speed_increase = 3000.0
+texture = ExtResource("2_du2q8")
+upgrade_text = "Speed"

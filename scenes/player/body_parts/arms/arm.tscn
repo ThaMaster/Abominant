@@ -1,26 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnn4wqcrhsjws"]
+[gd_scene load_steps=10 format=3 uid="uid://cnn4wqcrhsjws"]
 
-[ext_resource type="Texture2D" uid="uid://d1hwtxfq3bcem" path="res://gBot_arm_l.png" id="1_lt7if"]
-[ext_resource type="Texture2D" uid="uid://bop00mruqc51j" path="res://gBot_forearm_l.png" id="2_o07q4"]
+[ext_resource type="Texture2D" uid="uid://d1hwtxfq3bcem" path="res://assets/sprites/gBot_arm_l.png" id="1_lt7if"]
+[ext_resource type="Script" path="res://scenes/player/body_parts/arms/arm.gd" id="1_p73hv"]
+[ext_resource type="Texture2D" uid="uid://bop00mruqc51j" path="res://assets/sprites/gBot_forearm_l.png" id="2_o07q4"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/soup_stack.gd" id="3_qarrx"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_two_bone_ik.gd" id="5_0o4wc"]
-
-[sub_resource type="Animation" id="Animation_n7vqd"]
-resource_name = "idle"
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Container/IK_Targets/Arm_Target:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(101, 153)]
-}
 
 [sub_resource type="Animation" id="Animation_i8tj4"]
 length = 0.001
@@ -53,6 +37,23 @@ tracks/0/keys = {
 "values": [Vector2(101, 153), Vector2(233, 0), Vector2(64, -4), Vector2(233, 0), Vector2(101, 153)]
 }
 
+[sub_resource type="Animation" id="Animation_n7vqd"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/IK_Targets/Arm_Target:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(101, 153)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_is80u"]
 _data = {
 "RESET": SubResource("Animation_i8tj4"),
@@ -61,6 +62,7 @@ _data = {
 }
 
 [node name="Arm" type="Node2D"]
+script = ExtResource("1_p73hv")
 
 [node name="Container" type="Node2D" parent="."]
 

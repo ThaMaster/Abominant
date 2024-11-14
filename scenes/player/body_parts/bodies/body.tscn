@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b4s2n7uf74kit"]
 
-[ext_resource type="Texture2D" uid="uid://cyknkxcgxjqk0" path="res://gBot_body.png" id="1_rvu8y"]
+[ext_resource type="Texture2D" uid="uid://cyknkxcgxjqk0" path="res://assets/sprites/gBot_body.png" id="1_rvu8y"]
 
 [node name="Body" type="Node2D"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bapqq8wibmguk"]
 
-[ext_resource type="Texture2D" uid="uid://dr0vnry14srdg" path="res://gBot_head.png" id="1_dpc4y"]
-[ext_resource type="Texture2D" uid="uid://b0q56uxwgbd67" path="res://gBot_jaw.png" id="2_opl4x"]
+[ext_resource type="Texture2D" uid="uid://dr0vnry14srdg" path="res://assets/sprites/gBot_head.png" id="1_dpc4y"]
+[ext_resource type="Texture2D" uid="uid://b0q56uxwgbd67" path="res://assets/sprites/gBot_jaw.png" id="2_opl4x"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/soup_stack.gd" id="3_glx64"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_look_at.gd" id="4_ehbxb"]
 

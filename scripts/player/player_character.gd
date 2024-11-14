@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 const SPEED = 600.0
 const JUMP_VELOCITY = -1000.0
@@ -26,3 +27,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
+
+func apply_upgrade(strategy: BaseProjectileStrategy):
+	get_node("PlayerBodyParts").apply_upgrade(strategy)
