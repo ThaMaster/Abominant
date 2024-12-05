@@ -1,8 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-const SPEED = 600.0
-const JUMP_VELOCITY = -1000.0
+@onready var legs: Node2D = $PlayerBodyParts/Legs
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -11,21 +10,23 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		if legs.get_child(0).has_method("get_jump_velocity"):
+			velocity.y = legs.get_child(0).get_jump_velocity()
+		else:
+			print("Error: Leg node does not have the 'get_jump_velocity' method!")
 		
-	# if velocity.x == 0 && velocity.y == 0:
-	# if velocity.x != 0:
-	# if velocity.y < 0:
-	# elif velocity.y > 0:
 	# Get the input direction and handle the movement/deceleration: -1, 0, 1
 	var direction := Input.get_axis("move_left", "move_right")
-	# if direction > 0:
-	# elif direction < 0:
+	var speed : float
+	if legs.get_child(0).has_method("get_speed"):
+		speed = legs.get_child(0).get_speed()
+	else:
+		print("Error: Leg node does not have the 'get_speed' method!")
 
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 	move_and_slide()
 
 func apply_upgrade(strategy: BaseProjectileStrategy):

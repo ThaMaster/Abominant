@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bduybbi2qchuk"]
+[gd_scene load_steps=17 format=3 uid="uid://bduybbi2qchuk"]
 
+[ext_resource type="Script" path="res://scenes/player/body_parts/legs/legs.gd" id="1_bqhpi"]
 [ext_resource type="Texture2D" uid="uid://104ks2k8segq" path="res://assets/sprites/gBot_leg_l.png" id="1_u504a"]
 [ext_resource type="Texture2D" uid="uid://cqag0chbbhfrc" path="res://assets/sprites/gBot_shin_l.png" id="2_0uft4"]
 [ext_resource type="Texture2D" uid="uid://bjvl3w1gle3s1" path="res://assets/sprites/gBot_foot_l.png" id="3_tk02t"]
@@ -550,9 +551,10 @@ _data = {
 }
 
 [node name="Legs" type="Node2D"]
+script = ExtResource("1_bqhpi")
 
 [node name="BodyPoint" type="Marker2D" parent="."]
-position = Vector2(0, -297)
+position = Vector2(0, -317)
 
 [node name="TailPoint" type="Marker2D" parent="."]
 position = Vector2(-46, -296)
@@ -579,7 +581,7 @@ offset = Vector2(16, 37)
 [node name="GBotFootL" type="Sprite2D" parent="Container/Sprites/LegL"]
 position = Vector2(62, -51)
 rotation = -0.0229847
-scale = Vector2(0.999997, 0.999998)
+scale = Vector2(0.999997, 0.999999)
 texture = ExtResource("3_tk02t")
 offset = Vector2(35, 8)
 
@@ -628,7 +630,7 @@ remote_path = NodePath("../../../../Sprites/Hip/GBotHip")
 
 [node name="LegL" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip"]
 position = Vector2(40, 37)
-rotation = -0.982446
+rotation = -0.632172
 rest = Transform2D(0.80675, -0.590893, 0.590893, 0.80675, 40, 37)
 metadata/_local_pose_override_enabled_ = true
 
@@ -637,7 +639,7 @@ remote_path = NodePath("../../../../../Sprites/LegL/GBotLegL")
 
 [node name="ShinL" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/LegL"]
 position = Vector2(-31.0012, 103.006)
-rotation = 1.47657
+rotation = 1.04245
 scale = Vector2(0.999997, 0.999999)
 rest = Transform2D(0.504111, 0.863635, -0.863637, 0.504113, -31.0012, 103.006)
 metadata/_local_pose_override_enabled_ = true
@@ -647,8 +649,7 @@ remote_path = NodePath("../../../../../../Sprites/LegL/GBotShinL")
 
 [node name="FootL" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/LegL/ShinL"]
 position = Vector2(6.99987, 111.002)
-rotation = -0.517106
-scale = Vector2(1, 1)
+rotation = -0.456758
 rest = Transform2D(0.89749, -0.441039, 0.44104, 0.897489, 6.99987, 111.002)
 auto_calculate_length_and_angle = false
 length = 68.8
@@ -660,7 +661,7 @@ remote_path = NodePath("../../../../../../../Sprites/LegL/GBotFootL")
 
 [node name="LegR" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip"]
 position = Vector2(-65, 38)
-rotation = -0.70659
+rotation = -0.31835
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.949743, -0.313021, 0.313021, 0.949743, -65, 38)
 metadata/_local_pose_override_enabled_ = true
@@ -670,7 +671,7 @@ remote_path = NodePath("../../../../../Sprites/LegR/GBotLegR")
 
 [node name="ShinR" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/LegR"]
 position = Vector2(-33.0029, 95.0155)
-rotation = 1.25905
+rotation = 0.620055
 rest = Transform2D(0.813825, 0.581113, -0.581113, 0.813825, -33.0029, 95.0155)
 metadata/_local_pose_override_enabled_ = true
 
@@ -679,7 +680,7 @@ remote_path = NodePath("../../../../../../Sprites/LegR/GBotShinR")
 
 [node name="FootR" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/LegR/ShinR"]
 position = Vector2(-10.0001, 124.002)
-rotation = -0.552464
+rotation = -0.301705
 scale = Vector2(1, 1)
 rest = Transform2D(0.954828, -0.297164, 0.297164, 0.954828, -10.0001, 124.002)
 auto_calculate_length_and_angle = false

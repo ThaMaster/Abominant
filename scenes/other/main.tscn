@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xwjgsbl62w20" path="res://scenes/player/PlayerCharacter.tscn" id="4_7ytow"]
 [ext_resource type="PackedScene" uid="uid://bwbu18qk7i5xi" path="res://scenes/enemies/test_enemy/test_enemy.tscn" id="5_m1qu2"]
 [ext_resource type="PackedScene" uid="uid://d4cgng3e3q80s" path="res://scripts/projectiles/upgrade.tscn" id="6_4esyp"]
-[ext_resource type="Resource" uid="uid://byy542otc2dxs" path="res://resources/strategies/particle.tres" id="7_ejqjv"]
+[ext_resource type="Resource" uid="uid://byy542otc2dxs" path="res://particle.tres" id="7_ejqjv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2cru"]
 texture = ExtResource("1_c67wg")
