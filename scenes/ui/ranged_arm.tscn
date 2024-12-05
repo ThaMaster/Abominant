@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjgicdsl0xws5"]
+
+[ext_resource type="Texture2D" uid="uid://c4hxfvwe1ae4m" path="res://assets/sprites/gBot_leg_r.png" id="1_4r0jc"]
+[ext_resource type="Script" path="res://scenes/ui/ranged_arm.gd" id="1_atq2v"]
+[ext_resource type="Texture2D" uid="uid://ct5tua7dlsmlr" path="res://light.png" id="2_0mg8j"]
+
+[node name="RangedArm" type="PanelContainer"]
+offset_right = 171.0
+offset_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_atq2v")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="WeaponTexture" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+texture = ExtResource("1_4r0jc")
+expand_mode = 1
+
+[node name="CooldownBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/WeaponTexture"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("2_0mg8j")
+
+[node name="AmmoBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+step = 20.0
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("1_4r0jc")

@@ -1,12 +1,13 @@
-[gd_scene load_steps=19 format=4 uid="uid://dtg23g7jho45a"]
+[gd_scene load_steps=20 format=4 uid="uid://dtg23g7jho45a"]
 
 [ext_resource type="Texture2D" uid="uid://tifro4t50dui" path="res://assets/tilesets/Scaffolding_and_BG_Parts (16 x 16).png" id="1_c67wg"]
 [ext_resource type="Texture2D" uid="uid://dqltxpjw5fd5y" path="res://assets/tilesets/Gray_Tile_Terrain (16 x 16).png" id="2_m28t3"]
 [ext_resource type="Texture2D" uid="uid://bnh304pappc3d" path="res://assets/tilesets/Brown_Tile_Terrain (16 x 16).png" id="3_fk15v"]
 [ext_resource type="PackedScene" uid="uid://xwjgsbl62w20" path="res://scenes/player/PlayerCharacter.tscn" id="4_7ytow"]
-[ext_resource type="PackedScene" uid="uid://bwbu18qk7i5xi" path="res://scenes/enemies/test_enemy/test_enemy.tscn" id="5_m1qu2"]
+[ext_resource type="PackedScene" uid="uid://bwbu18qk7i5xi" path="res://scenes/enemies/test_enemy.tscn" id="5_m1qu2"]
 [ext_resource type="PackedScene" uid="uid://d4cgng3e3q80s" path="res://scripts/projectiles/upgrade.tscn" id="6_4esyp"]
 [ext_resource type="Resource" uid="uid://byy542otc2dxs" path="res://particle.tres" id="7_ejqjv"]
+[ext_resource type="PackedScene" uid="uid://cc4i48x8mmo65" path="res://scenes/other/ui_manager.tscn" id="8_un8bg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2cru"]
 texture = ExtResource("1_c67wg")
@@ -1148,3 +1149,5 @@ needs_update = false
 position = Vector2(1273, -94)
 scale = Vector2(3, 3)
 needs_update = false
+
+[node name="SceneManager" parent="." instance=ExtResource("8_un8bg")]

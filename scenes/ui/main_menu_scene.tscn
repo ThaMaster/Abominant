@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://bm8sgkl2xiexn"]
+[gd_scene load_steps=6 format=3 uid="uid://bm8sgkl2xiexn"]
 
-[ext_resource type="Script" path="res://scenes/ui/main_menu_ui.gd" id="1_xka4p"]
+[ext_resource type="Script" path="res://scripts/ui/main_menu/main_menu_ui.gd" id="1_xka4p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nrt53"]
+font_size = 40
+font_color = Color(1, 0.0509804, 0, 1)
+
+[sub_resource type="Curve" id="Curve_uucsp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pwo6j"]
+curve = SubResource("Curve_uucsp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u883r"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(100, 1, 1)
+gravity = Vector3(0, 98, 0)
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_pwo6j")
+color = Color(1, 0.0509804, 0, 1)
 
 [node name="MainMenuScene" type="Node2D"]
 
@@ -22,35 +42,54 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/main"]
+[node name="VSplitContainer" type="VSplitContainer" parent="CanvasLayer/main"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/main/PanelContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/main/VSplitContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/main/VSplitContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Abominant"
+label_settings = SubResource("LabelSettings_nrt53")
+horizontal_alignment = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/main/VSplitContainer/PanelContainer2"]
+position = Vector2(101.5, 43.5)
+amount = 100
+amount_ratio = 0.3
+process_material = SubResource("ParticleProcessMaterial_u883r")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/main/VSplitContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/main/VSplitContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/main/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/main/VSplitContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/main/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/main/VSplitContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Main Menu"
 horizontal_alignment = 1
 
-[node name="StartGame" type="Button" parent="CanvasLayer/main/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="StartButton" type="Button" parent="CanvasLayer/main/VSplitContainer/PanelContainer/MarginContainer/VBoxContainer" groups=["Main_Menu"]]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Start Game"
 
-[node name="Options" type="Button" parent="CanvasLayer/main/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="CanvasLayer/main/VSplitContainer/PanelContainer/MarginContainer/VBoxContainer" groups=["Main_Menu"]]
 layout_mode = 2
 text = "Settings"
 
-[node name="Quit" type="Button" parent="CanvasLayer/main/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="CanvasLayer/main/VSplitContainer/PanelContainer/MarginContainer/VBoxContainer" groups=["Main_Menu"]]
 layout_mode = 2
 text = "Quit"
 
@@ -89,12 +128,12 @@ size_flags_vertical = 1
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="SettingsBackButton" type="Button" parent="CanvasLayer/settings/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="SettingsBackButton" type="Button" parent="CanvasLayer/settings/PanelContainer/MarginContainer/VBoxContainer" groups=["Main_Menu"]]
 layout_mode = 2
 text = "Back
 "
 
-[connection signal="pressed" from="CanvasLayer/main/PanelContainer/MarginContainer/VBoxContainer/StartGame" to="CanvasLayer" method="_on_start_game_pressed"]
-[connection signal="pressed" from="CanvasLayer/main/PanelContainer/MarginContainer/VBoxContainer/Options" to="CanvasLayer" method="_on_options_pressed"]
-[connection signal="pressed" from="CanvasLayer/main/PanelContainer/MarginContainer/VBoxContainer/Quit" to="CanvasLayer" method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/main/VSplitContainer/PanelContainer/MarginContainer/VBoxContainer/StartButton" to="CanvasLayer" method="_on_start_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/main/VSplitContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsButton" to="CanvasLayer" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/main/VSplitContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="CanvasLayer" method="_on_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/settings/PanelContainer/MarginContainer/VBoxContainer/SettingsBackButton" to="CanvasLayer" method="_on_settings_back_button_pressed"]

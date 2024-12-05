@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://bwbu18qk7i5xi"]
 
-[ext_resource type="Script" path="res://scenes/enemies/test_enemy/test_enemy.gd" id="1_efg20"]
-[ext_resource type="Script" path="res://scenes/enemies/test_enemy/state_machine.gd" id="2_bsm5v"]
+[ext_resource type="Script" path="res://scripts/enemies/test_enemy.gd" id="1_efg20"]
+[ext_resource type="Script" path="res://scripts/enemies/state_machine.gd" id="2_bsm5v"]
 [ext_resource type="Texture2D" uid="uid://dr0vnry14srdg" path="res://assets/sprites/gBot_head.png" id="2_mrakd"]
-[ext_resource type="Script" path="res://scenes/enemies/test_enemy/states/idle.gd" id="4_or1qu"]
-[ext_resource type="Script" path="res://scenes/enemies/test_enemy/states/follow.gd" id="5_uihig"]
+[ext_resource type="Script" path="res://scripts/enemies/states/idle.gd" id="4_or1qu"]
+[ext_resource type="Script" path="res://scripts/enemies/states/follow.gd" id="5_uihig"]
 
 [sub_resource type="SystemFont" id="SystemFont_mw88n"]
 subpixel_positioning = 0

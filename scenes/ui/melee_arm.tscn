@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmvo5lo4omj1q"]
+
+[ext_resource type="Texture2D" uid="uid://c4hxfvwe1ae4m" path="res://assets/sprites/gBot_leg_r.png" id="1_r3ype"]
+
+[node name="MeleeArm" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+texture = ExtResource("1_r3ype")
+expand_mode = 3
