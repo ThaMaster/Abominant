@@ -14,7 +14,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = legs.get_child(0).get_jump_velocity()
 		else:
 			print("Error: Leg node does not have the 'get_jump_velocity' method!")
-		
+	
 	# Get the input direction and handle the movement/deceleration: -1, 0, 1
 	var direction := Input.get_axis("move_left", "move_right")
 	var speed : float

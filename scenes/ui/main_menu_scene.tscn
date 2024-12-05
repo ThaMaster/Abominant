@@ -1,0 +1,100 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm8sgkl2xiexn"]
+
+[ext_resource type="Script" path="res://scenes/ui/main_menu_ui.gd" id="1_xka4p"]
+
+[node name="MainMenuScene" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_xka4p")
+
+[node name="main" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -91.5
+offset_right = 58.0
+offset_bottom = 91.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/main"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/main/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/main/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/main/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Main Menu"
+horizontal_alignment = 1
+
+[node name="StartGame" type="Button" parent="CanvasLayer/main/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Start Game"
+
+[node name="Options" type="Button" parent="CanvasLayer/main/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="CanvasLayer/main/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="settings" type="CenterContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -91.5
+offset_right = 56.5
+offset_bottom = 91.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/settings"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/settings/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/settings/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/settings/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="SettingsBackButton" type="Button" parent="CanvasLayer/settings/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back
+"
+
+[connection signal="pressed" from="CanvasLayer/main/PanelContainer/MarginContainer/VBoxContainer/StartGame" to="CanvasLayer" method="_on_start_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/main/PanelContainer/MarginContainer/VBoxContainer/Options" to="CanvasLayer" method="_on_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/main/PanelContainer/MarginContainer/VBoxContainer/Quit" to="CanvasLayer" method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/settings/PanelContainer/MarginContainer/VBoxContainer/SettingsBackButton" to="CanvasLayer" method="_on_settings_back_button_pressed"]
