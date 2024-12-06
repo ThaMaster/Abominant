@@ -15,7 +15,6 @@
 rotation = 0.0435808
 texture = ExtResource("1_dpc4y")
 offset = Vector2(11, -169)
-region_enabled = true
 
 [node name="GBotJaw" type="Sprite2D" parent="Container/Sprites"]
 position = Vector2(-93.7335, -31.1132)

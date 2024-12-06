@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkfa6afvslhpk"]
+
+[ext_resource type="Script" path="res://scenes/hit_effect.gd" id="1_tovvt"]
+
+[sub_resource type="Curve" id="Curve_p1lcv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6658w"]
+curve = SubResource("Curve_p1lcv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hth5e"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 250, 0)
+scale_max = 20.0
+scale_curve = SubResource("CurveTexture_6658w")
+color = Color(1, 0, 0, 1)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="Animation" id="Animation_80s5j"]
+resource_name = "Hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_itesu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wr7gm"]
+_data = {
+"Hit": SubResource("Animation_80s5j"),
+"RESET": SubResource("Animation_itesu")
+}
+
+[node name="HitEffect" type="GPUParticles2D"]
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_hth5e")
+script = ExtResource("1_tovvt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wr7gm")
+}
+autoplay = "Hit"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
