@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3vsdjvwl4h8f"]
+[gd_scene load_steps=5 format=3 uid="uid://d3vsdjvwl4h8f"]
 
-[ext_resource type="Script" path="res://scripts/projectiles/projectile.gd" id="1_piawq"]
+[ext_resource type="Script" path="res://scripts/projectiles/bullet.gd" id="1_xm82h"]
+[ext_resource type="PackedScene" uid="uid://bklovr235cc60" path="res://scenes/components/ProjectileComponent.tscn" id="2_wpej0"]
 [ext_resource type="Texture2D" uid="uid://c4hxfvwe1ae4m" path="res://assets/sprites/gBot_leg_r.png" id="2_x56jf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bv40y"]
@@ -10,7 +11,7 @@ height = 152.0
 [node name="Bullet" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 4
-script = ExtResource("1_piawq")
+script = ExtResource("1_xm82h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(75.661, -0.231762)
@@ -23,11 +24,9 @@ position = Vector2(75.661, -0.231762)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_bv40y")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="ProjectileComponent" parent="." instance=ExtResource("2_wpej0")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ProjectileComponent"]
 position = Vector2(75.661, -0.231762)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_bv40y")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

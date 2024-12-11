@@ -4,7 +4,7 @@ class_name BaseProjectileStrategy
 @export var texture : Texture2D = preload("res://assets/sprites/gBot_foot_r.png")
 @export var upgrade_text : String = "Speed"
 
-func apply_upgrade(_projectile: Projectile):
+func apply_upgrade(_projectile: ProjectileComponent):
 	# This is a placeholder that raises an error if not implemented
 	# by a subclass.
 	_unimplemented()

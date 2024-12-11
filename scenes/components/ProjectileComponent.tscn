@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bklovr235cc60"]
 
-[ext_resource type="Script" path="res://scripts/projectiles/projectile.gd" id="1_cjap7"]
+[ext_resource type="Script" path="res://scripts/components/projectile_component.gd" id="1_lmtfe"]
 
-[node name="ProjectileComponent" type="Node2D"]
-script = ExtResource("1_cjap7")
+[node name="ProjectileComponent" type="Area2D"]
+script = ExtResource("1_lmtfe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

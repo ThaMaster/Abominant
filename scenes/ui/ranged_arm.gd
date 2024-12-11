@@ -11,7 +11,7 @@ func update_ammo(max_ammo: int, current_ammo: int):
 	ammo_bar.max_value = max_ammo
 	ammo_bar.value = current_ammo
 
-func start_cooldown(reload_duration: float):
+func start_cooldown():
 	reload_time_left = reload_duration
 	cooldown_bar.max_value = reload_duration
 	cooldown_bar.value = reload_duration

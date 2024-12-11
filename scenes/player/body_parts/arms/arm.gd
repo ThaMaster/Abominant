@@ -10,9 +10,9 @@ func attack():
 	
 	get_tree().root.add_child(spawned_bullet)
 	spawned_bullet.global_position = self.global_position
-	spawned_bullet.start_pos = self.global_position
+	spawned_bullet.get_projectile_component().start_pos = self.global_position
 	spawned_bullet.rotation = mouse_direction.angle()
-	spawned_bullet.direction = mouse_direction
+	spawned_bullet.get_projectile_component().direction = mouse_direction
 	
 	for strategy in upgrades:
-		strategy.apply_upgrade(spawned_bullet)
+		strategy.apply_upgrade(spawned_bullet.get_projectile_component())
