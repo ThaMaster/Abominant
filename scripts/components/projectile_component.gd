@@ -28,7 +28,7 @@ func _on_body_entered(body: Node2D) -> void:
 			spawned_effect.global_position = global_position
 			get_tree().root.add_child(spawned_effect)
 			var hc : HurtboxComponent = body.get_node("HurtboxComponent")
-			hc.deal_damage_w_transforms(base_damage)
+			hc.deal_damage_w_transforms(damage)
 			if hits > piercing:
 				get_parent().queue_free()
 		else:

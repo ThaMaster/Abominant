@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bwbu18qk7i5xi"]
+[gd_scene load_steps=14 format=3 uid="uid://bwbu18qk7i5xi"]
 
 [ext_resource type="Script" path="res://scripts/enemies/test_enemy.gd" id="1_efg20"]
 [ext_resource type="Script" path="res://scripts/enemies/state_machine.gd" id="2_bsm5v"]
@@ -7,7 +7,15 @@
 [ext_resource type="Script" path="res://scripts/enemies/states/follow.gd" id="5_uihig"]
 [ext_resource type="PackedScene" uid="uid://brri3hdmel1c1" path="res://scenes/components/HurtboxComponent.tscn" id="6_is0t2"]
 [ext_resource type="PackedScene" uid="uid://rvsc3g52y5l4" path="res://scenes/components/HealthComponent.tscn" id="7_v7b0g"]
-[ext_resource type="Script" path="res://scripts/enemies/states/dead.gd" id="8_k8um4"]
+
+[sub_resource type="SystemFont" id="SystemFont_mw88n"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_igqcl"]
+font = SubResource("SystemFont_mw88n")
+font_size = 30
+outline_size = 25
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ck3cw"]
 radius = 156.115
@@ -50,20 +58,41 @@ _data = {
 "wander": SubResource("Animation_fgsww")
 }
 
-[sub_resource type="SystemFont" id="SystemFont_mw88n"]
-subpixel_positioning = 0
-
-[sub_resource type="LabelSettings" id="LabelSettings_igqcl"]
-font = SubResource("SystemFont_mw88n")
-font_size = 30
-outline_size = 25
-outline_color = Color(0, 0, 0, 1)
-
 [node name="TestEnemy" type="CharacterBody2D"]
 script = ExtResource("1_efg20")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_mrakd")
+
+[node name="SM" type="Node2D" parent="."]
+
+[node name="StateMachine" type="Node" parent="SM" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_bsm5v")
+initial_state = NodePath("Idle")
+show_current_state = true
+
+[node name="Idle" type="Node" parent="SM/StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("4_or1qu")
+enemy = NodePath("../../..")
+
+[node name="Follow" type="Node" parent="SM/StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_uihig")
+enemy = NodePath("../../..")
+
+[node name="DebuggingLabel" type="Label" parent="SM/StateMachine"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -729.5
+offset_top = -204.0
+offset_right = -422.5
+offset_bottom = -162.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+text = "[state-debugger-text]"
+label_settings = SubResource("LabelSettings_igqcl")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ck3cw")
@@ -82,37 +111,3 @@ shape = SubResource("CircleShape2D_ck3cw")
 
 [node name="HealthComponent" parent="." instance=ExtResource("7_v7b0g")]
 max_health = 100.0
-
-[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("2_bsm5v")
-initial_state = NodePath("Idle")
-show_current_state = true
-
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("4_or1qu")
-enemy = NodePath("../..")
-
-[node name="Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("5_uihig")
-enemy = NodePath("../..")
-
-[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("8_k8um4")
-enemy = NodePath("../..")
-
-[node name="DebuggingLabel" type="Label" parent="StateMachine"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -153.5
-offset_top = -200.0
-offset_right = 153.5
-offset_bottom = -158.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-text = "[state-debugger-text]"
-label_settings = SubResource("LabelSettings_igqcl")
-horizontal_alignment = 1

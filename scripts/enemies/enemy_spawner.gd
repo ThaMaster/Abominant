@@ -32,15 +32,11 @@ func _on_spawn_timer_timeout() -> void:
 		enemy.connect("tree_exited", _on_enemy_removed)
 
 func _on_enemy_removed():
-	# Print or debug information to confirm removal
-	print("Should remove enemy!")
-
 	# We need to find and remove the enemy that has exited the tree
 	for enemy in spawned_enemies:
 		if !enemy.is_inside_tree():
 			spawned_enemies.erase(enemy)
 			break  # Once we find the enemy, we can stop searching
-	print("Number of enemies in array: ", spawned_enemies.size())
 
 # Helper to get a random point inside the Area2D's collision shape
 func get_random_position_in_area() -> Vector2:

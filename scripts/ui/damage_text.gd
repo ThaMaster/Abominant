@@ -1,4 +1,5 @@
-class_name DamageText extends Node2D
+extends Node2D
+class_name DamageText 
 
 @onready var label: Label = $Label
 @onready var timer: Timer = $Timer

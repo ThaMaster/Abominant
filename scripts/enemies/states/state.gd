@@ -2,6 +2,8 @@ class_name State extends Node
 
 signal Transitioned
 
+var state_machine : StateMachine = get_parent()
+
 func enter():
 	pass
 

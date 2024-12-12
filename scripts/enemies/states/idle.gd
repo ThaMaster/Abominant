@@ -1,4 +1,5 @@
-class_name Idle extends EnemyState
+extends EnemyState
+class_name Idle
 
 var move_direction : Vector2
 var wander_time : float
@@ -12,10 +13,14 @@ func enter():
 	randomize_wander()
 
 func update(delta: float):
-	if wander_time > 0:
-		wander_time -= delta
+	if enemy.get_node("HealthComponent").has_died:
+		transition_to("Dead")
+		return
 	else:
-		randomize_wander()
+		if wander_time > 0:
+			wander_time -= delta
+		else:
+			randomize_wander()
 
 func physics_update(_delta: float):
 	if enemy:

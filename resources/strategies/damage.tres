@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DamageProjectileStrategy" load_steps=3 format=3 uid="uid://db5y878klsrcf"]
+
+[ext_resource type="Script" path="res://scripts/projectiles/strategies/damage/damage_projectile_strategy.gd" id="1_i18u2"]
+[ext_resource type="Texture2D" uid="uid://bjvl3w1gle3s1" path="res://assets/sprites/gBot_foot_l.png" id="2_a51qy"]
+
+[resource]
+script = ExtResource("1_i18u2")
+damage_increase = 10.0
+texture = ExtResource("2_a51qy")
+upgrade_text = "Damage"

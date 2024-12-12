@@ -1,4 +1,5 @@
-class_name DamageProjectileStrategy extends BaseProjectileStrategy
+extends BaseProjectileStrategy
+class_name DamageProjectileStrategy 
 
 @export var damage_increase : float = 5.0
 

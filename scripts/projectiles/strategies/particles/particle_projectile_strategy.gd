@@ -1,4 +1,5 @@
-class_name ParticleProjectileStrategy extends BaseProjectileStrategy
+extends BaseProjectileStrategy
+class_name ParticleProjectileStrategy
 
 var particle_scene : PackedScene = preload("res://scripts/projectiles/strategies/particles/bullet_particles.tscn")
 

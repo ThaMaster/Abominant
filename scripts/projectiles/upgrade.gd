@@ -1,5 +1,6 @@
 @tool
-class_name Upgrade extends Area2D
+extends Area2D 
+class_name Upgrade 
 
 @export var upgrade_label : Label
 @export var sprite : Sprite2D
@@ -7,8 +8,9 @@ class_name Upgrade extends Area2D
 @export var needs_update : bool
 
 func _ready() -> void:
-	sprite.texture = projectile_strategy.texture
-	upgrade_label.text = projectile_strategy.upgrade_text
+	if projectile_strategy:
+		sprite.texture = projectile_strategy.texture
+		upgrade_label.text = projectile_strategy.upgrade_text
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():

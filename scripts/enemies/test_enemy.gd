@@ -1,11 +1,5 @@
 class_name TestEnemy extends CharacterBody2D
 
-@onready var health_component: HealthComponent = $HealthComponent
-
-func _process(_delta: float) -> void:
-	if health_component.has_died:
-		queue_free()
-
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	if velocity.length() > 0:

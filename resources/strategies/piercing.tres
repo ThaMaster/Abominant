@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="PiercingStrategy" load_steps=3 format=3 uid="uid://ch6ccws2s1xqr"]
+[gd_resource type="Resource" script_class="PiercingStrategy" load_steps=3 format=3 uid="uid://dw53skpmwr8jx"]
 
 [ext_resource type="Script" path="res://scripts/projectiles/strategies/piercing/piercing.gd" id="1_odykn"]
-[ext_resource type="Texture2D" uid="uid://b0q56uxwgbd67" path="res://assets/sprites/gBot_jaw.png" id="2_cqkys"]
+[ext_resource type="Texture2D" uid="uid://cqag0chbbhfrc" path="res://assets/sprites/gBot_shin_l.png" id="2_3mhcb"]
 
 [resource]
 script = ExtResource("1_odykn")
 piercing_increase = 1
-texture = ExtResource("2_cqkys")
+texture = ExtResource("2_3mhcb")
 upgrade_text = "Piercing"

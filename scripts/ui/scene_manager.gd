@@ -1,4 +1,5 @@
 extends Node
+class_name SceneManager
 
 var is_paused: bool = false
 

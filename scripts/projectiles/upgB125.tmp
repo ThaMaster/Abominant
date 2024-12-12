@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d4cgng3e3q80s"]
 
-[ext_resource type="Script" path="res://scripts/projectiles/upgrade.gd" id="1_bewfg"]
+[ext_resource type="Script" path="res://upgrade.gd" id="1_bewfg"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sl77c"]
 size = Vector2(125, 125)
@@ -38,7 +38,5 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "#upgrade_name#"
 label_settings = SubResource("LabelSettings_eggfm")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,4 +1,5 @@
-class_name Bullet extends CharacterBody2D
+extends CharacterBody2D
+class_name Bullet 
 
 @onready var projectile_component: Node2D = $ProjectileComponent
 

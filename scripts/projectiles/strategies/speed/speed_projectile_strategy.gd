@@ -1,4 +1,5 @@
-class_name SpeedProjectileStrategy extends BaseProjectileStrategy
+extends BaseProjectileStrategy
+class_name SpeedProjectileStrategy 
 
 @export var speed_increase : float = 5.0
 

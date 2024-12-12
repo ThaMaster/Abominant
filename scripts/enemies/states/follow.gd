@@ -5,7 +5,7 @@ func enter():
 
 func physics_update(_delta: float):
 	var direction = player.global_position - enemy.global_position
-	if direction.length() > 500:
+	if direction.length() > 1000:
 		enemy.velocity = direction.normalized() * move_speed
 	else:
 		enemy.velocity = Vector2()

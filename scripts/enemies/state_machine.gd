@@ -1,9 +1,11 @@
 @tool
-class_name StateMachine extends Node
+class_name StateMachine extends Node2D
 
+@export var health_component : HealthComponent
 @export var initial_state : State
 @export var show_current_state : bool = false
-@onready var debugLabel: Label = $"../Debugger-Test"
+
+@onready var debugLabel: Label = $DebuggingLabel
 
 var current_state : State
 var states : Dictionary = {}

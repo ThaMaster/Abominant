@@ -1,4 +1,5 @@
-class_name HealthPanel extends PanelContainer
+extends PanelContainer
+class_name HealthPanel 
 
 @onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 

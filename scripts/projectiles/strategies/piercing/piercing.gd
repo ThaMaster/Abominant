@@ -1,4 +1,5 @@
-class_name PiercingStrategy extends BaseProjectileStrategy
+extends BaseProjectileStrategy
+class_name PiercingStrategy 
 
 @export var piercing_increase : int = 1
 

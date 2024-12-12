@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout=""
 
+[autoload]
+
+GameManager="*res://scripts/utilities/game_manager.gd"
+GlobalUtilities="*res://scripts/utilities/global_utilities.gd"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
