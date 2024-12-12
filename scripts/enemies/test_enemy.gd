@@ -1,11 +1,9 @@
-extends CharacterBody2D
-class_name TestEnemy
+class_name TestEnemy extends CharacterBody2D
 
 @onready var health_component: HealthComponent = $HealthComponent
 
 func _process(_delta: float) -> void:
 	if health_component.has_died:
-		print("UNIT DIED")
 		queue_free()
 
 func _physics_process(_delta: float) -> void:

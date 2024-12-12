@@ -1,5 +1,4 @@
-extends Area2D
-class_name HurtboxComponent
+class_name HurtboxComponent extends Area2D
 
 @export var health_component: HealthComponent
 @export var detect_only: bool

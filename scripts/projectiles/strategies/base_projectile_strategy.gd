@@ -1,5 +1,4 @@
-extends Resource
-class_name BaseProjectileStrategy
+class_name BaseProjectileStrategy extends Resource
 
 @export var texture : Texture2D = preload("res://assets/sprites/gBot_foot_r.png")
 @export var upgrade_text : String = "Speed"

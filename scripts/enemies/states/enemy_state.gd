@@ -1,5 +1,4 @@
-extends State
-class_name EnemyState
+class_name EnemyState extends State
 
 @export var enemy : CharacterBody2D
 @export var move_speed : float = 300.0

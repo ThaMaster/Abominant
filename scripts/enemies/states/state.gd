@@ -1,5 +1,4 @@
-extends Node
-class_name State
+class_name State extends Node
 
 signal Transitioned
 

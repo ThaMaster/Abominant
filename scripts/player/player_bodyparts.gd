@@ -31,6 +31,7 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent):
 	if event.is_action_pressed("new_head_test"):
 		equip_new_head()
+	
 	if Input.get_axis("move_left", "move_right"):
 		play_animation(body_parts["legs"], "run")
 		play_animation(body_parts["tail"], "run")
@@ -38,9 +39,9 @@ func _input(event: InputEvent):
 		play_animation(body_parts["legs"], "idle")
 		play_animation(body_parts["tail"], "idle")
 	
-	if Input.is_action_just_pressed("attack_left"):
+	if event.is_action_pressed("attack_left"):
 		body_parts["armL"].get_child(0).attack()
-	if Input.is_action_just_pressed("attack_right"):
+	if event.is_action_pressed("attack_right"):
 		body_parts["armR"].get_child(0).attack()
 
 func apply_upgrade(strategy: BaseProjectileStrategy):

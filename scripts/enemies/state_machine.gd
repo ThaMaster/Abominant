@@ -1,6 +1,5 @@
 @tool
-extends Node
-class_name StateMachine
+class_name StateMachine extends Node
 
 @export var initial_state : State
 @export var show_current_state : bool = false

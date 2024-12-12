@@ -1,5 +1,4 @@
-extends EnemyState
-class_name Idle
+class_name Idle extends EnemyState
 
 var move_direction : Vector2
 var wander_time : float

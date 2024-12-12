@@ -1,6 +1,5 @@
 @tool
-extends Area2D
-class_name Upgrade
+class_name Upgrade extends Area2D
 
 @export var upgrade_label : Label
 @export var sprite : Sprite2D

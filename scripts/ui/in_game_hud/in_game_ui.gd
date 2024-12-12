@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name InGameUI extends CanvasLayer
 
 
 # Called when the node enters the scene tree for the first time.

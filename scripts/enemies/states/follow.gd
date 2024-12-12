@@ -1,5 +1,4 @@
-extends EnemyState
-class_name Follow
+class_name Follow extends EnemyState
 
 func enter():
 	player = get_tree().get_first_node_in_group("Player")

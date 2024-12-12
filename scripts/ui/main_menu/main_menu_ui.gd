@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name MainMenuUI extends CanvasLayer
 
 @onready var main: CenterContainer = $main
 @onready var settings: CenterContainer = $settings
