@@ -1,8 +1,9 @@
-class_name EnemyState extends State
+extends State
+class_name EnemyState 
 
-@export var enemy : CharacterBody2D
-@export var move_speed : float = 300.0
-var player: CharacterBody2D
+@export var enemy : TestEnemy
+
+var player: Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

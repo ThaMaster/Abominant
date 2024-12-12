@@ -21,5 +21,5 @@ func _process(_delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		body.apply_upgrade(projectile_strategy)
-		queue_free()
+		if body.apply_upgrade(projectile_strategy):
+			queue_free()

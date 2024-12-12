@@ -24,12 +24,13 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is not Player:
 		hits += 1
 		if body.has_node("HurtboxComponent"):
-			var spawned_effect = hit_effect.instantiate()
-			spawned_effect.global_position = global_position
-			get_tree().root.add_child(spawned_effect)
-			var hc : HurtboxComponent = body.get_node("HurtboxComponent")
-			hc.deal_damage_w_transforms(damage)
-			if hits > piercing:
-				get_parent().queue_free()
+			if not body.get_node("HurtboxComponent").disabled:
+				var spawned_effect = hit_effect.instantiate()
+				spawned_effect.global_position = global_position
+				get_tree().root.add_child(spawned_effect)
+				var hc : HurtboxComponent = body.get_node("HurtboxComponent")
+				hc.deal_damage_w_transforms(damage)
+				if hits > piercing:
+					get_parent().queue_free()
 		else:
 			get_parent().queue_free()

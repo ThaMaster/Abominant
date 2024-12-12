@@ -1,5 +1,7 @@
 extends Node
 
+signal picked_up_loot
+
 # Global Random Number Generation
 var global_rng = RandomNumberGenerator.new()
 
@@ -8,6 +10,9 @@ func rand_range(min_float: float, max_float : float):
 
 func rand_int_range(min_int: int, max_int: int):
 	return global_rng.randi_range(min_int, max_int)
+
+func emit_loot_pickup(loot: LootItem):
+	picked_up_loot.emit(loot)
 
 # Used at the end of a function when children of a node must implement it. 
 func unimplemented():

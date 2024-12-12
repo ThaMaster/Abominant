@@ -1,7 +1,8 @@
 class_name HurtboxComponent extends Area2D
 
-@export var health_component: HealthComponent
-@export var detect_only: bool
+@export var health_component : HealthComponent
+@export var detect_only : bool
+@export var disabled : bool = false
 
 func can_accept_bullet_collision() -> bool:
 	if health_component and health_component.has_health_remaining:

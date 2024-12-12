@@ -29,5 +29,5 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	move_and_slide()
 
-func apply_upgrade(strategy: BaseProjectileStrategy):
-	get_node("PlayerBodyParts").apply_upgrade(strategy)
+func apply_upgrade(strategy: BaseProjectileStrategy) -> bool:
+	return get_node("PlayerBodyParts").apply_upgrade(strategy)

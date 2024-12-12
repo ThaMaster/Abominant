@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bwbu18qk7i5xi"]
+[gd_scene load_steps=15 format=3 uid="uid://bwbu18qk7i5xi"]
 
 [ext_resource type="Script" path="res://scripts/enemies/test_enemy.gd" id="1_efg20"]
 [ext_resource type="Script" path="res://scripts/enemies/state_machine.gd" id="2_bsm5v"]
@@ -8,10 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://brri3hdmel1c1" path="res://scenes/components/HurtboxComponent.tscn" id="6_is0t2"]
 [ext_resource type="PackedScene" uid="uid://rvsc3g52y5l4" path="res://scenes/components/HealthComponent.tscn" id="7_v7b0g"]
 [ext_resource type="Script" path="res://scripts/enemies/states/dead.gd" id="8_k8um4"]
-[ext_resource type="PackedScene" uid="uid://db4kihkiesybv" path="res://scenes/components/LootDropComponent.tscn" id="9_21fdx"]
-[ext_resource type="Script" path="res://scripts/components/loot/loot_item.gd" id="10_hapbr"]
-[ext_resource type="PackedScene" uid="uid://cnn4wqcrhsjws" path="res://scenes/player/body_parts/arms/arm.tscn" id="11_f5hxh"]
-[ext_resource type="Script" path="res://scripts/components/loot/bodypart_item.gd" id="11_l0cos"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ck3cw"]
 radius = 156.115
@@ -63,21 +59,11 @@ font_size = 30
 outline_size = 25
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Resource" id="Resource_u6bmw"]
-script = ExtResource("11_l0cos")
-selected_slot = 2
-item_name = "PewPew"
-drop_chance = 1.0
-loot_object = ExtResource("11_f5hxh")
-
 [node name="TestEnemy" type="CharacterBody2D"]
-collision_layer = 4
 script = ExtResource("1_efg20")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_mrakd")
-region_enabled = true
-region_rect = Rect2(-50, -50, 400, 400)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ck3cw")
@@ -89,8 +75,6 @@ libraries = {
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_is0t2")]
 position = Vector2(0.701279, 0.460957)
-collision_layer = 0
-collision_mask = 13
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
@@ -106,7 +90,6 @@ show_current_state = true
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("4_or1qu")
-move_speed = 200.0
 enemy = NodePath("../..")
 
 [node name="Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
@@ -116,9 +99,6 @@ enemy = NodePath("../..")
 [node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("8_k8um4")
 enemy = NodePath("../..")
-
-[node name="Timer" type="Timer" parent="StateMachine/Dead"]
-one_shot = true
 
 [node name="DebuggingLabel" type="Label" parent="StateMachine"]
 anchors_preset = 8
@@ -136,13 +116,3 @@ size_flags_horizontal = 4
 text = "[state-debugger-text]"
 label_settings = SubResource("LabelSettings_igqcl")
 horizontal_alignment = 1
-
-[node name="LootDropComponent" parent="." node_paths=PackedStringArray("entity_sprite") instance=ExtResource("9_21fdx")]
-loot_chance = 25.0
-loot_table = Array[ExtResource("10_hapbr")]([SubResource("Resource_u6bmw")])
-entity_sprite = NodePath("../Sprite2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LootDropComponent"]
-shape = SubResource("CircleShape2D_ck3cw")
-
-[connection signal="timeout" from="StateMachine/Dead/Timer" to="StateMachine/Dead" method="_on_timer_timeout"]

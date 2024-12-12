@@ -3,23 +3,29 @@ extends Node2D
 
 #  Dictionary that will contain all the different body parts.
 @onready var body_parts = {
-	"head": $Head, "body": $Body, "back": $Back, "armL": $ArmL, 
-	"armR": $ArmR, "legs": $Legs, "tail": $Tail 
+	"head": $Head, "body": $Body, "back": $Back, "arm_l": $ArmL, 
+	"arm_r": $ArmR, "legs": $Legs, "tail": $Tail 
 }
 
+@onready var attachment_points = {
+		"body": ["legs", "BodyPoint"],
+		"arm_l": ["body", "ArmLPoint"],
+		"arm_r": ["body", "ArmRPoint"],
+		"head": ["body", "HeadPoint"],
+		"tail": ["legs", "TailPoint"]
+}
+
+func _ready() -> void:
+	GlobalUtilities.picked_up_loot.connect(equip_new_part)
+
 # Equips a new a new body part
-func set_body_part(part_name: String, scene_path: String):
+func set_body_part(part_name: String, new_part: PackedScene):
 	if body_parts.has(part_name):
 		# Load the new scene
-		var new_part = load(scene_path).instantiate()
 		queue_free_children(body_parts[part_name])
-		body_parts[part_name].add_child(new_part)
+		body_parts[part_name].add_child(new_part.instantiate())
 	else:
 		print("Invalid body part:", part_name)
-
-# For testing
-func equip_new_head():
-	set_body_part("head", "res://scenes/player/body_parts/heads/head2.tscn")
 
 func _process(_delta: float) -> void:
 	# Code that runs only when the game is running
@@ -29,9 +35,6 @@ func _process(_delta: float) -> void:
 	align_body_parts()
 
 func _input(event: InputEvent):
-	if event.is_action_pressed("new_head_test"):
-		equip_new_head()
-	
 	if Input.get_axis("move_left", "move_right"):
 		play_animation(body_parts["legs"], "run")
 		play_animation(body_parts["tail"], "run")
@@ -39,20 +42,24 @@ func _input(event: InputEvent):
 		play_animation(body_parts["legs"], "idle")
 		play_animation(body_parts["tail"], "idle")
 	
-	if event.is_action_pressed("attack_left"):
-		body_parts["armL"].get_child(0).attack()
-	if event.is_action_pressed("attack_right"):
-		body_parts["armR"].get_child(0).attack()
+	if event.is_action_pressed("attack_left") and body_parts["arm_l"].get_child_count() != 0:
+		body_parts["arm_l"].get_child(0).attack()
+	if event.is_action_pressed("attack_right") and body_parts["arm_r"].get_child_count() != 0:
+		body_parts["arm_r"].get_child(0).attack()
 
-func apply_upgrade(strategy: BaseProjectileStrategy):
-	body_parts.get("armL").get_child(0).upgrades.append(strategy)
+func apply_upgrade(strategy: BaseProjectileStrategy) -> bool:
+	if body_parts.get("arm_l").get_child_count() != 0:
+		body_parts.get("arm_l").get_child(0).upgrades.append(strategy)
+		return true
+	else:
+		return false
 
 # Function that handles everything regarding the mouse
 func handle_mouse():
 	var mouse_pos = get_global_mouse_position()
 	body_parts["head"].look_at(mouse_pos)
-	body_parts["armL"].look_at(mouse_pos)
-	body_parts["armR"].look_at(mouse_pos)
+	body_parts["arm_l"].look_at(mouse_pos)
+	body_parts["arm_r"].look_at(mouse_pos)
 	
 	# Flip the sprite based on the mouse position relative to the player
 	if mouse_pos.x > global_position.x:
@@ -62,14 +69,18 @@ func handle_mouse():
 
 # Aligns all the body parts to corresponding body points
 func align_body_parts():
-	body_parts["body"].get_child(0).global_position = body_parts["legs"].get_child(0).get_node("BodyPoint").global_position
-	body_parts["armL"].get_child(0).global_position = body_parts["body"].get_child(0).get_node("ArmLPoint").global_position
-	body_parts["armR"].get_child(0).global_position = body_parts["body"].get_child(0).get_node("ArmRPoint").global_position
-	body_parts["head"].get_child(0).global_position = body_parts["body"].get_child(0).get_node("HeadPoint").global_position
-	body_parts["tail"].get_child(0).global_position = body_parts["legs"].get_child(0).get_node("TailPoint").global_position
-
+	# Loop through the mapping and align the body parts
+	for key in attachment_points.keys():
+		if body_parts[key].get_child_count() != 0:
+			var base_part = body_parts[attachment_points.get(key)[0]].get_child(0)
+			var point_name = attachment_points.get(key)[1]
+			var body_part = body_parts[key].get_child(0)
+			body_part.global_position = base_part.get_node(point_name).global_position
+	
 # Plays a specified animation
-func play_animation(body_part_node: Node, animation_name: String):
+func play_animation(body_part_node: Node2D, animation_name: String):
+	if not body_part_node:
+		return
 	var animator = (body_part_node.get_child(0).get_node("AnimationPlayer") as AnimationPlayer)
 	if animator.has_animation(animation_name):
 		animator.play(animation_name)
@@ -78,3 +89,8 @@ func play_animation(body_part_node: Node, animation_name: String):
 func queue_free_children(node: Node):
 	for child in node.get_children():
 		child.queue_free()
+
+func equip_new_part(bodypart: BodypartItem):
+	for key: String in body_parts.keys():
+		if key.to_lower() == bodypart.get_bodypart_string().to_lower():
+			set_body_part(key.to_lower(), bodypart.loot_object)

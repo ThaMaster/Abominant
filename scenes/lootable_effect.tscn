@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn46v70oaf0ey"]
+
+[ext_resource type="Script" path="res://scenes/hit_effect.gd" id="1_ctrdb"]
+
+[sub_resource type="Curve" id="Curve_p1lcv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6658w"]
+curve = SubResource("Curve_p1lcv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hth5e"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 119.14
+spread = 90.0
+gravity = Vector3(0, 400, 0)
+scale_max = 20.0
+scale_curve = SubResource("CurveTexture_6658w")
+color = Color(1, 0, 0, 1)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[node name="LootableEffect" type="GPUParticles2D"]
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_hth5e")
+trail_sections = 48
+trail_section_subdivisions = 199
+script = ExtResource("1_ctrdb")
