@@ -8,11 +8,11 @@ extends Node2D
 }
 
 @onready var attachment_points = {
-		"body": ["legs", "BodyPoint"],
-		"arm_l": ["body", "ArmLPoint"],
-		"arm_r": ["body", "ArmRPoint"],
-		"head": ["body", "HeadPoint"],
-		"tail": ["legs", "TailPoint"]
+	"body": ["legs", "BodyPoint"],
+	"arm_l": ["body", "ArmLPoint"],
+	"arm_r": ["body", "ArmRPoint"],
+	"head": ["body", "HeadPoint"],
+	"tail": ["legs", "TailPoint"]
 }
 
 func _ready() -> void:
@@ -34,25 +34,17 @@ func _process(_delta: float) -> void:
 	# Do this here so it will occurr even outside running the game
 	align_body_parts()
 
-func _input(event: InputEvent):
-	if Input.get_axis("move_left", "move_right"):
-		play_animation(body_parts["legs"], "run")
-		play_animation(body_parts["tail"], "run")
-	else:
-		play_animation(body_parts["legs"], "idle")
-		play_animation(body_parts["tail"], "idle")
-	
-	if event.is_action_pressed("attack_left") and body_parts["arm_l"].get_child_count() != 0:
-		body_parts["arm_l"].get_child(0).attack()
-	if event.is_action_pressed("attack_right") and body_parts["arm_r"].get_child_count() != 0:
-		body_parts["arm_r"].get_child(0).attack()
-
 func apply_upgrade(strategy: BaseProjectileStrategy) -> bool:
+	# FIX THIS
 	if body_parts.get("arm_l").get_child_count() != 0:
 		body_parts.get("arm_l").get_child(0).upgrades.append(strategy)
 		return true
 	else:
 		return false
+
+func attack(body_part: String):
+	if body_parts["arm_l"].get_child_count() != 0:
+		body_parts[body_part].get_child(0).attack()
 
 # Function that handles everything regarding the mouse
 func handle_mouse():
@@ -76,9 +68,10 @@ func align_body_parts():
 			var point_name = attachment_points.get(key)[1]
 			var body_part = body_parts[key].get_child(0)
 			body_part.global_position = base_part.get_node(point_name).global_position
-	
+
 # Plays a specified animation
-func play_animation(body_part_node: Node2D, animation_name: String):
+func play_animation(body_part: String, animation_name: String):
+	var body_part_node: Node2D = body_parts[body_part]
 	if not body_part_node:
 		return
 	var animator = (body_part_node.get_child(0).get_node("AnimationPlayer") as AnimationPlayer)
@@ -94,3 +87,20 @@ func equip_new_part(bodypart: BodypartItem):
 	for key: String in body_parts.keys():
 		if key.to_lower() == bodypart.get_bodypart_string().to_lower():
 			set_body_part(key.to_lower(), bodypart.loot_object)
+
+func switch_arms():
+	var arm_l
+	var arm_r
+	if body_parts["arm_l"].get_child_count() != 0:
+		arm_l = body_parts["arm_l"].get_child(0)
+		body_parts["arm_l"].remove_child(arm_l)
+	if body_parts["arm_r"].get_child_count() != 0:
+		arm_r = body_parts["arm_r"].get_child(0)
+		body_parts["arm_r"].remove_child(arm_r)
+	
+	if arm_l:
+		body_parts["arm_r"].add_child(arm_l)
+	if arm_r:
+		body_parts["arm_l"].add_child(arm_r)
+		
+	GlobalEventManager.emit_weapon_switched()

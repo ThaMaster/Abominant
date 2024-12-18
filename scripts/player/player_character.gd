@@ -1,7 +1,16 @@
 extends CharacterBody2D
 class_name Player
 
+@onready var player_body_parts: Node2D = $PlayerBodyParts
 @onready var legs: Node2D = $PlayerBodyParts/Legs
+
+func _process(_delta: float) -> void:
+	if Input.is_action_pressed("attack_left"):
+		player_body_parts.attack("arm_l")
+	if Input.is_action_pressed("attack_right"):
+		player_body_parts.attack("arm_r")
+	if Input.is_action_just_pressed("switch_arms"):
+		player_body_parts.switch_arms()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -25,8 +34,13 @@ func _physics_process(delta: float) -> void:
 
 	if direction:
 		velocity.x = direction * speed
+		player_body_parts.play_animation("legs", "run")
+		player_body_parts.play_animation("tail", "run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
+		player_body_parts.play_animation("legs", "idle")
+		player_body_parts.play_animation("tail", "idle")
+		
 	move_and_slide()
 
 func apply_upgrade(strategy: BaseProjectileStrategy) -> bool:

@@ -49,7 +49,6 @@ texture_under = ExtResource("2_0mg8j")
 [node name="AmmoBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-step = 20.0
 value = 100.0
 fill_mode = 3
 nine_patch_stretch = true
