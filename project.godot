@@ -23,8 +23,13 @@ buses/default_bus_layout=""
 
 GameManager="*res://scripts/utilities/game_manager.gd"
 GlobalUtilities="*res://scripts/utilities/global_utilities.gd"
+WindowManager="*res://scripts/utilities/window_manager.gd"
 ConfigFileHandler="*res://scripts/utilities/config_file_handler.gd"
 SettingsManager="*res://scripts/utilities/settings_manager.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [editor]
 

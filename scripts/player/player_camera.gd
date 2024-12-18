@@ -11,7 +11,7 @@ var camera_shake_enabled: bool
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SettingsManager.video_setting_changed.connect(_on_settings_changed)
-	camera_shake_enabled = SettingsManager.get_setting("video", "camera_shake")
+	camera_shake_enabled = SettingsManager.get_setting("camera_shake")
 	base_offset = offset
 
 func apply_shake():

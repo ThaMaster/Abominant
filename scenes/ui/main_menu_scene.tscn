@@ -35,10 +35,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -58.0
-offset_top = -91.5
-offset_right = 157.0
-offset_bottom = 123.5
+offset_left = -107.5
+offset_top = -107.5
+offset_right = 107.5
+offset_bottom = 107.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -99,17 +99,6 @@ text = "Quit"
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("2_bi5sw")]
 visible = false
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 598.0
-offset_top = 340.5
-offset_right = 598.0
-offset_bottom = 340.5
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="BackButton" type="Button" parent="CanvasLayer/SettingsMenu"]
 layout_mode = 1
@@ -119,9 +108,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -22.5
-offset_top = 220.5
+offset_top = 240.0
 offset_right = 22.5
-offset_bottom = 251.5
+offset_bottom = 271.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Back"
