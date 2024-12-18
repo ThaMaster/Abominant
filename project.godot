@@ -23,6 +23,8 @@ buses/default_bus_layout=""
 
 GameManager="*res://scripts/utilities/game_manager.gd"
 GlobalUtilities="*res://scripts/utilities/global_utilities.gd"
+ConfigFileHandler="*res://scripts/utilities/config_file_handler.gd"
+SettingsManager="*res://scripts/utilities/settings_manager.gd"
 
 [editor]
 

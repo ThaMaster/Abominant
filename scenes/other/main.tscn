@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=4 uid="uid://dtg23g7jho45a"]
+[gd_scene load_steps=26 format=4 uid="uid://dtg23g7jho45a"]
 
 [ext_resource type="Texture2D" uid="uid://tifro4t50dui" path="res://assets/tilesets/Scaffolding_and_BG_Parts (16 x 16).png" id="1_c67wg"]
+[ext_resource type="PackedScene" uid="uid://bfcdwiedddsen" path="res://scenes/player/PlayerCamera.tscn" id="2_dw00r"]
 [ext_resource type="Texture2D" uid="uid://dqltxpjw5fd5y" path="res://assets/tilesets/Gray_Tile_Terrain (16 x 16).png" id="2_m28t3"]
 [ext_resource type="Texture2D" uid="uid://bnh304pappc3d" path="res://assets/tilesets/Brown_Tile_Terrain (16 x 16).png" id="3_fk15v"]
 [ext_resource type="PackedScene" uid="uid://xwjgsbl62w20" path="res://scenes/player/PlayerCharacter.tscn" id="4_7ytow"]
@@ -1126,10 +1127,7 @@ size = Vector2(400, 400)
 [node name="Player" parent="." instance=ExtResource("4_7ytow")]
 position = Vector2(1, 1)
 
-[node name="Camera2D2" type="Camera2D" parent="Player"]
-offset = Vector2(0, -400)
-zoom = Vector2(0.25, 0.25)
-position_smoothing_enabled = true
+[node name="PlayerCamera" parent="Player" instance=ExtResource("2_dw00r")]
 
 [node name="TileMaps" type="Node" parent="."]
 
