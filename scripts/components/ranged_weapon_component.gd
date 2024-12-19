@@ -16,6 +16,8 @@ var current_ammo: int
 var can_fire: bool = true
 var is_reloading: bool = false
 
+var weapon_side: GlobalUtilities.WeaponSide
+
 func _ready() -> void:
 	current_ammo = ammo_capacity
 	fire_rate_timer.wait_time = 1 / fire_rate
@@ -36,13 +38,13 @@ func attack(upgrades: Array):
 			can_fire = false
 			fire_rate_timer.start()
 			GlobalEventManager.emit_weapon_fired()
-			GlobalEventManager.emit_weapon_ammo_changed(current_ammo, ammo_capacity)
+			GlobalEventManager.emit_weapon_ammo_changed(weapon_side, current_ammo, ammo_capacity)
 		else:
 			reload()
 
 func reload():
 	if current_ammo < ammo_capacity:
-		GlobalEventManager.emit_weapon_reloading("temp", reload_time)
+		GlobalEventManager.emit_weapon_reloading(weapon_side, reload_time)
 		is_reloading = true
 		reload_timer.start()
 
@@ -63,11 +65,20 @@ func spawn_projectile() -> CharacterBody2D:
 	projectile.get_projectile_component().direction = final_direction
 	return projectile
 
+# Function for retrieving the stats of the weapon.
+func get_stat_dictionary() -> Dictionary:
+	var stats: Dictionary
+	stats["fire_rate"] = fire_rate
+	stats["ammo_capacity"] = ammo_capacity
+	stats["projectiles_per_shot"] = projectiles_per_shot
+	stats["bullet_spread"] = bullet_spread
+	stats["reload_time"] = reload_time
+	return stats;
+
 func _on_fire_rate_timer_timeout() -> void:
 	can_fire = true
 
 func _on_reload_timer_timeout() -> void:
 	is_reloading = false
 	current_ammo = ammo_capacity
-	GlobalEventManager.emit_weapon_reloaded()
-	GlobalEventManager.emit_weapon_ammo_changed(current_ammo, ammo_capacity)
+	GlobalEventManager.emit_weapon_ammo_changed(weapon_side, current_ammo, ammo_capacity)

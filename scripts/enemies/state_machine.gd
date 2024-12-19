@@ -1,5 +1,6 @@
 @tool
-class_name StateMachine extends Node2D
+extends Node2D
+class_name StateMachine
 
 @export var health_component : HealthComponent
 @export var initial_state : State

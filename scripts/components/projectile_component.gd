@@ -1,6 +1,6 @@
 class_name ProjectileComponent extends Area2D
 
-const hit_effect = preload("res://scenes/hit_effect.tscn")
+const hit_effect = preload("res://scenes/other/hit_effect.tscn")
 
 @export var base_damage : float = 10.0
 @export var base_piercing : int = 0

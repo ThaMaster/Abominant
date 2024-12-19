@@ -1,4 +1,5 @@
-extends CanvasLayer
+extends Control
+class_name PauseMenu
 
 @onready var main: CenterContainer = $main
 @onready var settings = $SettingsMenu

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bkfa6afvslhpk"]
 
-[ext_resource type="Script" path="res://scenes/hit_effect.gd" id="1_tovvt"]
+[ext_resource type="Script" path="res://scenes/other/hit_effect.gd" id="1_tovvt"]
 
 [sub_resource type="Curve" id="Curve_p1lcv"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

@@ -1,0 +1,272 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1f0drmkeq68x"]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/settings/settings_menu.gd" id="1_2seot"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_popm6"]
+bg_color = Color(0.241156, 0.241156, 0.241156, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_a7f7b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ja64"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_te0cj"]
+font_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ho5vo"]
+bg_color = Color(0.151276, 0.151276, 0.151276, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_2seot")
+
+[node name="SettingsContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.0
+offset_top = -234.5
+offset_right = 166.0
+offset_bottom = 234.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_popm6")
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VideoLabel" type="Label" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Video"
+label_settings = SubResource("LabelSettings_a7f7b")
+
+[node name="DisplayModeOptions" type="OptionButton" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+selected = 0
+item_count = 4
+popup/item_0/text = "Windowed"
+popup/item_1/text = "Borderless Windowed"
+popup/item_1/id = 1
+popup/item_2/text = "Fullscreen"
+popup/item_2/id = 2
+popup/item_3/text = "Borderless Fullscreen"
+popup/item_3/id = 3
+
+[node name="ResolutionLabel" type="Label" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="ResolutionOptions" type="OptionButton" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+selected = 1
+item_count = 3
+popup/item_0/text = "1920x1080"
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+popup/item_2/text = "640x360"
+popup/item_2/id = 2
+
+[node name="CameraShakeCheck" type="CheckBox" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "If enabled shakes the screen if the player is performing certain actions."
+text = "Camera Shake"
+
+[node name="GameLabel" type="Label" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Game"
+
+[node name="MouseSensitivityLabel" type="Label" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mouse Sensitivity"
+label_settings = SubResource("LabelSettings_3ja64")
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MouseSensitivitySlider" type="HSlider" parent="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 100.0
+
+[node name="Control" type="Control" parent="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="AudioLabel" type="Label" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Audio
+"
+
+[node name="MasterVolume" type="Label" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Master Volume
+"
+label_settings = SubResource("LabelSettings_te0cj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MasterVolumeSlider" type="HSlider" parent="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="Control" type="Control" parent="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="MusicVolume" type="Label" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Music Volume
+"
+label_settings = SubResource("LabelSettings_te0cj")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MusicVolumeSlider" type="HSlider" parent="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="Control" type="Control" parent="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="SFXVolume" type="Label" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "SFX Volume
+"
+label_settings = SubResource("LabelSettings_te0cj")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SFXVolumeSlider" type="HSlider" parent="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="Control" type="Control" parent="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="InterfaceVolume" type="Label" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Interface Volume
+"
+label_settings = SubResource("LabelSettings_te0cj")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="InterfaceVolumeSlider" type="HSlider" parent="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="Control" type="Control" parent="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="SettingsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ApplyButton" type="Button" parent="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+disabled = true
+text = "Apply"
+
+[node name="Control2" type="Control" parent="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DefaultButton" type="Button" parent="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "Default"
+
+[node name="Control3" type="Control" parent="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TitleContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -251.0
+offset_right = 47.0
+offset_bottom = -218.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ho5vo")
+
+[node name="MarginContainer" type="MarginContainer" parent="TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="TitleContainer/MarginContainer"]
+layout_mode = 2
+text = "SETTINGS"
+
+[connection signal="item_selected" from="SettingsContainer/MarginContainer/VBoxContainer/DisplayModeOptions" to="." method="_on_display_mode_options_item_selected"]
+[connection signal="item_selected" from="SettingsContainer/MarginContainer/VBoxContainer/ResolutionOptions" to="." method="_on_resolution_options_item_selected"]
+[connection signal="toggled" from="SettingsContainer/MarginContainer/VBoxContainer/CameraShakeCheck" to="." method="_on_camera_shake_check_toggled"]
+[connection signal="drag_ended" from="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer5/MouseSensitivitySlider" to="." method="_on_mouse_sensitivity_slider_drag_ended"]
+[connection signal="drag_ended" from="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer/MasterVolumeSlider" to="." method="_on_master_volume_slider_drag_ended"]
+[connection signal="drag_ended" from="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer2/MusicVolumeSlider" to="." method="_on_music_volume_slider_drag_ended"]
+[connection signal="drag_ended" from="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer3/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_drag_ended"]
+[connection signal="drag_ended" from="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer4/InterfaceVolumeSlider" to="." method="_on_interface_volume_slider_drag_ended"]
+[connection signal="pressed" from="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer6/ApplyButton" to="." method="_on_apply_button_pressed"]
+[connection signal="pressed" from="SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer6/DefaultButton" to="." method="_on_reset_button_pressed"]

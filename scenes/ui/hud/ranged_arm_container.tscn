@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjgicdsl0xws5"]
+
+[ext_resource type="Script" path="res://scenes/ui/hud/ranged_arm_container.gd" id="1_2xdup"]
+[ext_resource type="Texture2D" uid="uid://c4hxfvwe1ae4m" path="res://assets/sprites/gBot_leg_r.png" id="2_goinh"]
+[ext_resource type="Texture2D" uid="uid://ct5tua7dlsmlr" path="res://light.png" id="3_qk8ds"]
+
+[node name="RangedArmContainer" type="PanelContainer"]
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_2xdup")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="WeaponTexture" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+texture = ExtResource("2_goinh")
+expand_mode = 1
+
+[node name="AmmoBar" type="TextureProgressBar" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("2_goinh")
+
+[node name="CooldownBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+step = 0.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = ExtResource("3_qk8ds")

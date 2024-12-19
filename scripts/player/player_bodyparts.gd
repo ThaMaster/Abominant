@@ -15,9 +15,6 @@ extends Node2D
 	"tail": ["legs", "TailPoint"]
 }
 
-func _ready() -> void:
-	GlobalUtilities.picked_up_loot.connect(equip_new_part)
-
 # Equips a new a new body part
 func set_body_part(part_name: String, new_part: PackedScene):
 	if body_parts.has(part_name):

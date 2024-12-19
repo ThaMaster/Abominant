@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://db4kihkiesybv"]
 
 [ext_resource type="Script" path="res://scripts/components/loot/loot_drop_component.gd" id="1_e5sgr"]
-[ext_resource type="PackedScene" uid="uid://cn46v70oaf0ey" path="res://scenes/lootable_effect.tscn" id="2_0kg47"]
+[ext_resource type="PackedScene" uid="uid://cn46v70oaf0ey" path="res://scenes/other/lootable_effect.tscn" id="2_0kg47"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h4ix8"]
 font_size = 50

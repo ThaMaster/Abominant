@@ -65,10 +65,10 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_u6bmw"]
 script = ExtResource("11_l0cos")
-selected_slot = 2
+selected_slot = 1
 item_name = "PewPew"
 drop_chance = 1.0
-loot_object = ExtResource("11_f5hxh")
+item_object = ExtResource("11_f5hxh")
 
 [node name="TestEnemy" type="CharacterBody2D"]
 collision_layer = 4

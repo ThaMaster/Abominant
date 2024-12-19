@@ -9,7 +9,7 @@ class_name LootDropComponent
 @export var loot_table : Array[LootItem] = []
 @export var entity_sprite : Sprite2D
 
-var dropped_loot : LootItem
+var dropped_loot : BodypartItem
 var looted : bool = false
 var player_in_area = false
 
@@ -42,7 +42,7 @@ func get_drop() -> LootItem:
 func take_loot():
 	lootable_effect.emitting = false
 	looted = true
-	GlobalUtilities.emit_loot_pickup(dropped_loot)
+	GlobalEventManager.emit_new_bodypart_found(dropped_loot)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player and lootable:

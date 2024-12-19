@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://db5y878klsrcf" path="res://resources/strategies/damage.tres" id="6_733ns"]
 [ext_resource type="Resource" uid="uid://byy542otc2dxs" path="res://resources/strategies/particle.tres" id="6_nbjax"]
 [ext_resource type="Resource" uid="uid://d1cumqc4otcj3" path="res://resources/strategies/speed.tres" id="8_26blp"]
-[ext_resource type="PackedScene" uid="uid://cc4i48x8mmo65" path="res://scenes/other/ui_manager.tscn" id="8_un8bg"]
+[ext_resource type="PackedScene" uid="uid://cc4i48x8mmo65" path="res://scenes/ui/ui_manager.tscn" id="8_un8bg"]
 [ext_resource type="Resource" uid="uid://dw53skpmwr8jx" path="res://resources/strategies/piercing.tres" id="8_yga5j"]
 [ext_resource type="PackedScene" uid="uid://dkb7lo1csyf3n" path="res://scenes/enemies/enemy_spawner.tscn" id="9_q7pw8"]
 

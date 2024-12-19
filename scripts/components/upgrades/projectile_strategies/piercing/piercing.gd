@@ -5,3 +5,9 @@ class_name PiercingStrategy
 
 func apply_upgrade(projectile : ProjectileComponent):
 	projectile.piercing += piercing_increase
+
+# Function for displaying the stats gained from the strategy in the interface.
+func get_buff_dictionary() -> Dictionary:
+	var buffs: Dictionary
+	buffs["piercing"] = piercing_increase
+	return buffs

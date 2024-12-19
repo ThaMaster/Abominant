@@ -1,12 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://snxvsd6mie3v"]
 
-[ext_resource type="Script" path="res://scenes/ui/pause_menu.gd" id="1_r316d"]
-[ext_resource type="PackedScene" uid="uid://b1f0drmkeq68x" path="res://scenes/ui/settings_menu.tscn" id="2_v1pde"]
+[ext_resource type="Script" path="res://scenes/ui/menus/pause_menu.gd" id="1_r316d"]
+[ext_resource type="PackedScene" uid="uid://b1f0drmkeq68x" path="res://scenes/ui/menus/settings/settings_menu.tscn" id="2_v1pde"]
 
-[node name="PauseMenu" type="CanvasLayer"]
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_r316d")
 
 [node name="main" type="CenterContainer" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -55,6 +58,7 @@ text = "End Run"
 
 [node name="SettingsMenu" parent="." instance=ExtResource("2_v1pde")]
 visible = false
+layout_mode = 1
 offset_left = -22.5
 offset_right = 22.5
 

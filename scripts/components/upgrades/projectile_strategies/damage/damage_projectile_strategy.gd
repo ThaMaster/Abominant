@@ -5,3 +5,9 @@ class_name DamageProjectileStrategy
 
 func apply_upgrade(projectile : ProjectileComponent):
 	projectile.damage += damage_increase
+
+# Function for displaying the stats gained from the strategy in the interface.
+func get_buff_dictionary() -> Dictionary:
+	var buffs: Dictionary
+	buffs["damage"] = damage_increase
+	return buffs

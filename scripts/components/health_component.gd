@@ -5,7 +5,7 @@ class_name HealthComponent extends Node2D
 var current_health: float 
 var current_health_percent: float = 1.0
 
-const dmg_text = preload("res://scenes/ui/damage_text.tscn")
+const dmg_text = preload("res://scenes/ui/other/damage_text.tscn")
 
 # Booleans
 var has_health_remaining: bool = true

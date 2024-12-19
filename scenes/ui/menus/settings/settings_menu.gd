@@ -1,22 +1,29 @@
 extends Control
 
 # Video Nodes
-@onready var display_mode_options: OptionButton = $MainSettings/SettingsContainer/MarginContainer/VBoxContainer/DisplayModeOptions
-@onready var resolution_options: OptionButton = $MainSettings/SettingsContainer/MarginContainer/VBoxContainer/ResolutionOptions
-@onready var camera_shake_check: CheckBox = $MainSettings/SettingsContainer/MarginContainer/VBoxContainer/CameraShakeCheck
+@onready var display_mode_options: OptionButton = $SettingsContainer/MarginContainer/VBoxContainer/DisplayModeOptions
+@onready var resolution_options: OptionButton = $SettingsContainer/MarginContainer/VBoxContainer/ResolutionOptions
+@onready var camera_shake_check: CheckBox = $SettingsContainer/MarginContainer/VBoxContainer/CameraShakeCheck
 
 # Game Nodes
-@onready var mouse_sensitivity_slider: HSlider = $MainSettings/SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer5/MouseSensitivitySlider
+@onready var mouse_sensitivity_slider: HSlider = $SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer5/MouseSensitivitySlider
 
 # Audio Nodes
-@onready var master_volume_slider: HSlider = $MainSettings/SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer/MasterVolumeSlider
-@onready var music_volume_slider: HSlider = $MainSettings/SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer2/MusicVolumeSlider
-@onready var sfx_volume_slider: HSlider = $MainSettings/SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer3/SFXVolumeSlider
-@onready var interface_volume_slider: HSlider = $MainSettings/SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer4/InterfaceVolumeSlider
-@onready var apply_button: Button = $MainSettings/SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer6/ApplyButton
-@onready var default_button: Button = $MainSettings/SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer6/DefaultButton
+@onready var master_volume_slider: HSlider = $SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer/MasterVolumeSlider
+@onready var music_volume_slider: HSlider = $SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer2/MusicVolumeSlider
+@onready var sfx_volume_slider: HSlider = $SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer3/SFXVolumeSlider
+@onready var interface_volume_slider: HSlider = $SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer4/InterfaceVolumeSlider
+@onready var apply_button: Button = $SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer6/ApplyButton
+@onready var default_button: Button = $SettingsContainer/MarginContainer/VBoxContainer/HBoxContainer6/DefaultButton
+
+# Other
+@onready var title_container: PanelContainer = $TitleContainer
+@onready var settings_container: PanelContainer = $SettingsContainer
 
 func _ready() -> void:
+	title_container.position = settings_container.position
+	title_container.position.x += settings_container.size.x/2 - title_container.size.x/2
+	title_container.position.y -= title_container.size.y/2
 	update_setting_interface()
 
 func update_setting_interface():
