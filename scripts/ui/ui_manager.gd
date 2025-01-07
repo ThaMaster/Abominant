@@ -31,9 +31,9 @@ func toggle_pause():
 	else:
 		canvas_modulate.color = Color(1, 1, 1, 1)  # Restore full brightness
 
-func _on_new_bodypart_found_event(bodypart_item: BodypartItem):
+func _on_new_bodypart_found_event(bodypart: Bodypart):
 	canvas_modulate.color = Color(0.5, 0.5, 0.5, 1.0)
-	comparison_window.init(bodypart_item)
+	comparison_window.init(bodypart)
 	comparison_window.visible = true
 
 func _on_new_bodypart_handled_event():

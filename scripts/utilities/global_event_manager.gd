@@ -3,7 +3,6 @@ extends Node
 signal new_bodypart_handled
 signal new_bodypart_found(bodypart_item: BodypartItem)
 
-signal weapon_equipped(bodypart: String, type: String, ammo_capacity: int)
 signal weapon_switched
 signal weapon_fired
 signal weapon_reloading(weapon_location: GlobalUtilities.WeaponSide, wait_time: float)
@@ -12,7 +11,7 @@ signal weapon_ammo_changed(weapon_location: GlobalUtilities.WeaponSide, current_
 func emit_new_bodypart_handled():
 	new_bodypart_handled.emit()
 
-func emit_new_bodypart_found(bodypart_item: BodypartItem):
+func emit_new_bodypart_found(bodypart_item: Bodypart):
 	new_bodypart_found.emit(bodypart_item)
 
 func emit_weapon_switched():

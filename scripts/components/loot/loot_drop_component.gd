@@ -6,8 +6,7 @@ class_name LootDropComponent
 
 @export var loot_chance : float = 0.0
 @export var lootable: bool
-@export var loot_table : Array[LootItem] = []
-@export var entity_sprite : Sprite2D
+@export var loot_table : Array[BodypartItem] = []
 
 var dropped_loot : BodypartItem
 var looted : bool = false
@@ -25,10 +24,12 @@ func _process(_delta):
 	if player_in_area and Input.is_action_just_pressed("interact"): # Replace with your 'E' input action
 		take_loot()
 
-func get_drop() -> LootItem:
+func get_drop() -> BodypartItem:
+	if loot_table.is_empty():
+		return null
 	var total_weight = 0
-	for item in loot_table:
-		total_weight += item.drop_chance
+	for loot in loot_table:
+		total_weight += loot.drop_chance
 	
 	var random_number = GlobalUtilities.rand_range(0, total_weight)
 	var cumulative_weight = 0
@@ -42,7 +43,9 @@ func get_drop() -> LootItem:
 func take_loot():
 	lootable_effect.emitting = false
 	looted = true
-	GlobalEventManager.emit_new_bodypart_found(dropped_loot)
+	var bodypart : Bodypart = dropped_loot.bodypart_scene.instantiate()
+	get_tree().root.add_child(bodypart)
+	GlobalEventManager.emit_new_bodypart_found(bodypart)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player and lootable:

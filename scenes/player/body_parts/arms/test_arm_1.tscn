@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://cnn4wqcrhsjws"]
 
-[ext_resource type="Texture2D" uid="uid://d1hwtxfq3bcem" path="res://assets/sprites/gBot_arm_l.png" id="1_lt7if"]
-[ext_resource type="Script" path="res://scenes/player/body_parts/arms/arm.gd" id="1_p73hv"]
-[ext_resource type="Texture2D" uid="uid://bop00mruqc51j" path="res://assets/sprites/gBot_forearm_l.png" id="2_o07q4"]
-[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/soup_stack.gd" id="3_qarrx"]
-[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_two_bone_ik.gd" id="5_0o4wc"]
-[ext_resource type="PackedScene" uid="uid://ci3tib2qnqg2x" path="res://scenes/components/RangedWeaponComponent.tscn" id="6_1v5oc"]
-[ext_resource type="PackedScene" uid="uid://d3vsdjvwl4h8f" path="res://scripts/projectiles/bullet.tscn" id="7_cj2uo"]
+[ext_resource type="Script" path="res://scenes/player/body_parts/arms/test_arm_1.gd" id="1_1q8dp"]
+[ext_resource type="Texture2D" uid="uid://d1hwtxfq3bcem" path="res://assets/sprites/gBot_arm_l.png" id="2_d23jc"]
+[ext_resource type="Texture2D" uid="uid://bop00mruqc51j" path="res://assets/sprites/gBot_forearm_l.png" id="3_pcvfr"]
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/soup_stack.gd" id="4_jb26f"]
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_two_bone_ik.gd" id="5_gafos"]
+[ext_resource type="PackedScene" uid="uid://ci3tib2qnqg2x" path="res://scenes/components/ranged_weapon_component.tscn" id="6_61kjb"]
+[ext_resource type="PackedScene" uid="uid://d3vsdjvwl4h8f" path="res://scripts/projectiles/bullet.tscn" id="7_4coig"]
 
 [sub_resource type="Animation" id="Animation_i8tj4"]
 length = 0.001
@@ -63,8 +63,11 @@ _data = {
 "idle": SubResource("Animation_n7vqd")
 }
 
-[node name="Arm" type="Node2D"]
-script = ExtResource("1_p73hv")
+[node name="TestArm1" type="Node2D"]
+script = ExtResource("1_1q8dp")
+bodypart_name = "TestArm1"
+bodypart_slot = 1
+bodypart_image = ExtResource("2_d23jc")
 
 [node name="Container" type="Node2D" parent="."]
 
@@ -72,13 +75,13 @@ script = ExtResource("1_p73hv")
 
 [node name="GBotArmL" type="Sprite2D" parent="Container/Sprites"]
 rotation = -0.250955
-texture = ExtResource("1_lt7if")
+texture = ExtResource("2_d23jc")
 offset = Vector2(11, 26)
 
 [node name="GBotForearmL" type="Sprite2D" parent="Container/Sprites"]
 position = Vector2(33.8732, 107.97)
 rotation = -0.777594
-texture = ExtResource("2_o07q4")
+texture = ExtResource("3_pcvfr")
 offset = Vector2(18, 60)
 
 [node name="Bones" type="Node2D" parent="Container"]
@@ -109,10 +112,10 @@ remote_path = NodePath("../../../../../Sprites/GBotForearmL")
 position = Vector2(16.2435, 79.1822)
 
 [node name="SoupStack" type="Node" parent="Container/Bones/Skeleton2D"]
-script = ExtResource("3_qarrx")
+script = ExtResource("4_jb26f")
 
 [node name="ArmIK" type="Node" parent="Container/Bones/Skeleton2D/SoupStack" node_paths=PackedStringArray("target_node", "joint_one_bone_node", "joint_two_bone_node", "chain_tip")]
-script = ExtResource("5_0o4wc")
+script = ExtResource("5_gafos")
 target_node = NodePath("../../../../IK_Targets/Arm_Target")
 enabled = true
 joint_one_bone_node = NodePath("../../ArmL")
@@ -129,9 +132,9 @@ libraries = {
 "": SubResource("AnimationLibrary_is80u")
 }
 
-[node name="RangedWeaponComponent" parent="." instance=ExtResource("6_1v5oc")]
+[node name="RangedWeaponComponent" parent="." instance=ExtResource("6_61kjb")]
 fire_rate = 10.0
 ammo_capacity = 20
 projectiles_per_shot = 5
 bullet_spread = 50.0
-projectile_scene = ExtResource("7_cj2uo")
+projectile_scene = ExtResource("7_4coig")

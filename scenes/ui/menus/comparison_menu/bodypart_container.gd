@@ -5,7 +5,6 @@ class_name BodypartContainer
 @onready var label: Label = $VBoxContainer/Label
 @onready var texture_rect: TextureRect = $VBoxContainer/TextureRect
 @onready var stat_labels_container: VBoxContainer = $VBoxContainer/StatLabelsContainer
-
 @onready var empty_label: Label = $EmptyLabel
 
 var stored_bodypart: Bodypart
@@ -15,20 +14,20 @@ func _ready() -> void:
 	label_setting = LabelSettings.new()
 	label_setting.font_size = 10
 
-func init_container(bodypart: BodypartItem):
-	label.text = bodypart.item_name
-	if bodypart.item_image:
-		texture_rect.texture = bodypart.item_image
-	stored_bodypart = bodypart.item_object.instantiate()
-	get_tree().root.add_child(stored_bodypart)
-
+func init_container(bodypart: Bodypart):
+	label.text = bodypart.bodypart_name
+	if bodypart.bodypart_image:
+		texture_rect.texture = bodypart.bodypart_image
 	# Create labels for stats dynamically
-	create_stat_labels(stored_bodypart.get_stat_dictionary())
+	create_stat_labels(bodypart.get_stat_dictionary())
 	
 	empty_label.visible = false
 	v_box_container.visible = true
+	stored_bodypart = bodypart
 
 func create_stat_labels(stats: Dictionary):
+	if not stats:
+		return
 	for i in range(stat_labels_container.get_child_count()):
 		stat_labels_container.remove_child(stat_labels_container.get_child(0))
 	

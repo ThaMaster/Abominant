@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bduybbi2qchuk"]
 
-[ext_resource type="Script" path="res://scenes/player/body_parts/legs/legs.gd" id="1_bqhpi"]
+[ext_resource type="Script" path="res://scenes/player/body_parts/legs/test_legs.gd" id="1_bqhpi"]
 [ext_resource type="Texture2D" uid="uid://104ks2k8segq" path="res://assets/sprites/gBot_leg_l.png" id="1_u504a"]
 [ext_resource type="Texture2D" uid="uid://cqag0chbbhfrc" path="res://assets/sprites/gBot_shin_l.png" id="2_0uft4"]
 [ext_resource type="Texture2D" uid="uid://bjvl3w1gle3s1" path="res://assets/sprites/gBot_foot_l.png" id="3_tk02t"]

@@ -14,19 +14,20 @@ enum WeaponSide {
 	RIGHT
 }
 
-func get_bodypart_string(selected_slot: BodypartSlot) -> String:
+func get_bodypart_string(selected_slot: BodypartSlot, side: WeaponSide = WeaponSide.NONE) -> String:
 	match selected_slot:
 		BodypartSlot.HEAD:
-			return "Head"
+			return "head"
 		BodypartSlot.ARM:
-			return "Arm"
+			var s : String = "l" if side == WeaponSide.LEFT else "r"
+			return "arm_" + s
 		BodypartSlot.BACK:
-			return "Back"
+			return "back"
 		BodypartSlot.TAIL:
-			return "Tail"
+			return "tail"
 		BodypartSlot.LEGS:
-			return "Legs"
-	return "Unknown"  # Fallback if value doesn't match
+			return "legs"
+	return "unknown"  # Fallback if value doesn't match
 
 # Global Random Number Generation
 var global_rng = RandomNumberGenerator.new()

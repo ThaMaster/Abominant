@@ -1,4 +1,5 @@
 extends Bodypart
+class_name TestArm1
 
 @onready var ranged_weapon_component: RangedWeaponComponent = $RangedWeaponComponent
 

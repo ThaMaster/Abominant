@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://g84j5n0swbk3"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/comparison_menu/comparison_window.gd" id="1_0pp7g"]
-[ext_resource type="PackedScene" uid="uid://c7xebheuu6ryc" path="res://scenes/ui/menus/comparison_menu/BodypartContainer.tscn" id="2_vocxh"]
+[ext_resource type="PackedScene" uid="uid://c7xebheuu6ryc" path="res://scenes/ui/menus/comparison_menu/bodypart_container.tscn" id="2_vocxh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8b2q"]
 bg_color = Color(0.223103, 0.223103, 0.223103, 1)
@@ -143,3 +143,7 @@ theme_override_constants/margin_bottom = 5
 [node name="Label" type="Label" parent="TitleContainer/MarginContainer"]
 layout_mode = 2
 text = "New Bodypart Found!"
+
+[connection signal="pressed" from="ComparisonWindow/MarginContainer/VBoxContainer/HBoxContainer/CurrentContainerLeft/VBoxContainer/EquipLeftButton" to="." method="_on_equip_left_button_pressed"]
+[connection signal="pressed" from="ComparisonWindow/MarginContainer/VBoxContainer/HBoxContainer/NewContainer/VBoxContainer/DiscardButton" to="." method="_on_discard_button_pressed"]
+[connection signal="pressed" from="ComparisonWindow/MarginContainer/VBoxContainer/HBoxContainer/CurrentContainerRight/VBoxContainer/EquipRightButton" to="." method="_on_equip_right_button_pressed"]

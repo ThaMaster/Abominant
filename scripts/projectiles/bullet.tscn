@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3vsdjvwl4h8f"]
 
 [ext_resource type="Script" path="res://scripts/projectiles/bullet.gd" id="1_xm82h"]
-[ext_resource type="PackedScene" uid="uid://bklovr235cc60" path="res://scenes/components/ProjectileComponent.tscn" id="2_wpej0"]
+[ext_resource type="PackedScene" uid="uid://bklovr235cc60" path="res://scenes/components/projectile_component.tscn" id="2_wpej0"]
 [ext_resource type="Texture2D" uid="uid://c4hxfvwe1ae4m" path="res://assets/sprites/gBot_leg_r.png" id="2_x56jf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bv40y"]
