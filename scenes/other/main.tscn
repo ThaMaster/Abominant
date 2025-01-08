@@ -1124,6 +1124,8 @@ size = Vector2(400, 400)
 
 [node name="NewScene" type="Node2D"]
 
+[node name="UIManager" parent="." instance=ExtResource("8_un8bg")]
+
 [node name="Player" parent="." instance=ExtResource("4_7ytow")]
 position = Vector2(1, 1)
 
@@ -1162,16 +1164,13 @@ position = Vector2(2615, -95)
 scale = Vector2(3, 3)
 projectile_strategy = ExtResource("8_yga5j")
 
-[node name="SceneManager" parent="." instance=ExtResource("8_un8bg")]
-
 [node name="EnemySpawner" parent="." instance=ExtResource("9_q7pw8")]
-position = Vector2(1763, -911)
-enemy_scene = "res://scenes/enemies/test_enemy.tscn"
-max_enemies = 5
+position = Vector2(1270, -452)
+max_enemies = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpawner"]
-position = Vector2(-191, -86)
 shape = SubResource("RectangleShape2D_gxpfh")
+disabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-2035, -694)
@@ -1181,7 +1180,7 @@ rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_3xxcq")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(551, -1616)
+position = Vector2(533, -1791)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 rotation = 3.14159

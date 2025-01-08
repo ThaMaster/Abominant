@@ -9,16 +9,18 @@
 process_mode = 3
 script = ExtResource("1_dkkn7")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
 
-[node name="InGameUI" parent="CanvasLayer" instance=ExtResource("2_5bca1")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer"]
+[node name="InGameUI" parent="CanvasLayer" instance=ExtResource("2_5bca1")]
 
-[node name="PauseMenu" parent="CanvasLayer/CanvasLayer" instance=ExtResource("3_rsy24")]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("3_rsy24")]
 visible = false
 
-[node name="ComparisonWindow" parent="CanvasLayer/CanvasLayer" instance=ExtResource("4_2nt5q")]
+[node name="ComparisonWindow" parent="CanvasLayer2" instance=ExtResource("4_2nt5q")]
 visible = false

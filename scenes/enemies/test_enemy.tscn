@@ -135,7 +135,7 @@ label_settings = SubResource("LabelSettings_igqcl")
 horizontal_alignment = 1
 
 [node name="LootDropComponent" parent="." instance=ExtResource("9_21fdx")]
-loot_chance = 25.0
+loot_chance = 100.0
 loot_table = Array[ExtResource("11_l0cos")]([SubResource("Resource_lccy4")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LootDropComponent"]

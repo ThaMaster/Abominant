@@ -20,7 +20,6 @@ func _ready() -> void:
 	comparison_window.resized.connect(adjust_title_container)
 
 func init(bodypart: Bodypart):
-	print("Before: ", comparison_window.size.y)
 	new_slot = bodypart.bodypart_slot
 	new_bodypart_container.init_container(bodypart)
 	if new_slot == GlobalUtilities.BodypartSlot.ARM:
