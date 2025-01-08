@@ -6,8 +6,7 @@ var upgrades : Array[BaseUpgradeStrategy] = []
 @export var bodypart_name : String
 @export var bodypart_slot : GlobalUtilities.BodypartSlot
 @export var bodypart_image : Texture2D
-
-var weapon_side: GlobalUtilities.WeaponSide
+@export var weapon_side: GlobalUtilities.WeaponSide
 
 func set_weapon_side(new_side: GlobalUtilities.WeaponSide):
 	weapon_side = new_side

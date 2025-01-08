@@ -36,6 +36,6 @@ func _on_new_bodypart_found_event(bodypart: Bodypart):
 	comparison_window.init(bodypart)
 	comparison_window.visible = true
 
-func _on_new_bodypart_handled_event():
+func _on_new_bodypart_handled_event(_bodypart: Bodypart):
 	canvas_modulate.color = Color(1, 1, 1, 1)
 	comparison_window.visible = false

@@ -1,6 +1,7 @@
 extends Node2D
 class_name RangedWeaponComponent
 
+@onready var weapon_bodypart : Bodypart = get_parent()
 @onready var fire_rate_timer: Timer = $FireRateTimer
 @onready var reload_timer: Timer = $ReloadTimer
 
@@ -15,8 +16,6 @@ class_name RangedWeaponComponent
 var current_ammo: int
 var can_fire: bool = true
 var is_reloading: bool = false
-
-var weapon_side: GlobalUtilities.WeaponSide
 
 func _ready() -> void:
 	current_ammo = ammo_capacity
@@ -38,13 +37,13 @@ func attack(upgrades: Array):
 			can_fire = false
 			fire_rate_timer.start()
 			GlobalEventManager.emit_weapon_fired()
-			GlobalEventManager.emit_weapon_ammo_changed(weapon_side, current_ammo, ammo_capacity)
+			GlobalEventManager.emit_weapon_ammo_changed(weapon_bodypart.weapon_side, current_ammo, ammo_capacity)
 		else:
 			reload()
 
 func reload():
 	if current_ammo < ammo_capacity:
-		GlobalEventManager.emit_weapon_reloading(weapon_side, reload_time)
+		GlobalEventManager.emit_weapon_reloading(weapon_bodypart.weapon_side, reload_time)
 		is_reloading = true
 		reload_timer.start()
 
@@ -81,4 +80,4 @@ func _on_fire_rate_timer_timeout() -> void:
 func _on_reload_timer_timeout() -> void:
 	is_reloading = false
 	current_ammo = ammo_capacity
-	GlobalEventManager.emit_weapon_ammo_changed(weapon_side, current_ammo, ammo_capacity)
+	GlobalEventManager.emit_weapon_ammo_changed(weapon_bodypart.weapon_side, current_ammo, ammo_capacity)

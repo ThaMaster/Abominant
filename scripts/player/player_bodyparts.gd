@@ -27,7 +27,7 @@ func set_bodypart(part_name: String, new_part: Bodypart):
 
 func get_bodypart(slot: GlobalUtilities.BodypartSlot, side: GlobalUtilities.WeaponSide) -> Bodypart:
 	var bodypart_string = GlobalUtilities.get_bodypart_string(slot, side)
-	if bodyparts.get(bodypart_string).get_child(0):
+	if bodyparts.get(bodypart_string).get_child_count() != 0:
 		return bodyparts.get(bodypart_string).get_child(0)
 	else:
 		return null
@@ -48,7 +48,7 @@ func apply_upgrade(strategy: BaseProjectileStrategy) -> bool:
 		return false
 
 func attack(bodypart: String):
-	if bodyparts["arm_l"].get_child_count() != 0:
+	if bodyparts[bodypart].get_child_count() != 0:
 		bodyparts[bodypart].get_child(0).attack()
 
 # Function that handles everything regarding the mouse
@@ -94,8 +94,8 @@ func equip_new_part(bodypart: Bodypart):
 			set_bodypart(key.to_lower(), bodypart)
 
 func switch_arms():
-	var arm_l
-	var arm_r
+	var arm_l : Bodypart
+	var arm_r : Bodypart
 	if bodyparts["arm_l"].get_child_count() != 0:
 		arm_l = bodyparts["arm_l"].get_child(0)
 		bodyparts["arm_l"].remove_child(arm_l)
@@ -105,7 +105,8 @@ func switch_arms():
 	
 	if arm_l:
 		bodyparts["arm_r"].add_child(arm_l)
+		arm_l.weapon_side = GlobalUtilities.WeaponSide.RIGHT
 	if arm_r:
 		bodyparts["arm_l"].add_child(arm_r)
-		
+		arm_r.weapon_side = GlobalUtilities.WeaponSide.LEFT
 	GlobalEventManager.emit_weapon_switched()

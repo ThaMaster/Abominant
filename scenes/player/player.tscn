@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://xwjgsbl62w20"]
+[gd_scene load_steps=9 format=3 uid="uid://xwjgsbl62w20"]
 
 [ext_resource type="Script" path="res://scripts/player/player_character.gd" id="1_7opnl"]
 [ext_resource type="Script" path="res://scripts/player/player_bodyparts.gd" id="2_1wx8k"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bduybbi2qchuk" path="res://scenes/player/body_parts/legs/test_legs.tscn" id="2_orjtn"]
 [ext_resource type="PackedScene" uid="uid://b4s2n7uf74kit" path="res://scenes/player/body_parts/bodies/test_body.tscn" id="4_dyi30"]
 [ext_resource type="PackedScene" uid="uid://cnn4wqcrhsjws" path="res://scenes/player/body_parts/arms/test_arm_1.tscn" id="5_p8uv8"]
-[ext_resource type="PackedScene" uid="uid://cyusot18sxn3o" path="res://scenes/player/body_parts/arms/test_arm_2.tscn" id="6_wsd7i"]
 [ext_resource type="PackedScene" uid="uid://cty0mnw07sfr2" path="res://scenes/player/body_parts/tails/test_tail.tscn" id="8_s4vqg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgv8e"]
@@ -36,14 +35,12 @@ position = Vector2(-2, -317)
 
 [node name="ArmL" type="Node2D" parent="PlayerBodyparts"]
 
-[node name="Arm" parent="PlayerBodyparts/ArmL" instance=ExtResource("5_p8uv8")]
+[node name="TestArm1" parent="PlayerBodyparts/ArmL" instance=ExtResource("5_p8uv8")]
 position = Vector2(57, -427)
+weapon_side = 1
 
 [node name="ArmR" type="Node2D" parent="PlayerBodyparts"]
 z_index = 2
-
-[node name="Arm2" parent="PlayerBodyparts/ArmR" instance=ExtResource("6_wsd7i")]
-position = Vector2(-65, -424)
 
 [node name="Legs" type="Node2D" parent="PlayerBodyparts"]
 

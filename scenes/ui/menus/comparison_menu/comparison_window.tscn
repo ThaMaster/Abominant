@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://g84j5n0swbk3"]
+[gd_scene load_steps=6 format=3 uid="uid://g84j5n0swbk3"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/comparison_menu/comparison_window.gd" id="1_0pp7g"]
 [ext_resource type="PackedScene" uid="uid://c7xebheuu6ryc" path="res://scenes/ui/menus/comparison_menu/bodypart_container.tscn" id="2_vocxh"]
@@ -16,6 +16,8 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_k1fla"]
 
 [node name="ComparisonWindow" type="Control"]
 layout_mode = 3
@@ -143,6 +145,7 @@ theme_override_constants/margin_bottom = 5
 [node name="Label" type="Label" parent="TitleContainer/MarginContainer"]
 layout_mode = 2
 text = "New Bodypart Found!"
+label_settings = SubResource("LabelSettings_k1fla")
 
 [connection signal="pressed" from="ComparisonWindow/MarginContainer/VBoxContainer/HBoxContainer/CurrentContainerLeft/VBoxContainer/EquipLeftButton" to="." method="_on_equip_left_button_pressed"]
 [connection signal="pressed" from="ComparisonWindow/MarginContainer/VBoxContainer/HBoxContainer/NewContainer/VBoxContainer/DiscardButton" to="." method="_on_discard_button_pressed"]

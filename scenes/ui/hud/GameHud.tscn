@@ -86,6 +86,21 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
 
+[node name="RangedArm" parent="RightArmPanel" instance=ExtResource("2_kw2oo")]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -202.0
+offset_top = -180.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+
 [node name="SkillPanel" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 7
