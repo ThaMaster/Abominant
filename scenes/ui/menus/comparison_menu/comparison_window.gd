@@ -21,17 +21,20 @@ func _ready() -> void:
 
 func init(bodypart: Bodypart):
 	new_slot = bodypart.bodypart_slot
+	print(GlobalUtilities.get_bodypart_string(new_slot))
 	new_bodypart_container.init_container(bodypart)
 	if new_slot == GlobalUtilities.BodypartSlot.ARM:
 		current_bodypart_container_right.visible = true
+		equip_right_button.visible = true
 		current_bodypart_container_left.init_container(bodyparts.get_bodypart(new_slot, GlobalUtilities.WeaponSide.LEFT))
 		current_bodypart_container_left.generate_stat_comparison(bodypart.get_stat_dictionary())
 		current_bodypart_container_right.init_container(bodyparts.get_bodypart(new_slot, GlobalUtilities.WeaponSide.RIGHT))
 		current_bodypart_container_right.generate_stat_comparison(bodypart.get_stat_dictionary())
 	else:
 		current_bodypart_container_right.visible = false
-		current_bodypart_container_right.init_container(bodyparts.get_bodypart(new_slot, GlobalUtilities.WeaponSide.NONE))
-		current_bodypart_container_right.generate_stat_comparison(bodypart.get_stat_dictionary())
+		equip_right_button.visible = false
+		current_bodypart_container_left.init_container(bodyparts.get_bodypart(new_slot, GlobalUtilities.WeaponSide.NONE))
+		current_bodypart_container_left.generate_stat_comparison(bodypart.get_stat_dictionary())
 
 func _on_equip_left_button_pressed() -> void:
 	var new_bodypart : Bodypart = new_bodypart_container.stored_bodypart

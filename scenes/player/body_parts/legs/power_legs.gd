@@ -1,5 +1,5 @@
 extends Bodypart
-class_name TestLegs
+class_name PowerLegs
 
 @export var speed : float = 600.0
 @export var jump_velocity : float = -1000.0

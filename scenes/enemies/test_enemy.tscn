@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bwbu18qk7i5xi"]
+[gd_scene load_steps=21 format=3 uid="uid://bwbu18qk7i5xi"]
 
 [ext_resource type="Script" path="res://scripts/enemies/test_enemy.gd" id="1_efg20"]
 [ext_resource type="Script" path="res://scripts/enemies/state_machine.gd" id="2_bsm5v"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://db4kihkiesybv" path="res://scenes/components/loot_drop_component.tscn" id="9_21fdx"]
 [ext_resource type="PackedScene" uid="uid://cnn4wqcrhsjws" path="res://scenes/player/body_parts/arms/test_arm_1.tscn" id="11_4vns3"]
 [ext_resource type="Script" path="res://scripts/components/loot/bodypart_item.gd" id="11_l0cos"]
+[ext_resource type="PackedScene" uid="uid://cnkkbmw61kofk" path="res://scenes/player/body_parts/legs/power_legs.tscn" id="12_20x6u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ck3cw"]
 radius = 156.115
@@ -64,8 +65,13 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_lccy4"]
 script = ExtResource("11_l0cos")
-drop_chance = 1.0
+drop_chance = 0.5
 bodypart_scene = ExtResource("11_4vns3")
+
+[sub_resource type="Resource" id="Resource_vc858"]
+script = ExtResource("11_l0cos")
+drop_chance = 0.5
+bodypart_scene = ExtResource("12_20x6u")
 
 [node name="TestEnemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -136,7 +142,7 @@ horizontal_alignment = 1
 
 [node name="LootDropComponent" parent="." instance=ExtResource("9_21fdx")]
 loot_chance = 100.0
-loot_table = Array[ExtResource("11_l0cos")]([SubResource("Resource_lccy4")])
+loot_table = Array[ExtResource("11_l0cos")]([SubResource("Resource_lccy4"), SubResource("Resource_vc858")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LootDropComponent"]
 shape = SubResource("CircleShape2D_ck3cw")

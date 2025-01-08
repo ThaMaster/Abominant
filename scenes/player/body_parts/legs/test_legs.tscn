@@ -550,14 +550,17 @@ _data = {
 "run": SubResource("Animation_ypvym")
 }
 
-[node name="Legs" type="Node2D"]
+[node name="TestLegs" type="Node2D"]
 script = ExtResource("1_bqhpi")
+bodypart_name = "TestLegs"
+bodypart_slot = 4
+bodypart_image = ExtResource("3_tk02t")
 
 [node name="BodyPoint" type="Marker2D" parent="."]
 position = Vector2(0, -317)
 
 [node name="TailPoint" type="Marker2D" parent="."]
-position = Vector2(-46, -296)
+position = Vector2(-51, -298)
 
 [node name="Container" type="Node2D" parent="."]
 
@@ -621,9 +624,17 @@ offset = Vector2(58.4195, -2.416)
 position = Vector2(0, -292)
 rest = Transform2D(1, 0, 0, 1, 0, -292)
 
-[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/Hip"]
+[node name="TailPointTransform" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/Hip"]
+position = Vector2(-51, -6)
+remote_path = NodePath("../../../../../TailPoint")
+update_rotation = false
+update_scale = false
+
+[node name="BodyPointTransform" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/Hip"]
 position = Vector2(0, -25)
 remote_path = NodePath("../../../../../BodyPoint")
+update_rotation = false
+update_scale = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/Hip"]
 remote_path = NodePath("../../../../Sprites/Hip/GBotHip")
@@ -681,6 +692,7 @@ remote_path = NodePath("../../../../../../Sprites/LegR/GBotShinR")
 [node name="FootR" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/LegR/ShinR"]
 position = Vector2(-10.0001, 124.002)
 rotation = -0.301705
+scale = Vector2(1, 1)
 rest = Transform2D(0.954828, -0.297164, 0.297164, 0.954828, -10.0001, 124.002)
 auto_calculate_length_and_angle = false
 length = 79.671

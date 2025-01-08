@@ -5,6 +5,33 @@
 [ext_resource type="Texture2D" uid="uid://c4hxfvwe1ae4m" path="res://assets/sprites/gBot_leg_r.png" id="2_of1ft"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_two_bone_ik.gd" id="4_7ddcm"]
 
+[sub_resource type="Animation" id="Animation_41cus"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/IK_Targets/Middle_Target:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-159, -124)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/IK_Targets/Top_Target:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-54, -261)]
+}
+
 [sub_resource type="Animation" id="Animation_eahtb"]
 resource_name = "idle"
 loop_mode = 1
@@ -32,33 +59,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-296, -215), Vector2(-113, -310), Vector2(-16, -323), Vector2(-113, -310), Vector2(-296, -215)]
-}
-
-[sub_resource type="Animation" id="Animation_41cus"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Container/IK_Targets/Middle_Target:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-159, -124)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Container/IK_Targets/Top_Target:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-54, -261)]
 }
 
 [sub_resource type="Animation" id="Animation_pv3is"]
@@ -106,31 +106,29 @@ _data = {
 [node name="LowerTail" type="Node2D" parent="Container/Sprites"]
 
 [node name="UpperLower" type="Sprite2D" parent="Container/Sprites/LowerTail"]
-position = Vector2(-108.747, 5.6673)
-rotation = 1.54836
-scale = Vector2(1, 1)
-skew = -0.0733041
+position = Vector2(-102.108, -37.8415)
+rotation = 2.19314
+skew = -0.0733037
 texture = ExtResource("1_6jr8x")
 offset = Vector2(-19.5716, 50.8729)
 
 [node name="LowerLower" type="Sprite2D" parent="Container/Sprites/LowerTail"]
-rotation = 1.21853
+rotation = 1.62551
+scale = Vector2(1, 1)
 texture = ExtResource("1_6jr8x")
 offset = Vector2(-19.5716, 50.8729)
 
 [node name="UpperTail" type="Node2D" parent="Container/Sprites/LowerTail"]
 
 [node name="LowerUpper" type="Sprite2D" parent="Container/Sprites/LowerTail/UpperTail"]
-position = Vector2(-206, -29)
-rotation = 2.17794
-scale = Vector2(1, 1)
+position = Vector2(-159, -124)
+rotation = 3.01357
 texture = ExtResource("2_of1ft")
 offset = Vector2(-15.7702, 49.9904)
 
 [node name="UpperUpper" type="Sprite2D" parent="Container/Sprites/LowerTail/UpperTail"]
-position = Vector2(-271.924, -113.63)
-rotation = 3.02914
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(-140.534, -229.935)
+rotation = -2.21305
 texture = ExtResource("2_of1ft")
 offset = Vector2(-19.0837, 46.9438)
 
@@ -139,7 +137,7 @@ offset = Vector2(-19.0837, 46.9438)
 [node name="Skeleton2D" type="Skeleton2D" parent="Container/Bones"]
 
 [node name="LowerLower" type="Bone2D" parent="Container/Bones/Skeleton2D"]
-rotation = -0.837466
+rotation = -0.430488
 rest = Transform2D(0.908762, -0.417314, 0.417314, 0.908762, 0, 0)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/LowerLower"]
@@ -148,8 +146,7 @@ remote_path = NodePath("../../../../Sprites/LowerTail/LowerLower")
 
 [node name="UpperLower" type="Bone2D" parent="Container/Bones/Skeleton2D/LowerLower"]
 position = Vector2(-77, -77)
-rotation = -0.0139989
-scale = Vector2(1, 1)
+rotation = 0.223802
 rest = Transform2D(0.975061, 0.221938, -0.221938, 0.975061, -77, -77)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/LowerLower/UpperLower"]
@@ -159,8 +156,7 @@ remote_path = NodePath("../../../../../Sprites/LowerTail/UpperLower")
 
 [node name="LowerUpper" type="Bone2D" parent="Container/Bones/Skeleton2D/LowerLower/UpperLower"]
 position = Vector2(-38, -96)
-rotation = 1.50224
-scale = Vector2(1, 1)
+rotation = 1.6931
 rest = Transform2D(-0.121998, 0.99253, -0.99253, -0.121998, -38, -96)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/LowerLower/UpperLower/LowerUpper"]
@@ -169,8 +165,7 @@ remote_path = NodePath("../../../../../../Sprites/LowerTail/UpperTail/LowerUpper
 
 [node name="UpperUpper" type="Bone2D" parent="Container/Bones/Skeleton2D/LowerLower/UpperLower/LowerUpper"]
 position = Vector2(-104.185, -28.7312)
-rotation = -0.499683
-scale = Vector2(1, 1)
+rotation = -0.29432
 rest = Transform2D(0.956999, -0.29009, 0.29009, 0.956999, -104.185, -28.7312)
 auto_calculate_length_and_angle = false
 length = 95.05
