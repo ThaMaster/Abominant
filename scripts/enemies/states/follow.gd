@@ -17,5 +17,5 @@ func physics_update(_delta: float):
 	else:
 		enemy.velocity = Vector2()
 		
-	if direction.length() > 1000:
+	if direction.length() > 2000:
 		transition_to("Idle")

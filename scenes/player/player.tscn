@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://xwjgsbl62w20"]
 
 [ext_resource type="Script" path="res://scripts/player/player_character.gd" id="1_7opnl"]
-[ext_resource type="Script" path="res://scripts/player/player_bodyparts.gd" id="2_1wx8k"]
+[ext_resource type="Script" path="res://scenes/player/body_parts/player_bodyparts.gd" id="2_1wx8k"]
 [ext_resource type="PackedScene" uid="uid://bapqq8wibmguk" path="res://scenes/player/body_parts/heads/test_head.tscn" id="2_m17s3"]
 [ext_resource type="PackedScene" uid="uid://bduybbi2qchuk" path="res://scenes/player/body_parts/legs/test_legs.tscn" id="2_orjtn"]
 [ext_resource type="PackedScene" uid="uid://b4s2n7uf74kit" path="res://scenes/player/body_parts/bodies/test_body.tscn" id="4_dyi30"]
@@ -51,7 +51,7 @@ position = Vector2(-2, 0)
 [node name="Tail" type="Node2D" parent="PlayerBodyparts"]
 
 [node name="Tail" parent="PlayerBodyparts/Tail" instance=ExtResource("8_s4vqg")]
-position = Vector2(-48, -296)
+position = Vector2(-53, -298)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -126)

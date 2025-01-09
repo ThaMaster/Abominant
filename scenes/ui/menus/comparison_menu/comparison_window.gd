@@ -21,7 +21,6 @@ func _ready() -> void:
 
 func init(bodypart: Bodypart):
 	new_slot = bodypart.bodypart_slot
-	print(GlobalUtilities.get_bodypart_string(new_slot))
 	new_bodypart_container.init_container(bodypart)
 	if new_slot == GlobalUtilities.BodypartSlot.ARM:
 		current_bodypart_container_right.visible = true

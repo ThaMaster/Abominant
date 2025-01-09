@@ -15,16 +15,8 @@ func set_weapon_side(new_side: GlobalUtilities.WeaponSide):
 func get_base_stat_dictionary() -> Dictionary:
 	var stats: Dictionary
 	for upgrade in upgrades:
-		append_stats(stats, upgrade.get_buff_dictionary())
+		GlobalUtilities.append_stats(stats, upgrade.get_buff_dictionary())
 	return stats
-
-# First input is a dictionary which you want to append the second input with.
-func append_stats(stats: Dictionary, stat_to_append: Dictionary):
-	for stat in stat_to_append:
-			if stats.has(stat): 
-				stats[stat] += stat_to_append.get(stat)
-			else:
-				stats[stat] = stat_to_append.get(stat)
 
 # Function for getting the complete stat dictionary. Must be implemented by
 # the subclases!

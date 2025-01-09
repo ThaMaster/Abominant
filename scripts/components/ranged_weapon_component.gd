@@ -67,6 +67,8 @@ func spawn_projectile() -> CharacterBody2D:
 # Function for retrieving the stats of the weapon.
 func get_stat_dictionary() -> Dictionary:
 	var stats: Dictionary
+	var pc: ProjectileComponent = projectile_scene.instantiate().get_node("ProjectileComponent")
+	GlobalUtilities.append_stats(stats, pc.get_projectile_stats())
 	stats["fire_rate"] = fire_rate
 	stats["ammo_capacity"] = ammo_capacity
 	stats["projectiles_per_shot"] = projectiles_per_shot

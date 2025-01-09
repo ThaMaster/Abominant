@@ -46,6 +46,14 @@ func to_snake_case(input: String) -> String:
 	result = result.to_lower()
 	return result
 
+# First input is a dictionary which you want to append the second input with.
+func append_stats(stats: Dictionary, stat_to_append: Dictionary):
+	for stat in stat_to_append:
+			if stats.has(stat): 
+				stats[stat] += stat_to_append.get(stat)
+			else:
+				stats[stat] = stat_to_append.get(stat)
+
 # Used at the end of a function when children of a node must implement it. 
 func unimplemented():
 	push_error("This method must be implemented by the subclass.")

@@ -146,11 +146,11 @@ bodypart_slot = 4
 bodypart_image = ExtResource("2_ci81a")
 
 [node name="BodyPoint" type="Marker2D" parent="."]
-position = Vector2(3.71899, -135.363)
+position = Vector2(-1.99999, -126)
 rotation = 0.273369
 
 [node name="TailPoint" type="Marker2D" parent="."]
-position = Vector2(-40.281, -123.363)
+position = Vector2(-46, -114)
 rotation = 0.273369
 
 [node name="Container" type="Node2D" parent="."]
@@ -163,28 +163,28 @@ rotation = 3.14159
 scale = Vector2(1, -1)
 
 [node name="GBotLegR" type="Sprite2D" parent="Container/Sprites/Leg2"]
-position = Vector2(-51.7189, 16.637)
-rotation = -0.268836
+position = Vector2(-45.9999, 26.0001)
+rotation = -0.125235
 scale = Vector2(0.999999, -0.999999)
 texture = ExtResource("1_cem28")
 offset = Vector2(-11.3919, 41.6211)
 
 [node name="GBotLegR2" type="Sprite2D" parent="Container/Sprites/Leg2"]
-position = Vector2(-108.387, -84.5794)
-rotation = -1.77511
+position = Vector2(-87.5995, -82.284)
+rotation = -1.81668
 scale = Vector2(0.999999, -0.999999)
 texture = ExtResource("1_cem28")
 offset = Vector2(-11.3919, 41.6211)
 
 [node name="GBotLegR3" type="Sprite2D" parent="Container/Sprites/Leg2"]
-position = Vector2(-194.339, -32.8484)
-rotation = -2.637
+position = Vector2(-171.328, -27.0254)
+rotation = -2.61225
 scale = Vector2(0.999999, -0.999999)
 texture = ExtResource("1_cem28")
 offset = Vector2(-11.3919, 41.6211)
 
 [node name="GBotFootR" type="Sprite2D" parent="Container/Sprites/Leg2"]
-position = Vector2(-213.84, 78.0918)
+position = Vector2(-193.568, 83.3982)
 rotation = 3.13125
 scale = Vector2(0.499999, -0.499999)
 texture = ExtResource("2_ci81a")
@@ -193,37 +193,37 @@ offset = Vector2(58.4195, -2.416)
 [node name="Hip" type="Node2D" parent="Container/Sprites"]
 
 [node name="GBotHip" type="Sprite2D" parent="Container/Sprites/Hip"]
-position = Vector2(0.718981, 0.63681)
+position = Vector2(-5, 10)
 texture = ExtResource("3_f824w")
 
 [node name="Leg" type="Node2D" parent="Container/Sprites"]
 z_index = 9
 
 [node name="GBotLegL" type="Sprite2D" parent="Container/Sprites/Leg"]
-position = Vector2(-52.8379, 11.7704)
-rotation = 2.39144
+position = Vector2(-58.4978, 21.2692)
+rotation = 2.31589
 scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("1_cem28")
 offset = Vector2(-11.3919, 41.6211)
 
 [node name="GBotLegL2" type="Sprite2D" parent="Container/Sprites/Leg"]
-position = Vector2(-102.431, -91.3133)
-rotation = 0.572008
-scale = Vector2(0.999998, 0.999998)
+position = Vector2(-115.756, -77.5435)
+rotation = 0.771056
+scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("1_cem28")
 offset = Vector2(-11.3919, 41.6211)
 
 [node name="GBotLegL3" type="Sprite2D" parent="Container/Sprites/Leg"]
-position = Vector2(-181.159, -24.8698)
-rotation = -0.510132
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(-206.009, -27.9595)
+rotation = -0.397787
+scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("1_cem28")
 offset = Vector2(-11.3919, 41.6211)
 
 [node name="GBotFootL" type="Sprite2D" parent="Container/Sprites/Leg"]
-position = Vector2(-145.292, 89.8603)
+position = Vector2(-182.929, 89.29)
 rotation = 3.11175
-scale = Vector2(0.499998, -0.499998)
+scale = Vector2(0.499999, -0.499999)
 texture = ExtResource("2_ci81a")
 offset = Vector2(58.4195, -2.416)
 
@@ -256,7 +256,7 @@ update_scale = false
 
 [node name="Leg" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip"]
 position = Vector2(-47, 24)
-rotation = -0.0461348
+rotation = -0.121694
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.957418, -0.288702, 0.288702, 0.957418, -47, 24)
 
@@ -267,7 +267,7 @@ remote_path = NodePath("../../../../../Sprites/Leg/GBotLegL")
 
 [node name="Shin_1" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/Leg"]
 position = Vector2(-74, -88)
-rotation = -0.588977
+rotation = -0.31437
 scale = Vector2(1, 1)
 rest = Transform2D(0.990293, -0.138994, 0.138994, 0.990293, -74, -88)
 
@@ -278,7 +278,7 @@ remote_path = NodePath("../../../../../../Sprites/Leg/GBotLegL2")
 
 [node name="Shin_2" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/Leg/Shin_1"]
 position = Vector2(-96, 34)
-rotation = 0.225111
+rotation = 0.138408
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.993154, 0.116808, -0.116808, 0.993154, -96, 34)
 
@@ -289,7 +289,7 @@ remote_path = NodePath("../../../../../../../Sprites/Leg/GBotLegL3")
 
 [node name="Foot" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/Leg/Shin_1/Shin_2"]
 position = Vector2(13, 116)
-rotation = -3.0348
+rotation = 3.13604
 scale = Vector2(0.5, -0.5)
 rest = Transform2D(-0.996651, -0.0817602, 0.0817602, -0.996651, 13, 116)
 auto_calculate_length_and_angle = false
@@ -302,7 +302,7 @@ remote_path = NodePath("../../../../../../../../Sprites/Leg/GBotFootL")
 
 [node name="Leg2" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip"]
 position = Vector2(53.4258, 1.63708)
-rotation = -0.250629
+rotation = -0.394229
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.97792, -0.208978, 0.208978, 0.97792, 53.4258, 1.63708)
 
@@ -312,7 +312,7 @@ remote_path = NodePath("../../../../../Sprites/Leg2/GBotLegR")
 
 [node name="Shin_1" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/Leg2"]
 position = Vector2(54.3513, -102.479)
-rotation = 0.382281
+rotation = 0.567454
 scale = Vector2(1, 1)
 rest = Transform2D(0.922862, 0.38513, -0.38513, 0.922862, 54.3513, -102.479)
 
@@ -322,7 +322,7 @@ remote_path = NodePath("../../../../../../Sprites/Leg2/GBotLegR2")
 
 [node name="Shin_2" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/Leg2/Shin_1"]
 position = Vector2(99.3828, 13.6768)
-rotation = -0.59371
+rotation = -0.660032
 scale = Vector2(1, 1)
 rest = Transform2D(0.978963, -0.204038, 0.204038, 0.978963, 99.3828, 13.6768)
 
@@ -332,7 +332,7 @@ remote_path = NodePath("../../../../../../../Sprites/Leg2/GBotLegR3")
 
 [node name="Foot" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/Leg2/Shin_1/Shin_2"]
 position = Vector2(-1.65428, 112.629)
-rotation = 0.199028
+rotation = 0.223776
 scale = Vector2(0.5, 0.5)
 rest = Transform2D(0.973598, -0.228269, 0.228269, 0.973598, -1.65428, 112.629)
 auto_calculate_length_and_angle = false
