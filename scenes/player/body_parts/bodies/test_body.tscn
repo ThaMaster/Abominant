@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cyknkxcgxjqk0" path="res://assets/sprites/gBot_body.png" id="1_rvu8y"]
 
-[node name="Body" type="Node2D"]
+[node name="TestBody" type="Node2D"]
 
 [node name="Container" type="Node2D" parent="."]
 

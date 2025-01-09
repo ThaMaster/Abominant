@@ -5,11 +5,20 @@ class_name RangedWeaponComponent
 @onready var fire_rate_timer: Timer = $FireRateTimer
 @onready var reload_timer: Timer = $ReloadTimer
 
+# Projectile Stats
+@export_range(1, 1000) var damage : float = 10.0
+@export_range(0.0, 100) var piercing : float = 0.0
+@export_range(1500, 10000) var speed : float = 1500.0
+@export_range(1000, 3000) var projectile_range : float = 3000
+
+# Weapon Stats
 @export_range(0.5, 10) var fire_rate: float = 0.5
 @export_range(1, 100) var ammo_capacity: int = 1
 @export_range(1, 50) var projectiles_per_shot: int = 1
 @export_range(0, 60) var bullet_spread: float = 0.0
 @export_range(1, 20) var reload_time: float = 1.0
+
+# Misc
 @export var projectile_scene: PackedScene
 @export var projectile_start_position : Marker2D
 
@@ -58,17 +67,21 @@ func spawn_projectile() -> CharacterBody2D:
 	var final_direction = base_direction.rotated(random_angle)
 	var projectile = projectile_scene.instantiate()
 	get_tree().root.add_child(projectile)
+	var pc: ProjectileComponent = projectile.get_projectile_component()
+	pc.init(damage, piercing, speed, projectile_range)
 	projectile.global_position = start_pos
-	projectile.get_projectile_component().start_pos = start_pos
+	pc.start_pos = start_pos
 	projectile.rotation = final_direction.angle()
-	projectile.get_projectile_component().direction = final_direction
+	pc.direction = final_direction
 	return projectile
 
 # Function for retrieving the stats of the weapon.
 func get_stat_dictionary() -> Dictionary:
 	var stats: Dictionary
-	var pc: ProjectileComponent = projectile_scene.instantiate().get_node("ProjectileComponent")
-	GlobalUtilities.append_stats(stats, pc.get_projectile_stats())
+	stats["damage"] = damage
+	stats["piercing"] = piercing
+	stats["speed"] = speed
+	stats["range"] = projectile_range
 	stats["fire_rate"] = fire_rate
 	stats["ammo_capacity"] = ammo_capacity
 	stats["projectiles_per_shot"] = projectiles_per_shot

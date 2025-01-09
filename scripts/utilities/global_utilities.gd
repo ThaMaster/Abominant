@@ -5,7 +5,7 @@ enum BodypartSlot {
 	ARM,
 	BACK, 
 	TAIL, 
-	LEGS
+	LEGS,
 }
 
 enum WeaponSide {

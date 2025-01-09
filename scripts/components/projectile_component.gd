@@ -3,15 +3,19 @@ class_name ProjectileComponent
 
 const hit_effect = preload("res://scenes/other/hit_effect.tscn")
 
-@export var damage : float = 10.0
-@export var piercing : float = 0.0
-@export var speed : float = 1500.0
-@export var projectile_range : float = 3000
-
+var damage : float
+var piercing : float
+var speed : float
+var projectile_range : float
 var hits : int
-
 var direction : Vector2
 var start_pos : Vector2
+
+func init(in_damage: float, in_piercing: float, in_speed: float, in_projectile_range: float):
+	damage = in_damage
+	piercing = in_piercing
+	speed = in_speed
+	projectile_range = in_projectile_range
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is not Player:
@@ -27,11 +31,3 @@ func _on_body_entered(body: Node2D) -> void:
 					get_parent().queue_free()
 		else:
 			get_parent().queue_free()
-
-func get_projectile_stats() -> Dictionary:
-	var stats: Dictionary
-	stats["damage"] = damage
-	stats["piercing"] = piercing
-	stats["speed"] = speed
-	stats["range"] = projectile_range
-	return stats
