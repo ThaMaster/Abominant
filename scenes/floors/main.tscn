@@ -1145,22 +1145,22 @@ tile_map_data = PackedByteArray("AAD1//3/AgAUAAQAAAD2//3/AgALAAYAAAD3//3/AgAdAAQ
 tile_set = SubResource("TileSet_irndu")
 
 [node name="Upgrade" parent="." instance=ExtResource("7_28yst")]
-position = Vector2(1273, -94)
+position = Vector2(1408, -76)
 scale = Vector2(3, 3)
 projectile_strategy = ExtResource("8_6g8a0")
 
 [node name="Upgrade2" parent="." instance=ExtResource("7_28yst")]
-position = Vector2(1808, -121)
+position = Vector2(2046, -79)
 scale = Vector2(3, 3)
 projectile_strategy = ExtResource("9_2ekel")
 
 [node name="Upgrade3" parent="." instance=ExtResource("7_28yst")]
-position = Vector2(2241, -95)
+position = Vector2(1767, -64)
 scale = Vector2(3, 3)
 projectile_strategy = ExtResource("10_o08hs")
 
 [node name="Upgrade4" parent="." instance=ExtResource("7_28yst")]
-position = Vector2(2615, -95)
+position = Vector2(2337, -72)
 scale = Vector2(3, 3)
 projectile_strategy = ExtResource("11_n6vec")
 
