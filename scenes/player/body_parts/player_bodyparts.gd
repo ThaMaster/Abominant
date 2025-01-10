@@ -16,6 +16,9 @@ class_name PlayerBodyparts
 	"tail": ["legs", "TailPoint"]
 }
 
+func get_body_center() -> Vector2:
+	return bodyparts["body"].get_child(0).global_position
+
 # Equips a new a new body part
 func set_bodypart(part_name: String, new_part: Bodypart):
 	if bodyparts.has(part_name):

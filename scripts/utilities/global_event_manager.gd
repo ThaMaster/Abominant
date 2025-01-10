@@ -1,9 +1,17 @@
 extends Node
 
+# Bodypart loot signals
 signal new_bodypart_handled(bodypart: Bodypart)
 signal new_bodypart_found(bodypart: Bodypart)
 
+# Health signals
+signal player_health_changed(current_health: float, max_health: float)
+signal player_health_depleted
+
+# Arm signals
 signal weapon_switched
+
+# Ranged arm signals
 signal weapon_fired
 signal weapon_reloading(weapon_location: GlobalUtilities.WeaponSide, wait_time: float)
 signal weapon_ammo_changed(weapon_location: GlobalUtilities.WeaponSide, current_ammo: int, max_ammo: int)
@@ -13,6 +21,12 @@ func emit_new_bodypart_handled(bodypart: Bodypart):
 
 func emit_new_bodypart_found(bodypart: Bodypart):
 	new_bodypart_found.emit(bodypart)
+
+func emit_player_health_changed_event(current_health: float, max_health: float):
+	player_health_changed.emit(current_health, max_health)
+
+func emit_player_health_depleted_event():
+	player_health_depleted.emit()
 
 func emit_weapon_switched():
 	weapon_switched.emit()

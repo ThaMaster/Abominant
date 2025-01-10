@@ -13,11 +13,20 @@ var has_health_remaining: bool = true
 var has_died: bool = false
 var is_damaged: bool = false
 
-func _ready() -> void:
+func init(init_max_health: float) -> void:
+	max_health = init_max_health
 	current_health = max_health
+	if get_parent() is Bodypart:
+		GlobalEventManager.emit_player_health_changed_event(current_health, max_health)
 
 func take_damage(damage: float, force_hide_damage: bool = false):
 	set_current_health(current_health - damage)
+	
+	if get_parent() is Bodypart:
+		GlobalEventManager.emit_player_health_changed_event(current_health, max_health)
+		if not has_health_remaining:
+			GlobalEventManager.emit_player_health_depleted_event()
+	
 	if(!force_hide_damage):
 		var spawned_text = dmg_text.instantiate()
 		get_tree().root.add_child(spawned_text)

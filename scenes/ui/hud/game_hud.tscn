@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bf470j3ornfl8"]
+[gd_scene load_steps=16 format=3 uid="uid://bf470j3ornfl8"]
 
 [ext_resource type="Script" path="res://scenes/ui/hud/game_hud.gd" id="1_hm2np"]
-[ext_resource type="Script" path="res://scenes/ui/hud/health_panel.gd" id="1_jvn6o"]
 [ext_resource type="Texture2D" uid="uid://v480ulvtwt7" path="res://icon.svg" id="2_jrp1l"]
 [ext_resource type="PackedScene" uid="uid://cjgicdsl0xws5" path="res://scenes/ui/hud/ranged_arm_container.tscn" id="2_kw2oo"]
-[ext_resource type="Texture2D" uid="uid://bop00mruqc51j" path="res://assets/sprites/gBot_forearm_l.png" id="3_fkkde"]
+[ext_resource type="PackedScene" uid="uid://bobqiits7xwd2" path="res://scenes/ui/hud/health_panel.tscn" id="4_0rfjq"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_ggil3"]
 device = -1
@@ -211,20 +210,5 @@ text = "4"
 label_settings = SubResource("LabelSettings_p76ja")
 horizontal_alignment = 1
 
-[node name="HealthPanel" type="PanelContainer" parent="."]
+[node name="HealthPanel" parent="." instance=ExtResource("4_0rfjq")]
 layout_mode = 0
-offset_right = 128.0
-offset_bottom = 128.0
-script = ExtResource("1_jvn6o")
-
-[node name="Timer" type="Timer" parent="HealthPanel"]
-wait_time = 0.05
-autostart = true
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthPanel"]
-layout_mode = 2
-nine_patch_stretch = true
-texture_under = ExtResource("2_jrp1l")
-texture_progress = ExtResource("3_fkkde")
-
-[connection signal="timeout" from="HealthPanel/Timer" to="HealthPanel" method="_on_timer_timeout"]

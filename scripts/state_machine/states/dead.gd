@@ -2,7 +2,6 @@ extends EnemyState
 class_name Dead
 
 @onready var timer: Timer = $Timer
-
 @export var removal_delay : float = 1.0
 
 var move_direction : Vector2

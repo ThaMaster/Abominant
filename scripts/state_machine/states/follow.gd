@@ -16,6 +16,7 @@ func physics_update(_delta: float):
 		enemy.velocity = direction.normalized() * move_speed
 	else:
 		enemy.velocity = Vector2()
+		enemy.get_node("RangedWeaponComponent").attack(enemy.upgrades, player.get_body_center())
 		
 	if direction.length() > 2000:
 		transition_to("Idle")

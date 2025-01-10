@@ -1,8 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://bwbu18qk7i5xi"]
+[gd_scene load_steps=23 format=3 uid="uid://bwbu18qk7i5xi"]
 
 [ext_resource type="Script" path="res://scenes/enemies/test_enemy/test_enemy.gd" id="1_efg20"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="2_bsm5v"]
 [ext_resource type="Texture2D" uid="uid://dr0vnry14srdg" path="res://assets/sprites/gBot_head.png" id="2_mrakd"]
+[ext_resource type="PackedScene" uid="uid://ci3tib2qnqg2x" path="res://scenes/components/ranged_weapon_component/ranged_weapon_component.tscn" id="2_o1d3t"]
+[ext_resource type="PackedScene" uid="uid://d3vsdjvwl4h8f" path="res://scripts/projectiles/bullet.tscn" id="3_44104"]
 [ext_resource type="Script" path="res://scripts/state_machine/states/idle.gd" id="4_or1qu"]
 [ext_resource type="Script" path="res://scripts/state_machine/states/follow.gd" id="5_uihig"]
 [ext_resource type="PackedScene" uid="uid://brri3hdmel1c1" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="6_is0t2"]
@@ -76,6 +78,14 @@ bodypart_scene = ExtResource("12_20x6u")
 [node name="TestEnemy" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_efg20")
+
+[node name="RangedWeaponComponent" parent="." node_paths=PackedStringArray("projectile_start_position") instance=ExtResource("2_o1d3t")]
+fire_rate = 1.0
+projectile_scene = ExtResource("3_44104")
+projectile_start_position = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="RangedWeaponComponent"]
+position = Vector2(154, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_mrakd")

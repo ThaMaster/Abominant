@@ -1,17 +1,14 @@
 extends PanelContainer
 class_name HealthPanel 
 
-@onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
+@onready var texture_progress_bar: TextureProgressBar = $VBoxContainer/TextureProgressBar
+@onready var label: Label = $VBoxContainer/Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	GlobalEventManager.player_health_changed.connect(_on_player_health_changed_event)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-
-func _on_timer_timeout() -> void:
-	texture_progress_bar.value += 1
+func _on_player_health_changed_event(current_health: float, max_health: float):
+	texture_progress_bar.set_max(max_health)
+	texture_progress_bar.set_value(current_health)
+	label.text = "Health: " + str(current_health) + "/" + str(max_health)

@@ -13,7 +13,7 @@ class_name Body
 @onready var health_component: HealthComponent = $HealthComponent
 
 func _ready() -> void:
-	health_component.max_health = max_health
+	health_component.init(max_health)
 
 func get_hurtbox_component() -> HurtboxComponent:
 	return hurtbox_component

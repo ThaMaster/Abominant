@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 		speed = legs.get_child(0).get_speed()
 	else:
 		print("Error: Leg node does not have the 'get_speed' method!")
-
+	
 	if direction:
 		velocity.x = direction * speed
 		player_bodyparts.play_animation("legs", "run")
@@ -39,8 +39,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		player_bodyparts.play_animation("legs", "idle")
 		player_bodyparts.play_animation("tail", "idle")
-		
+	
 	move_and_slide()
 
 func apply_upgrade(strategy: BaseProjectileStrategy) -> bool:
-	return get_node("PlayerBodyparts").apply_upgrade(strategy)
+	return player_bodyparts.apply_upgrade(strategy)
+
+func get_body_center() -> Vector2:
+	return player_bodyparts.get_body_center()
