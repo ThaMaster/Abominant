@@ -17,15 +17,15 @@ func init(init_max_health: float) -> void:
 	max_health = init_max_health
 	current_health = max_health
 	if get_parent() is Bodypart:
-		GlobalEventManager.emit_player_health_changed_event(current_health, max_health)
+		GlobalEventManager.emit_player_health_changed(current_health, max_health)
 
 func take_damage(damage: float, force_hide_damage: bool = false):
 	set_current_health(current_health - damage)
 	
 	if get_parent() is Bodypart:
-		GlobalEventManager.emit_player_health_changed_event(current_health, max_health)
+		GlobalEventManager.emit_player_health_changed(current_health, max_health)
 		if not has_health_remaining:
-			GlobalEventManager.emit_player_health_depleted_event()
+			GlobalEventManager.emit_player_health_depleted()
 	
 	if(!force_hide_damage):
 		var spawned_text = dmg_text.instantiate()

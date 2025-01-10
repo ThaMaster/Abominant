@@ -6,6 +6,7 @@ enum BodypartSlot {
 	BACK, 
 	TAIL, 
 	LEGS,
+	BODY
 }
 
 enum WeaponSide {
@@ -27,6 +28,8 @@ func get_bodypart_string(selected_slot: BodypartSlot, side: WeaponSide = WeaponS
 			return "tail"
 		BodypartSlot.LEGS:
 			return "legs"
+		BodypartSlot.BODY:
+			return "body"
 	return "unknown"  # Fallback if value doesn't match
 
 # Global Random Number Generation
@@ -55,5 +58,5 @@ func append_stats(stats: Dictionary, stat_to_append: Dictionary):
 				stats[stat] = stat_to_append.get(stat)
 
 # Used at the end of a function when children of a node must implement it. 
-func unimplemented():
-	push_error("This method must be implemented by the subclass.")
+func unimplemented(function: String = "", location: String = ""):
+	push_error("This method must be implemented by the subclass. Function: " + function + " Location: " + location)

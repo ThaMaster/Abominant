@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cty0mnw07sfr2"]
+[gd_scene load_steps=10 format=3 uid="uid://cty0mnw07sfr2"]
 
+[ext_resource type="Script" path="res://scenes/player/body_parts/tails/test_tail.gd" id="1_5l5xm"]
 [ext_resource type="Texture2D" uid="uid://104ks2k8segq" path="res://assets/sprites/gBot_leg_l.png" id="1_6jr8x"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/soup_stack.gd" id="1_d78nh"]
 [ext_resource type="Texture2D" uid="uid://c4hxfvwe1ae4m" path="res://assets/sprites/gBot_leg_r.png" id="2_of1ft"]
@@ -98,6 +99,10 @@ _data = {
 }
 
 [node name="Tail" type="Node2D"]
+script = ExtResource("1_5l5xm")
+bodypart_name = "TestTail"
+bodypart_slot = 3
+bodypart_image = ExtResource("2_of1ft")
 
 [node name="Container" type="Node2D" parent="."]
 

@@ -28,7 +28,7 @@ func set_bodypart(part_name: String, new_part: Bodypart):
 	else:
 		print("Invalid body part:", part_name)
 
-func get_bodypart(slot: GlobalUtilities.BodypartSlot, side: GlobalUtilities.WeaponSide) -> Bodypart:
+func get_bodypart(slot: GlobalUtilities.BodypartSlot, side: GlobalUtilities.WeaponSide = GlobalUtilities.WeaponSide.NONE) -> Bodypart:
 	var bodypart_string = GlobalUtilities.get_bodypart_string(slot, side)
 	if bodyparts.get(bodypart_string).get_child_count() != 0:
 		return bodyparts.get(bodypart_string).get_child(0)

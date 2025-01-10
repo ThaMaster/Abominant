@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3sv2asic80fp"]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/body_menu/bodypart_panel.gd" id="1_uuqcb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2pjeu"]
+font_size = 20
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_luipg"]
+font_size = 15
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xy60y"]
+
+[node name="BodypartPanel" type="PanelContainer"]
+offset_right = 136.0
+offset_bottom = 118.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_uuqcb")
+
+[node name="BodypartButton" type="Button" parent="."]
+layout_mode = 2
+toggle_mode = true
+
+[node name="CenterContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SlotLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "#SlotLabel#"
+label_settings = SubResource("LabelSettings_2pjeu")
+horizontal_alignment = 1
+
+[node name="EmptyLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Empty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BodypartLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "#BodypartLabel#"
+label_settings = SubResource("LabelSettings_luipg")
+horizontal_alignment = 1
+
+[node name="BodypartTexture" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = SubResource("PlaceholderTexture2D_xy60y")
+expand_mode = 1
+
+[connection signal="toggled" from="BodypartButton" to="." method="_on_bodypart_button_toggled"]

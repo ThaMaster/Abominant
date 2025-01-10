@@ -1,3 +1,95 @@
-[gd_scene format=3 uid="uid://d2aq0s8uabfth"]
+[gd_scene load_steps=6 format=3 uid="uid://d2aq0s8uabfth"]
 
-[node name="BodyMenu" type="CanvasLayer"]
+[ext_resource type="Script" path="res://scenes/ui/menus/body_menu/body_menu.gd" id="1_5i1yo"]
+[ext_resource type="PackedScene" uid="uid://bdivfsicuvmao" path="res://scenes/ui/menus/body_menu/body_menu_parts.tscn" id="2_fc2tj"]
+[ext_resource type="PackedScene" uid="uid://c2an8ts4eu1ru" path="res://scenes/ui/menus/body_menu/bodypart_info_panel.tscn" id="3_ls2ai"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_liwca"]
+bg_color = Color(0.151276, 0.151276, 0.151276, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_om8gl"]
+font_size = 30
+
+[node name="BodyMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_5i1yo")
+
+[node name="BodyMenu" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(1030, 510)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -515.0
+offset_top = -255.0
+offset_right = 515.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BodyMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BodyMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="TopContainer" type="HBoxContainer" parent="BodyMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MainContainer" type="HBoxContainer" parent="BodyMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BodyMenuParts" parent="BodyMenu/MarginContainer/VBoxContainer/MainContainer" instance=ExtResource("2_fc2tj")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="BodypartInfoPanel" parent="BodyMenu/MarginContainer/VBoxContainer/MainContainer" instance=ExtResource("3_ls2ai")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TitleContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.0
+offset_top = -284.0
+offset_right = 54.0
+offset_bottom = -251.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_liwca")
+
+[node name="MarginContainer" type="MarginContainer" parent="TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="TitleContainer/MarginContainer"]
+layout_mode = 2
+text = "Body Menu"
+label_settings = SubResource("LabelSettings_om8gl")

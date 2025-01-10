@@ -170,7 +170,7 @@ texture = ExtResource("1_cem28")
 offset = Vector2(-11.3919, 41.6211)
 
 [node name="GBotLegR2" type="Sprite2D" parent="Container/Sprites/Leg2"]
-position = Vector2(-87.5995, -82.284)
+position = Vector2(-87.5994, -82.284)
 rotation = -1.81668
 scale = Vector2(0.999999, -0.999999)
 texture = ExtResource("1_cem28")
@@ -214,7 +214,7 @@ texture = ExtResource("1_cem28")
 offset = Vector2(-11.3919, 41.6211)
 
 [node name="GBotLegL3" type="Sprite2D" parent="Container/Sprites/Leg"]
-position = Vector2(-206.009, -27.9595)
+position = Vector2(-206.009, -27.9596)
 rotation = -0.397787
 scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("1_cem28")
@@ -268,7 +268,6 @@ remote_path = NodePath("../../../../../Sprites/Leg/GBotLegL")
 [node name="Shin_1" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/Leg"]
 position = Vector2(-74, -88)
 rotation = -0.31437
-scale = Vector2(1, 1)
 rest = Transform2D(0.990293, -0.138994, 0.138994, 0.990293, -74, -88)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/Hip/Leg/Shin_1"]
@@ -313,7 +312,6 @@ remote_path = NodePath("../../../../../Sprites/Leg2/GBotLegR")
 [node name="Shin_1" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/Leg2"]
 position = Vector2(54.3513, -102.479)
 rotation = 0.567454
-scale = Vector2(1, 1)
 rest = Transform2D(0.922862, 0.38513, -0.38513, 0.922862, 54.3513, -102.479)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/Hip/Leg2/Shin_1"]
@@ -322,8 +320,7 @@ remote_path = NodePath("../../../../../../Sprites/Leg2/GBotLegR2")
 
 [node name="Shin_2" type="Bone2D" parent="Container/Bones/Skeleton2D/Hip/Leg2/Shin_1"]
 position = Vector2(99.3828, 13.6768)
-rotation = -0.660032
-scale = Vector2(1, 1)
+rotation = -0.660031
 rest = Transform2D(0.978963, -0.204038, 0.204038, 0.978963, 99.3828, 13.6768)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Container/Bones/Skeleton2D/Hip/Leg2/Shin_1/Shin_2"]

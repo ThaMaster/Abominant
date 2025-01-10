@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bapqq8wibmguk"]
+[gd_scene load_steps=6 format=3 uid="uid://bapqq8wibmguk"]
 
+[ext_resource type="Script" path="res://scenes/player/body_parts/heads/test_head.gd" id="1_brhmt"]
 [ext_resource type="Texture2D" uid="uid://dr0vnry14srdg" path="res://assets/sprites/gBot_head.png" id="1_rtq2b"]
 [ext_resource type="Texture2D" uid="uid://b0q56uxwgbd67" path="res://assets/sprites/gBot_jaw.png" id="2_iolxq"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/soup_stack.gd" id="3_x8by7"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_look_at.gd" id="4_imrjo"]
 
 [node name="TestHead" type="Node2D"]
+script = ExtResource("1_brhmt")
+bodypart_name = "TestHead"
+bodypart_image = ExtResource("1_rtq2b")
 
 [node name="Container" type="Node2D" parent="."]
 

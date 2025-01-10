@@ -1,0 +1,198 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2an8ts4eu1ru"]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/body_menu/bodypart_info_panel.gd" id="1_o3rek"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6fktu"]
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fwv6b"]
+font_size = 20
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s3rym"]
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_bi6gm"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_ntdio"]
+font_size = 12
+
+[node name="BodypartInfoPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_o3rek")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -156.0
+offset_right = 246.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="NameContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/NameContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="BodypartLabel" type="Label" parent="MarginContainer/VBoxContainer/NameContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+text = "#BodypartName#"
+label_settings = SubResource("LabelSettings_6fktu")
+horizontal_alignment = 1
+
+[node name="NoSelectionLabel" type="Label" parent="MarginContainer/VBoxContainer/NameContainer/MarginContainer"]
+layout_mode = 2
+text = "Select a bodypart to view its details..."
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="StatsContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/StatsContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="StatsLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/StatsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Stats"
+label_settings = SubResource("LabelSettings_fwv6b")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/StatsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/StatsContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StatLabelsContainerLeft" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/StatsContainer/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="StatLabelsContainerRight" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/StatsContainer/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="AbilityContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/AbilityContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/AbilityContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="AbilityLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/AbilityContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ability"
+label_settings = SubResource("LabelSettings_fwv6b")
+
+[node name="AbilityName" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/AbilityContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "#AbilityName#"
+label_settings = SubResource("LabelSettings_s3rym")
+
+[node name="AbilityText" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/AbilityContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "#AbilityText#"
+label_settings = SubResource("LabelSettings_bi6gm")
+
+[node name="InfoContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/InfoContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/InfoContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="InfoLabel" type="Label" parent="MarginContainer/VBoxContainer/InfoContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Info"
+label_settings = SubResource("LabelSettings_fwv6b")
+
+[node name="InfoText" type="Label" parent="MarginContainer/VBoxContainer/InfoContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 1
+text = "#This should be a long text that could potentially contain very long text that describes how the bodypart came about, what monsters drops them and so forth...#"
+label_settings = SubResource("LabelSettings_ntdio")
+autowrap_mode = 2
+
+[node name="ConsumeButton" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Consume!"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ConsumeButton" to="." method="_on_consume_button_pressed"]
