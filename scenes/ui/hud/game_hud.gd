@@ -1,8 +1,11 @@
 extends Control
 class_name InGameUI 
 
-@onready var ranged_arm_l: RangedArmContainer = $LeftArmPanel/RangedArm
-@onready var ranged_arm_r: RangedArmContainer = $RightArmPanel/RangedArm
+@onready var left_arm_panel: Control = $LeftArmPanel
+@onready var right_arm_panel: Control = $RightArmPanel
+
+@onready var ranged_arm_l: RangedArmContainer = $LeftArmPanel/RangedArmL
+@onready var ranged_arm_r: RangedArmContainer = $RightArmPanel/RangedArmR
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,22 +30,16 @@ func _on_new_bodypart_handled_event(bodypart: Bodypart):
 		elif bodypart.has_node("MeleeWeaponComponent"):
 			pass
 
-# FIX THIS SHEITY SWITCH THING
 func _on_weapon_swtiched_event():
-	pass
-	#var arm_l : WeaponContainer
-	#var arm_r : WeaponContainer
-	#if left_ranged_arm_panel.visible:
-		#arm_l = left_ranged_arm_panel
-		#left_ranged_arm_panel.remove_child(arm_l)
-	#if right_ranged_arm_panel.visible:
-		#arm_r = right_ranged_arm_panel
-		#right_ranged_arm_panel.remove_child(arm_r)
-	#if arm_l:
-		#right_ranged_arm_panel.add_child(arm_l)
-		#arm_l.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
-		#arm_l.set_weapon_side(GlobalUtilities.WeaponSide.RIGHT)
-	#if arm_r:
-		#left_ranged_arm_panel.add_child(arm_r)
-		#arm_r.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
-		#arm_r.set_weapon_side(GlobalUtilities.WeaponSide.LEFT)
+	var arms_l : Array[Node] = left_arm_panel.get_children()
+	var arms_r : Array[Node] = right_arm_panel.get_children()
+	
+	for node in arms_l:
+		left_arm_panel.remove_child(node)
+		right_arm_panel.add_child(node)
+		node.set_weapon_side(GlobalUtilities.WeaponSide.RIGHT)
+	for node in arms_r:
+		right_arm_panel.remove_child(node)
+		left_arm_panel.add_child(node)
+		node.set_weapon_side(GlobalUtilities.WeaponSide.LEFT)
+	
