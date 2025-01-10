@@ -5,7 +5,7 @@ class_name MainMenuUI
 @onready var settings = $SettingsMenu
 
 func _on_start_game_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/other/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/floors/main.tscn")
 
 func _on_settings_button_pressed() -> void:
 	main.visible = false
