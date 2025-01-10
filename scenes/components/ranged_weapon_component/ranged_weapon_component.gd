@@ -68,7 +68,7 @@ func spawn_projectile() -> CharacterBody2D:
 	var projectile = projectile_scene.instantiate()
 	get_tree().root.add_child(projectile)
 	var pc: ProjectileComponent = projectile.get_projectile_component()
-	pc.init(damage, piercing, speed, projectile_range)
+	pc.init("player", damage, piercing, speed, projectile_range)
 	projectile.global_position = start_pos
 	pc.start_pos = start_pos
 	projectile.rotation = final_direction.angle()

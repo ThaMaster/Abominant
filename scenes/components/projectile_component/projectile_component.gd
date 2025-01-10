@@ -11,23 +11,40 @@ var hits : int
 var direction : Vector2
 var start_pos : Vector2
 
-func init(in_damage: float, in_piercing: float, in_speed: float, in_projectile_range: float):
+var projectile_owner: String
+
+var projectile: CharacterBody2D
+
+func _ready() -> void:
+	if get_parent() is CharacterBody2D:
+		projectile = get_parent()
+
+func init(in_onwer: String, in_damage: float, in_piercing: float, in_speed: float, in_projectile_range: float):
+	projectile_owner = in_onwer
 	damage = in_damage
 	piercing = in_piercing
 	speed = in_speed
 	projectile_range = in_projectile_range
 
+func _physics_process(_delta: float) -> void:
+	if projectile:
+		projectile.velocity = direction.normalized() * speed
+		projectile.move_and_slide()
+		# Calculate the distance traveled
+		var distance_travelled = projectile.global_position.distance_to(start_pos)
+		# If the projectile has exceeded the range, free it
+		if distance_travelled >= projectile_range:
+			projectile.queue_free()
+
+func perform_hit():
+	hits += 1
+	var spawned_effect = hit_effect.instantiate()
+	spawned_effect.global_position = global_position
+	get_tree().root.add_child(spawned_effect)
+	if hits > piercing:
+		get_parent().queue_free()
+
+
 func _on_body_entered(body: Node2D) -> void:
-	if body is not Player:
-		hits += 1
-		if body.has_node("HurtboxComponent"):
-			if not body.get_node("HurtboxComponent").disabled:
-				var spawned_effect = hit_effect.instantiate()
-				spawned_effect.global_position = global_position
-				get_tree().root.add_child(spawned_effect)
-				var hc : HurtboxComponent = body.get_node("HurtboxComponent")
-				hc.deal_damage_w_transforms(damage)
-				if hits > piercing:
-					get_parent().queue_free()
-		else:
-			get_parent().queue_free()
+	if body is TileMapLayer:
+		projectile.queue_free()

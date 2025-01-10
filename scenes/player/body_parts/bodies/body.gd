@@ -9,6 +9,18 @@ class_name Body
 @export var poison_resistance: float = 0.0
 @export var slots: Array[GlobalUtilities.BodypartSlot]
 
+@onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
+@onready var health_component: HealthComponent = $HealthComponent
+
+func _ready() -> void:
+	health_component.max_health = max_health
+
+func get_hurtbox_component() -> HurtboxComponent:
+	return hurtbox_component
+
+func get_health_component() -> HealthComponent:
+	return health_component
+
 func get_base_stat_dictionary() -> Dictionary:
 	var stats: Dictionary
 	stats["max_health"] = max_health

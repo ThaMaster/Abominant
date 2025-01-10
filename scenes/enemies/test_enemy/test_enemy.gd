@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Enemy
 class_name TestEnemy 
 
 @onready var health_component: HealthComponent = $HealthComponent
