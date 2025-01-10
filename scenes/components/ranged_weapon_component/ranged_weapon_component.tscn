@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ci3tib2qnqg2x"]
 
-[ext_resource type="Script" path="res://scripts/components/ranged_weapon_component.gd" id="1_l1w65"]
+[ext_resource type="Script" path="res://scenes/components/ranged_weapon_component/ranged_weapon_component.gd" id="1_l1w65"]
 
 [node name="RangedWeaponComponent" type="Node2D"]
 script = ExtResource("1_l1w65")

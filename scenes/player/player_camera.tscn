@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bfcdwiedddsen"]
 
-[ext_resource type="Script" path="res://scripts/player/player_camera.gd" id="1_k4uwe"]
+[ext_resource type="Script" path="res://scenes/player/player_camera.gd" id="1_k4uwe"]
 
 [node name="Camera2D2" type="Camera2D"]
 offset = Vector2(0, -400)

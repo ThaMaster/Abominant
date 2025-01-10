@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bm8sgkl2xiexn"]
 
-[ext_resource type="Script" path="res://scripts/ui/main_menu/main_menu_ui.gd" id="1_7pvob"]
+[ext_resource type="Script" path="res://scenes/ui/menus/main_menu_ui.gd" id="1_7pvob"]
 [ext_resource type="PackedScene" uid="uid://b1f0drmkeq68x" path="res://scenes/ui/menus/settings/settings_menu.tscn" id="2_or03u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nrt53"]
@@ -23,7 +23,7 @@ scale_max = 8.0
 scale_curve = SubResource("CurveTexture_pwo6j")
 color = Color(1, 0.0509804, 0, 1)
 
-[node name="MainMenuScene" type="Node2D"]
+[node name="MainMenu" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("1_7pvob")

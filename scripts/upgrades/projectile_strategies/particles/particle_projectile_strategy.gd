@@ -1,7 +1,7 @@
 extends BaseProjectileStrategy
 class_name ParticleProjectileStrategy
 
-var particle_scene : PackedScene = preload("res://scripts/components/upgrades/projectile_strategies/particles/bullet_particles.tscn")
+var particle_scene : PackedScene = preload("res://scripts/upgrades/projectile_strategies/particles/bullet_particles.tscn")
 
 func apply_upgrade(projectile : ProjectileComponent):
 	var spawned_particles : Node2D = particle_scene.instantiate()

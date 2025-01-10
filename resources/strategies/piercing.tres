@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PiercingStrategy" load_steps=3 format=3 uid="uid://dw53skpmwr8jx"]
 
-[ext_resource type="Script" path="res://scripts/components/upgrades/projectile_strategies/piercing/piercing.gd" id="1_odykn"]
+[ext_resource type="Script" path="res://scripts/upgrades/projectile_strategies/piercing/piercing.gd" id="1_odykn"]
 [ext_resource type="Texture2D" uid="uid://cqag0chbbhfrc" path="res://assets/sprites/gBot_shin_l.png" id="2_3mhcb"]
 
 [resource]

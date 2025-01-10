@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bop00mruqc51j" path="res://assets/sprites/gBot_forearm_l.png" id="3_pcvfr"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/soup_stack.gd" id="4_jb26f"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_two_bone_ik.gd" id="5_gafos"]
-[ext_resource type="PackedScene" uid="uid://ci3tib2qnqg2x" path="res://scenes/components/ranged_weapon_component.tscn" id="6_61kjb"]
+[ext_resource type="PackedScene" uid="uid://ci3tib2qnqg2x" path="res://scenes/components/ranged_weapon_component/ranged_weapon_component.tscn" id="6_61kjb"]
 [ext_resource type="PackedScene" uid="uid://d3vsdjvwl4h8f" path="res://scripts/projectiles/bullet.tscn" id="7_4coig"]
 
 [sub_resource type="Animation" id="Animation_i8tj4"]

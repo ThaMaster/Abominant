@@ -1,4 +1,5 @@
-class_name HealthComponent extends Node2D
+extends Node2D
+class_name HealthComponent
 
 # Actual values
 @export var max_health: float
@@ -13,7 +14,7 @@ var has_died: bool = false
 var is_damaged: bool = false
 
 func _ready() -> void:
-	init_health()
+	current_health = max_health
 
 func take_damage(damage: float, force_hide_damage: bool = false):
 	set_current_health(current_health - damage)
@@ -25,9 +26,6 @@ func take_damage(damage: float, force_hide_damage: bool = false):
 
 func heal(health: float):
 	take_damage(-health, true)
-
-func init_health():
-	current_health = max_health
 
 func set_max_health(health: float):
 	max_health = health

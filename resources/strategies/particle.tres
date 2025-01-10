@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ParticleProjectileStrategy" load_steps=3 format=3 uid="uid://byy542otc2dxs"]
 
-[ext_resource type="Script" path="res://scripts/components/upgrades/projectile_strategies/particles/particle_projectile_strategy.gd" id="1_pgr22"]
+[ext_resource type="Script" path="res://scripts/upgrades/projectile_strategies/particles/particle_projectile_strategy.gd" id="1_pgr22"]
 [ext_resource type="Texture2D" uid="uid://dult2ssipfcvl" path="res://assets/sprites/gBot_arm_r.png" id="2_3auxi"]
 
 [resource]

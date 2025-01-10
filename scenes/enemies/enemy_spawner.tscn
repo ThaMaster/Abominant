@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkb7lo1csyf3n"]
 
-[ext_resource type="Script" path="res://scripts/enemies/enemy_spawner.gd" id="1_5kply"]
-[ext_resource type="PackedScene" uid="uid://bwbu18qk7i5xi" path="res://scenes/enemies/test_enemy.tscn" id="2_na1bn"]
+[ext_resource type="Script" path="res://scenes/enemies/enemy_spawner.gd" id="1_5kply"]
+[ext_resource type="PackedScene" uid="uid://bwbu18qk7i5xi" path="res://scenes/enemies/test_enemy/test_enemy.tscn" id="2_na1bn"]
 
 [node name="EnemySpawner" type="Area2D"]
 script = ExtResource("1_5kply")

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SpeedProjectileStrategy" load_steps=3 format=3 uid="uid://d1cumqc4otcj3"]
 
-[ext_resource type="Script" path="res://scripts/components/upgrades/projectile_strategies/speed/speed_projectile_strategy.gd" id="1_luc5t"]
+[ext_resource type="Script" path="res://scripts/upgrades/projectile_strategies/speed/speed_projectile_strategy.gd" id="1_luc5t"]
 [ext_resource type="Texture2D" uid="uid://c4hxfvwe1ae4m" path="res://assets/sprites/gBot_leg_r.png" id="2_fcsuy"]
 
 [resource]
