@@ -7,10 +7,11 @@ class_name InGameUI
 @onready var ranged_arm_r: RangedArmContainer = $RightArmPanel/RangedArmR
 @onready var ability_panel: AbilityPanel = $AbilityPanel
 
-# Called when the node enters the scene tree for the first time.
+# Called when the node enters the scene tree f+or the first time.
 func _ready() -> void:
 	GlobalEventManager.weapon_switched.connect(_on_weapon_swtiched_event)
 	GlobalEventManager.new_bodypart_handled.connect(_on_new_bodypart_handled_event)
+	GlobalEventManager.bodypart_consumed.connect(_on_bodypart_consumed_event)
 	ranged_arm_l.set_weapon_side(GlobalUtilities.WeaponSide.LEFT)
 	ranged_arm_r.set_weapon_side(GlobalUtilities.WeaponSide.RIGHT)
 	GlobalEventManager.init_game_hud.connect(_on_init_game_hud_event)
@@ -64,4 +65,14 @@ func _on_weapon_swtiched_event():
 		right_arm_panel.remove_child(node)
 		left_arm_panel.add_child(node)
 		node.set_weapon_side(GlobalUtilities.WeaponSide.LEFT)
-	
+
+func _on_bodypart_consumed_event(bodypart: Bodypart, _id: int):
+	if bodypart.bodypart_slot == GlobalUtilities.BodypartSlot.ARM:
+		if bodypart.weapon_side == GlobalUtilities.WeaponSide.LEFT:
+			ranged_arm_l.weapon_texture.texture = null
+			ranged_arm_l.visible = false
+		else:
+			ranged_arm_r.weapon_texture.texture = null
+			ranged_arm_r.visible = false
+	elif bodypart.has_ability():
+		ability_panel.remove_ability(bodypart.get_ability())

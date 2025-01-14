@@ -31,7 +31,8 @@ func get_base_stat_dictionary() -> Dictionary:
 	stats["poison_resistance"] = poison_resistance
 	
 	for slot in slots:
-		stats[slot] = 1 if stats[slot] == null else stats[slot] + 1
+		var slot_string = GlobalUtilities.get_bodypart_string(slot)
+		stats[slot_string] = 1 if stats.get(slot_string, -1) == -1 else stats[slot_string] + 1
 	
 	for upgrade in upgrades:
 		GlobalUtilities.append_stats(stats, upgrade.get_buff_dictionary())

@@ -28,7 +28,8 @@ func emit_ability_activated(ability_slot: int):
 	ability_activated.emit(ability_slot)
 
 func emit_new_bodypart_handled(bodypart: Bodypart):
-	bodypart.visible = true
+	if bodypart:
+		bodypart.visible = true
 	new_bodypart_handled.emit(bodypart)
 
 func emit_new_bodypart_found(bodypart: Bodypart):

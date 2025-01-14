@@ -13,6 +13,7 @@ var panel_id: int
 
 func _ready() -> void:
 	GlobalEventManager.body_menu_part_selected.connect(_on_bodypart_selected_event)
+	GlobalEventManager.bodypart_consumed.connect(_on_bodypart_consumed_event)
 
 func init_bodypart_panel(slot: GlobalUtilities.BodypartSlot, id: int):
 	bodypart_slot = slot
@@ -44,3 +45,8 @@ func _on_bodypart_selected_event(_bodypart: Bodypart, id: int):
 	if not panel_id == id:
 		bodypart_button.button_pressed = false
 		return
+
+func _on_bodypart_consumed_event(_bodypart: Bodypart, id: int):
+	if panel_id != id:
+		return
+	reset_bodypart_panel()

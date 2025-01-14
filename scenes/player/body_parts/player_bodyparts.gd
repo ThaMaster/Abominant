@@ -16,6 +16,9 @@ class_name PlayerBodyparts
 	"tail": ["legs", "TailPoint"]
 }
 
+func _ready() -> void:
+	GlobalEventManager.bodypart_consumed.connect(_on_bodypart_consumed_event)
+
 func get_body_center() -> Vector2:
 	return bodyparts["body"].get_child(0).global_position
 
@@ -71,20 +74,22 @@ func handle_mouse():
 func align_body_parts():
 	# Loop through the mapping and align the body parts
 	for key in attachment_points.keys():
-		if bodyparts[key].get_child_count() != 0:
+		if bodyparts[key].get_child_count() != 0 and bodyparts[attachment_points.get(key)[0]].get_child_count() != 0:
 			var base_part = bodyparts[attachment_points.get(key)[0]].get_child(0)
 			var point_name = attachment_points.get(key)[1]
 			var bodypart = bodyparts[key].get_child(0)
-			bodypart.global_position = base_part.get_node(point_name).global_position
+			if(base_part.has_node(point_name)):
+				bodypart.global_position = base_part.get_node(point_name).global_position
 
 # Plays a specified animation
 func play_animation(body_part: String, animation_name: String):
 	var body_part_node: Node2D = bodyparts[body_part]
 	if not body_part_node:
 		return
-	var animator = (body_part_node.get_child(0).get_node("AnimationPlayer") as AnimationPlayer)
-	if animator.has_animation(animation_name):
-		animator.play(animation_name)
+	if body_part_node.get_child_count() != 0:
+		var animator = (body_part_node.get_child(0).get_node("AnimationPlayer") as AnimationPlayer)
+		if animator.has_animation(animation_name):
+			animator.play(animation_name)
 
 # Helper function to remove all children from a node
 func queue_free_children(node: Node):
@@ -105,7 +110,6 @@ func switch_arms():
 	if bodyparts["arm_r"].get_child_count() != 0:
 		arm_r = bodyparts["arm_r"].get_child(0)
 		bodyparts["arm_r"].remove_child(arm_r)
-	
 	if arm_l:
 		bodyparts["arm_r"].add_child(arm_l)
 		arm_l.weapon_side = GlobalUtilities.WeaponSide.RIGHT
@@ -113,3 +117,7 @@ func switch_arms():
 		bodyparts["arm_l"].add_child(arm_r)
 		arm_r.weapon_side = GlobalUtilities.WeaponSide.LEFT
 	GlobalEventManager.emit_weapon_switched()
+
+func _on_bodypart_consumed_event(bodypart: Bodypart, _id: int):
+	var key: String = GlobalUtilities.get_bodypart_string(bodypart.bodypart_slot, bodypart.weapon_side)
+	bodyparts[key].remove_child(bodyparts[key].get_child(0))

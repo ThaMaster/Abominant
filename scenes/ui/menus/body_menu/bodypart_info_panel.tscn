@@ -190,10 +190,9 @@ label_settings = SubResource("LabelSettings_ntdio")
 autowrap_mode = 2
 
 [node name="ConsumeButton" type="Button" parent="MarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Consume!"
+text = "Consume selected bodypart"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ConsumeButton" to="." method="_on_consume_button_pressed"]

@@ -22,6 +22,7 @@ class_name BodypartInfoPanel
 @onready var consume_button: Button = $MarginContainer/VBoxContainer/ConsumeButton
 
 var selected_bodypart: Bodypart
+var selected_panel_id: int
 var label_setting: LabelSettings
 
 func _ready() -> void:
@@ -37,16 +38,22 @@ func reset_info_panel():
 	info_container.visible = false
 	consume_button.visible = false
 
-func init_info_panel(bodypart: Bodypart):
+func init_info_panel(bodypart: Bodypart, id: int):
 	if not bodypart:
 		return
-	
+	selected_bodypart = bodypart
+	selected_panel_id = id
 	no_selection_label.visible = false
 	bodypart_label.text = bodypart.bodypart_name
 	bodypart_label.visible = true
 	h_box_container.visible = true
 	info_container.visible = true
-	consume_button.visible = true
+	
+	if bodypart.bodypart_slot != GlobalUtilities.BodypartSlot.BODY:
+		consume_button.visible = true
+	else:
+		consume_button.visible = false
+		
 	create_stat_labels(bodypart.get_stat_dictionary())
 	create_ability_panel(bodypart)
 
@@ -85,8 +92,11 @@ func clear_stat_containers():
 	for i in range(stat_labels_container_right.get_child_count()):
 		stat_labels_container_right.remove_child(stat_labels_container_right.get_child(0))
 
-func _on_bodypart_selected_event(bodypart: Bodypart, _id: int):
-	init_info_panel(bodypart)
+func _on_bodypart_selected_event(bodypart: Bodypart, id: int):
+	if bodypart:
+		init_info_panel(bodypart, id)
+	else:
+		reset_info_panel()
 
 func _on_consume_button_pressed() -> void:
-	pass # Replace with function body.
+	GlobalEventManager.emit_bodypart_consumed(selected_bodypart, selected_panel_id)

@@ -15,6 +15,15 @@ radius = 126.036
 collision_layer = 8
 script = ExtResource("1_7opnl")
 
+[node name="LegsCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -126)
+shape = SubResource("CircleShape2D_jgv8e")
+
+[node name="BodyCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -372)
+shape = SubResource("CircleShape2D_jgv8e")
+
 [node name="PlayerBodyparts" type="Node2D" parent="."]
 script = ExtResource("2_1wx8k")
 
@@ -52,7 +61,3 @@ position = Vector2(-2, 0)
 
 [node name="Tail" parent="PlayerBodyparts/Tail" instance=ExtResource("8_s4vqg")]
 position = Vector2(-53, -298)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -126)
-shape = SubResource("CircleShape2D_jgv8e")
