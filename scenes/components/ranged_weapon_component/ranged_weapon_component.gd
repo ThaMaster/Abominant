@@ -21,6 +21,7 @@ class_name RangedWeaponComponent
 # Misc
 @export var projectile_scene: PackedScene
 @export var projectile_start_position : Marker2D
+@export var apply_gravity: bool = false
 
 var weapon_owner: String
 var current_ammo: int
@@ -76,11 +77,10 @@ func spawn_projectile(target: Vector2) -> CharacterBody2D:
 	var projectile = projectile_scene.instantiate()
 	get_tree().root.add_child(projectile)
 	var pc: ProjectileComponent = projectile.get_projectile_component()
-	pc.init(weapon_owner, damage, piercing, speed, projectile_range)
+	pc.init(weapon_owner, damage, piercing, speed, projectile_range, apply_gravity)
+	pc.set_movement_vectors(start_pos, final_direction)
 	projectile.global_position = start_pos
-	pc.start_pos = start_pos
 	projectile.rotation = final_direction.angle()
-	pc.direction = final_direction
 	return projectile
 
 # Function for retrieving the stats of the weapon.

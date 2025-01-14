@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://0om00wcvyhog"]
+
+[ext_resource type="Script" path="res://scenes/ui/hud/ability_panel/ability_container.gd" id="1_b1uht"]
+[ext_resource type="Shader" path="res://assets/shaders/darken_material.gdshader" id="2_c0xdu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1oe8t"]
+shader = ExtResource("2_c0xdu")
+shader_parameter/darken_factor = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6v7ks"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p76ja"]
+font_size = 25
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="AbilityContainer" type="PanelContainer"]
+offset_top = 45.0
+offset_right = 70.0
+offset_bottom = 115.0
+size_flags_horizontal = 3
+script = ExtResource("1_b1uht")
+
+[node name="AbilityButton" type="Button" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CenterContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+material = SubResource("ShaderMaterial_1oe8t")
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+
+[node name="ShortcutLabel" type="Label" parent="CenterContainer"]
+material = SubResource("ShaderMaterial_6v7ks")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "1"
+label_settings = SubResource("LabelSettings_p76ja")
+horizontal_alignment = 1
+
+[node name="CooldownLabel" type="Label" parent="CenterContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[connection signal="pressed" from="AbilityButton" to="." method="_on_ability_button_pressed"]

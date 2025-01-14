@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://tifro4t50dui" path="res://assets/tilesets/Scaffolding_and_BG_Parts (16 x 16).png" id="4_o01l0"]
 [ext_resource type="Texture2D" uid="uid://dqltxpjw5fd5y" path="res://assets/tilesets/Gray_Tile_Terrain (16 x 16).png" id="5_edh4g"]
 [ext_resource type="Texture2D" uid="uid://bnh304pappc3d" path="res://assets/tilesets/Brown_Tile_Terrain (16 x 16).png" id="6_hs6ms"]
-[ext_resource type="PackedScene" uid="uid://d4cgng3e3q80s" path="res://scripts/projectiles/upgrade.tscn" id="7_28yst"]
+[ext_resource type="PackedScene" uid="uid://d4cgng3e3q80s" path="res://scripts/upgrades/upgrade.tscn" id="7_28yst"]
 [ext_resource type="Resource" uid="uid://db5y878klsrcf" path="res://resources/strategies/damage.tres" id="8_6g8a0"]
 [ext_resource type="Resource" uid="uid://byy542otc2dxs" path="res://resources/strategies/particle.tres" id="9_2ekel"]
 [ext_resource type="Resource" uid="uid://d1cumqc4otcj3" path="res://resources/strategies/speed.tres" id="10_o08hs"]

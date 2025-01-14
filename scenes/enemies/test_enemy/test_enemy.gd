@@ -5,6 +5,9 @@ class_name TestEnemy
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 @onready var loot_drop_component: LootDropComponent = $LootDropComponent
 
+func _ready() -> void:
+	health_component.init(health_component.max_health)
+
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	if velocity.length() > 0:

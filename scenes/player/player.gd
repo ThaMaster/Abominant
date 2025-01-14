@@ -4,6 +4,9 @@ class_name Player
 @onready var player_bodyparts: Node2D = $PlayerBodyparts
 @onready var legs: Node2D = $PlayerBodyparts/Legs
 
+func _ready() -> void:
+	GlobalEventManager.emit_init_game_hud(player_bodyparts.bodyparts)
+
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("attack_left"):
 		player_bodyparts.attack("arm_l")

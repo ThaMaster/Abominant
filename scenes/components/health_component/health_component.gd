@@ -2,7 +2,7 @@ extends Node2D
 class_name HealthComponent
 
 # Actual values
-@export var max_health: float
+@export var max_health: float = 100
 var current_health: float 
 var current_health_percent: float = 1.0
 

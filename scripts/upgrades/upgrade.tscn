@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://d4cgng3e3q80s"]
 
-[ext_resource type="Script" path="res://scripts/projectiles/upgrade.gd" id="1_bewfg"]
+[ext_resource type="Script" path="res://scripts/upgrades/upgrade.gd" id="1_bewfg"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sl77c"]
 size = Vector2(125, 125)

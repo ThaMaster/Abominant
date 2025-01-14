@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://deu3evilpo0us"]
+
+[ext_resource type="Script" path="res://scenes/abilities/active_abilities/cluster_bomb/cluster_bomb.gd" id="1_1kkgm"]
+[ext_resource type="Texture2D" uid="uid://1enb413071e5" path="res://assets/sprites/gBot_hip.png" id="2_xj8q1"]
+
+[node name="ClusterBomb" type="Node2D"]
+script = ExtResource("1_1kkgm")
+ability_name = "Cluster Bomb"
+ability_image = ExtResource("2_xj8q1")
+ability_description = "When activated, lob a projectile that explodes in a cluster of smaller projectiles."
+cooldown_time = 5.0

@@ -1,51 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bf470j3ornfl8"]
+[gd_scene load_steps=5 format=3 uid="uid://bf470j3ornfl8"]
 
 [ext_resource type="Script" path="res://scenes/ui/hud/game_hud.gd" id="1_hm2np"]
-[ext_resource type="Texture2D" uid="uid://v480ulvtwt7" path="res://icon.svg" id="2_jrp1l"]
-[ext_resource type="PackedScene" uid="uid://cjgicdsl0xws5" path="res://scenes/ui/hud/ranged_arm_container.tscn" id="2_kw2oo"]
-[ext_resource type="PackedScene" uid="uid://bobqiits7xwd2" path="res://scenes/ui/hud/health_panel.tscn" id="4_0rfjq"]
-
-[sub_resource type="InputEventKey" id="InputEventKey_ggil3"]
-device = -1
-keycode = 49
-unicode = 49
-
-[sub_resource type="Shortcut" id="Shortcut_lcxpe"]
-events = [SubResource("InputEventKey_ggil3")]
-
-[sub_resource type="Gradient" id="Gradient_3r0t6"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_yghu4"]
-gradient = SubResource("Gradient_3r0t6")
-
-[sub_resource type="LabelSettings" id="LabelSettings_p76ja"]
-font_size = 30
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="InputEventKey" id="InputEventKey_kpul1"]
-device = -1
-keycode = 50
-unicode = 50
-
-[sub_resource type="Shortcut" id="Shortcut_1nnb2"]
-events = [SubResource("InputEventKey_kpul1")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_i607x"]
-device = -1
-keycode = 51
-unicode = 51
-
-[sub_resource type="Shortcut" id="Shortcut_of42j"]
-events = [SubResource("InputEventKey_i607x")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_owbjf"]
-device = -1
-keycode = 52
-unicode = 52
-
-[sub_resource type="Shortcut" id="Shortcut_0cigy"]
-events = [SubResource("InputEventKey_owbjf")]
+[ext_resource type="PackedScene" uid="uid://cjgicdsl0xws5" path="res://scenes/ui/hud/weapon_container/ranged_arm_container/ranged_arm_container.tscn" id="2_kw2oo"]
+[ext_resource type="PackedScene" uid="uid://bh552lucf1vko" path="res://scenes/ui/hud/ability_panel/ability_panel.tscn" id="3_ypk2n"]
+[ext_resource type="PackedScene" uid="uid://bobqiits7xwd2" path="res://scenes/ui/hud/health_panel/health_panel.tscn" id="4_0rfjq"]
 
 [node name="GameHud" type="Control"]
 layout_mode = 3
@@ -70,8 +28,8 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -180.0
-offset_right = 202.0
+offset_top = -150.0
+offset_right = 150.0
 offset_bottom = 0.0
 grow_vertical = 0
 
@@ -92,120 +50,13 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -180.0
-offset_right = 202.0
+offset_top = -150.0
+offset_right = 150.0
 offset_bottom = 0.0
 grow_vertical = 0
 
-[node name="SkillPanel" type="PanelContainer" parent="."]
+[node name="AbilityPanel" parent="." instance=ExtResource("3_ypk2n")]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -268.5
-offset_top = -138.0
-offset_right = 268.5
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="SkillPanel"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="SkillPanel/MarginContainer"]
-clip_contents = true
-layout_mode = 2
-theme_override_constants/separation = 5
-alignment = 1
-
-[node name="SkillContainer1" type="PanelContainer" parent="SkillPanel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureButton" type="TextureButton" parent="SkillPanel/MarginContainer/HBoxContainer/SkillContainer1"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-shortcut = SubResource("Shortcut_lcxpe")
-texture_normal = ExtResource("2_jrp1l")
-texture_pressed = SubResource("GradientTexture1D_yghu4")
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="SkillPanel/MarginContainer/HBoxContainer/SkillContainer1"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "1"
-label_settings = SubResource("LabelSettings_p76ja")
-horizontal_alignment = 1
-
-[node name="SkillContainer2" type="PanelContainer" parent="SkillPanel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureButton" type="TextureButton" parent="SkillPanel/MarginContainer/HBoxContainer/SkillContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-shortcut = SubResource("Shortcut_1nnb2")
-texture_normal = ExtResource("2_jrp1l")
-texture_pressed = SubResource("GradientTexture1D_yghu4")
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="SkillPanel/MarginContainer/HBoxContainer/SkillContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "2"
-label_settings = SubResource("LabelSettings_p76ja")
-horizontal_alignment = 1
-
-[node name="SkillContainer3" type="PanelContainer" parent="SkillPanel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureButton" type="TextureButton" parent="SkillPanel/MarginContainer/HBoxContainer/SkillContainer3"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-shortcut = SubResource("Shortcut_of42j")
-texture_normal = ExtResource("2_jrp1l")
-texture_pressed = SubResource("GradientTexture1D_yghu4")
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="SkillPanel/MarginContainer/HBoxContainer/SkillContainer3"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "3"
-label_settings = SubResource("LabelSettings_p76ja")
-horizontal_alignment = 1
-
-[node name="SkillContainer4" type="PanelContainer" parent="SkillPanel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureButton" type="TextureButton" parent="SkillPanel/MarginContainer/HBoxContainer/SkillContainer4"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-shortcut = SubResource("Shortcut_0cigy")
-texture_normal = ExtResource("2_jrp1l")
-texture_pressed = SubResource("GradientTexture1D_yghu4")
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="SkillPanel/MarginContainer/HBoxContainer/SkillContainer4"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "4"
-label_settings = SubResource("LabelSettings_p76ja")
-horizontal_alignment = 1
 
 [node name="HealthPanel" parent="." instance=ExtResource("4_0rfjq")]
 layout_mode = 0

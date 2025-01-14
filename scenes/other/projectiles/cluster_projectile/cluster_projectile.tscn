@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://be6hd1mru0oni"]
+
+[ext_resource type="Texture2D" uid="uid://1enb413071e5" path="res://assets/sprites/gBot_hip.png" id="1_0u7f1"]
+[ext_resource type="Script" path="res://scenes/other/projectiles/cluster_projectile/cluster_projectile.gd" id="1_waob3"]
+[ext_resource type="PackedScene" uid="uid://bklovr235cc60" path="res://scenes/components/projectile_component/projectile_component.tscn" id="2_4xoir"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7abek"]
+radius = 22.0
+height = 72.0
+
+[node name="ClusterProjectile" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_waob3")
+projectiles_to_spawn = 10
+cluster_damage = 10.0
+cluster_gravity = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.604167, 0.604167)
+texture = ExtResource("1_0u7f1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7abek")
+
+[node name="ProjectileComponent" parent="." instance=ExtResource("2_4xoir")]
+damage = 1.0
+speed = 2000.0
+projectile_range = 1250.0
+apply_gravity = true
+gravity_factor = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileComponent"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7abek")

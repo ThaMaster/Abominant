@@ -48,6 +48,7 @@ func init_info_panel(bodypart: Bodypart):
 	info_container.visible = true
 	consume_button.visible = true
 	create_stat_labels(bodypart.get_stat_dictionary())
+	create_ability_panel(bodypart)
 
 func create_stat_labels(stats: Dictionary):
 	clear_stat_containers()
@@ -69,6 +70,14 @@ func create_stat_labels(stats: Dictionary):
 		else:
 			stat_labels_container_right.add_child(stat_label)
 		set_in_left = !set_in_left
+
+func create_ability_panel(bodypart: Bodypart):
+	if not bodypart.has_ability():
+		ability_name.text = "This bodypart have no ability!"
+		ability_text.text = "..."
+	else:
+		ability_name.text = bodypart.get_ability().ability_name
+		ability_text.text = bodypart.get_ability().ability_description
 
 func clear_stat_containers():
 	for i in range(stat_labels_container_left.get_child_count()):

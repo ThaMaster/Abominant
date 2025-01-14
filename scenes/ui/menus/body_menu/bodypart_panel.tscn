@@ -13,6 +13,7 @@ outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xy60y"]
+size = Vector2(100, 100)
 
 [node name="BodypartPanel" type="PanelContainer"]
 offset_right = 136.0

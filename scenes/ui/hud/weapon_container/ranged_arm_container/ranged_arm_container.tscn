@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjgicdsl0xws5"]
 
-[ext_resource type="Script" path="res://scenes/ui/hud/ranged_arm_container.gd" id="1_2xdup"]
+[ext_resource type="Script" path="res://scenes/ui/hud/weapon_container/ranged_arm_container/ranged_arm_container.gd" id="1_2xdup"]
 [ext_resource type="Texture2D" uid="uid://c4hxfvwe1ae4m" path="res://assets/sprites/gBot_leg_r.png" id="2_goinh"]
 [ext_resource type="Texture2D" uid="uid://ct5tua7dlsmlr" path="res://light.png" id="3_qk8ds"]
 
 [node name="RangedArmContainer" type="PanelContainer"]
-offset_right = 100.0
-offset_bottom = 100.0
+offset_right = 50.0
+offset_bottom = 50.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_2xdup")

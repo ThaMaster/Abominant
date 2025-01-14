@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh552lucf1vko"]
+
+[ext_resource type="Script" path="res://scenes/ui/hud/ability_panel/ability_panel.gd" id="1_xaxhu"]
+[ext_resource type="PackedScene" uid="uid://0om00wcvyhog" path="res://scenes/ui/hud/ability_panel/ability_container.tscn" id="2_oj5tr"]
+
+[node name="AbilityPanel" type="PanelContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.5
+offset_top = -70.0
+offset_right = 140.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_filter = 2
+script = ExtResource("1_xaxhu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="AbilityContainers" type="HBoxContainer" parent="MarginContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="AbilityContainer1" parent="MarginContainer/AbilityContainers" instance=ExtResource("2_oj5tr")]
+layout_mode = 2
+ability_slot = 1
+
+[node name="AbilityContainer2" parent="MarginContainer/AbilityContainers" instance=ExtResource("2_oj5tr")]
+layout_mode = 2
+ability_slot = 2
+
+[node name="AbilityContainer3" parent="MarginContainer/AbilityContainers" instance=ExtResource("2_oj5tr")]
+layout_mode = 2
+ability_slot = 3
+
+[node name="AbilityContainer4" parent="MarginContainer/AbilityContainers" instance=ExtResource("2_oj5tr")]
+layout_mode = 2
+ability_slot = 4

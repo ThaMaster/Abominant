@@ -59,4 +59,4 @@ func append_stats(stats: Dictionary, stat_to_append: Dictionary):
 
 # Used at the end of a function when children of a node must implement it. 
 func unimplemented(function: String = "", location: String = ""):
-	push_error("This method must be implemented by the subclass. Function: " + function + " Location: " + location)
+	push_error("\n[WARNING] A subclass does not implement a funciton of its parent. \nFunction: " + function + " \nLocation: " + location)
